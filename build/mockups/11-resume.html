@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>11 — Resume · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .rs-wrap { padding: 80px var(--page-x) 70px; position: relative; }
+
+  /* header */
+  .rs-head {
+    display: grid;
+    grid-template-columns: 0.7fr 0.3fr;
+    gap: 80px;
+    align-items: end;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 56px;
+  }
+  .rs-head .left .eyebrow { margin-bottom: 22px; }
+  .rs-head .left h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 124px;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    color: var(--navy);
+  }
+  .rs-head .left h1 em { font-style: italic; color: var(--forest); }
+  .rs-head .left h1 .dot { color: var(--terracotta); font-style: italic; }
+  .rs-head .right {
+    text-align: right;
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    line-height: 1.6;
+  }
+  .rs-head .right .strong { color: var(--navy); font-weight: 600; }
+  .rs-head .right .num {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--terracotta); letter-spacing: 0; margin-right: 6px;
+  }
+
+  /* Two-col layout */
+  .rs-body {
+    display: grid;
+    grid-template-columns: 0.32fr 0.68fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  /* LEFT — download + bio */
+  .rs-left {
+    position: relative;
+    padding-right: 16px;
+  }
+  .rs-left .download-card {
+    display: block;
+    background: var(--navy);
+    color: var(--ivory);
+    border-radius: 8px;
+    padding: 32px 28px;
+    text-decoration: none;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .rs-left .download-card .label {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(245,241,232,0.6); font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .rs-left .download-card .v {
+    font-family: var(--serif);
+    font-size: 36px;
+    line-height: 1;
+    color: var(--ivory);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .rs-left .download-card .v em { font-style: italic; color: var(--gold); }
+  .rs-left .download-card .arrow {
+    font-family: var(--sans); font-size: 12px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--terracotta); font-weight: 600;
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 8px;
+  }
+  .rs-left .download-card .ghost {
+    position: absolute; right: 12px; top: -16px;
+    font-family: var(--serif); font-style: italic; font-size: 180px;
+    color: rgba(245,241,232,0.05); line-height: 0.85; pointer-events: none;
+  }
+
+  .rs-left .meta-block .ttl {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 600;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--navy-12);
+  }
+  .rs-left .meta-block .row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--navy-06);
+    font-family: var(--sans); font-size: 12px;
+    color: var(--navy-80);
+  }
+  .rs-left .meta-block .row:last-child { border-bottom: none; }
+  .rs-left .meta-block .row .k {
+    font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .rs-left .meta-block .row .v {
+    color: var(--navy); font-weight: 600;
+  }
+  .rs-left .meta-block .row .v em {
+    font-family: var(--serif); font-style: italic; color: var(--terracotta);
+  }
+
+  /* RIGHT — actual resume content */
+  .rs-right .section {
+    margin-bottom: 38px;
+  }
+  .rs-right .section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 18px;
+  }
+  .rs-right .section-head .ttl {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  .rs-right .section-head .ttl em { font-style: italic; color: var(--forest); }
+  .rs-right .section-head .num {
+    font-family: var(--serif); font-style: italic;
+    font-size: 13px; color: var(--terracotta); letter-spacing: 0;
+  }
+
+  .rs-row {
+    display: grid;
+    grid-template-columns: 0.22fr 0.78fr;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--navy-06);
+  }
+  .rs-row:last-child { border-bottom: none; }
+  .rs-row .date {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    line-height: 1.5;
+  }
+  .rs-row .date .strong { color: var(--navy); font-weight: 600; }
+  .rs-row .content .name {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--navy); font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .rs-row .content .name em { font-style: italic; color: var(--forest); }
+  .rs-row .content .place {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .rs-row .content .desc {
+    font-family: var(--sans); font-size: 12.5px;
+    color: var(--navy-80); line-height: 1.55;
+  }
+
+  /* Achievements block */
+  .ach-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+  .ach-list .item {
+    display: flex; align-items: baseline; gap: 12px;
+    font-family: var(--sans); font-size: 13px;
+    color: var(--navy-80);
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--navy-06);
+  }
+  .ach-list .item .n {
+    font-family: var(--serif); font-style: italic; font-size: 13px;
+    color: var(--terracotta); flex: 0 0 24px;
+  }
+
+</style>
+</head>
+<body>
+<div class="page" style="height: 1280px;">
+  <nav class="nav">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#">About</a>
+      <a href="#">Work</a>
+      <a href="#">Experience</a>
+      <a href="#">Research</a>
+      <a href="#" class="active">Resume</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <section class="rs-wrap">
+
+    <div class="rs-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span> Chapter 07 · Resume</div>
+        <h1>Résumé<em>.</em></h1>
+      </div>
+      <div class="right">
+        <div><span class="num">i</span>One-Page CV</div>
+        <div>Education · Experience</div>
+        <div>Projects · Research</div>
+        <div style="margin-top: 14px;">11 / 12</div>
+      </div>
+    </div>
+
+    <div class="rs-body">
+
+      <!-- LEFT — download card + meta -->
+      <div class="rs-left">
+
+        <a href="#" class="download-card">
+          <div class="ghost">↧</div>
+          <div class="label">PDF · ATS-friendly</div>
+          <div class="v">Download<br><em>Résumé</em></div>
+          <div class="arrow">Get PDF <span>→</span></div>
+        </a>
+
+        <div class="meta-block">
+          <div class="ttl">Profile</div>
+          <div class="row">
+            <span class="k">Name</span><span class="v">Naveen Khan</span>
+          </div>
+          <div class="row">
+            <span class="k">Role</span><span class="v">AI Engineer</span>
+          </div>
+          <div class="row">
+            <span class="k">Location</span><span class="v">Karachi, PK</span>
+          </div>
+          <div class="row">
+            <span class="k">Email</span><span class="v" style="font-size:11px;">naveenkhan0059<br>@gmail.com</span>
+          </div>
+          <div class="row">
+            <span class="k">GitHub</span><span class="v" style="font-size:11px;">/Naveen-Khan</span>
+          </div>
+          <div class="row">
+            <span class="k">Experience</span><span class="v"><em>06</em> months</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — full resume content -->
+      <div class="rs-right">
+
+        <!-- Education -->
+        <div class="section">
+          <div class="section-head">
+            <span class="ttl"><em>Education</em></span>
+            <span class="num">i.</span>
+          </div>
+          <div class="rs-row">
+            <div class="date"><span class="strong">2021 — 2025</span><br>4 years</div>
+            <div class="content">
+              <div class="name">B.E. Computer Systems <em>Engineering</em></div>
+              <div class="place">Mehran University of Engineering &amp; Technology</div>
+              <div class="desc">Undergraduate engineering degree spanning computer architecture, embedded systems, software engineering, machine learning foundations, and computational systems design.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+          <div class="section-head">
+            <span class="ttl"><em>Experience</em></span>
+            <span class="num">ii.</span>
+          </div>
+          <div class="rs-row">
+            <div class="date"><span class="strong">08 / 2026 →</span><br>Present</div>
+            <div class="content">
+              <div class="name">Full-Stack AI <em>Engineer</em></div>
+              <div class="place">Sofstica Solutions · Karachi</div>
+              <div class="desc">Production AI features across RAG, AI agents, and document intelligence.</div>
+            </div>
+          </div>
+          <div class="rs-row">
+            <div class="date"><span class="strong">01 — 04 / 2026</span><br>4 months</div>
+            <div class="content">
+              <div class="name">AI Engineer <em>Intern</em></div>
+              <div class="place">ITSolera Pvt. Ltd. · Karachi</div>
+              <div class="desc">LLM-powered client features, retrieval pipelines, AI agent deployment.</div>
+            </div>
+          </div>
+          <div class="rs-row">
+            <div class="date"><span class="strong">07 — 08 / 2025</span><br>2 months</div>
+            <div class="content">
+              <div class="name">AI Engineer <em>Intern</em></div>
+              <div class="place">Civil Aviation Authority of Pakistan</div>
+              <div class="desc">Internal data-driven tooling and prototype ML features for aviation operations.</div>
+            </div>
+          </div>
+          <div class="rs-row">
+            <div class="date"><span class="strong">11 / 2024 — 11 / 2025</span><br>12 months</div>
+            <div class="content">
+              <div class="name">AI <em>Researcher</em> · SAFELINK</div>
+              <div class="place">Multimodal Wearable for Personal Safety</div>
+              <div class="desc">Research lead on a CV + edge + IoT wearable for personal safety.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects (selected) -->
+        <div class="section">
+          <div class="section-head">
+            <span class="ttl">Selected <em>Projects</em></span>
+            <span class="num">iii.</span>
+          </div>
+          <div class="rs-row">
+            <div class="date"><span class="strong">01</span><br>Healthcare AI</div>
+            <div class="content">
+              <div class="name">ClinData <em>Explorer</em></div>
+              <div class="desc">AI-powered clinical cohort &amp; data-quality explorer · Text-to-SQL · 912K records.</div>
+            </div>
+          </div>
+          <div class="rs-row">
+            <div class="date"><span class="strong">02</span><br>Customer AI</div>
+            <div class="content">
+              <div class="name">McDonald's AI <em>Agent</em></div>
+              <div class="desc">AI customer-support and order-management workflow · LLM · FastAPI.</div>
+            </div>
+          </div>
+          <div class="rs-row">
+            <div class="date"><span class="strong">04</span><br>Document AI</div>
+            <div class="content">
+              <div class="name">Enterprise RAG <em>Assistant</em></div>
+              <div class="desc">Retrieval-augmented generation system for enterprise document intelligence.</div>
+            </div>
+          </div>
+          <div class="rs-row">
+            <div class="date"><span class="strong">06</span><br>Wearable · CV</div>
+            <div class="content">
+              <div class="name"><em>SAFELINK</em></div>
+              <div class="desc">Multimodal smart wearable for personal safety · CV + Edge + IoT.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="section" style="margin-bottom:0;">
+          <div class="section-head">
+            <span class="ttl"><em>Achievements</em></span>
+            <span class="num">iv.</span>
+          </div>
+          <div class="ach-list">
+            <div class="item"><span class="n">i.</span><span>Designed &amp; shipped <strong style="color:var(--navy);font-weight:600">production RAG assistant</strong> at Sofstica.</span></div>
+            <div class="item"><span class="n">ii.</span><span>Led <strong style="color:var(--navy);font-weight:600">12-month SAFELINK</strong> research project to working prototype.</span></div>
+            <div class="item"><span class="n">iii.</span><span>Completed <strong style="color:var(--navy);font-weight:600">3 AI internships</strong> across industry &amp; government.</span></div>
+            <div class="item"><span class="n">iv.</span><span>B.E. Computer Systems Engineering, <strong style="color:var(--navy);font-weight:600">Mehran UET</strong> (2021–2025).</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <div class="scroll-indicator">
+    <span>11 — Resume</span>
+    <div class="track"></div>
+    <span>Contact ↓</span>
+  </div>
+</div>
+</body>
+</html>

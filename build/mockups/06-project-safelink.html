@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>06 — SAFELINK · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .sf-wrap { padding: 60px var(--page-x) 70px; position: relative; }
+
+  .sf-top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 56px;
+  }
+  .sf-top .breadcrumb {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .sf-top .breadcrumb .num {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--terracotta); letter-spacing: 0; margin-right: 8px;
+  }
+  .sf-top .breadcrumb .sep { margin: 0 10px; color: var(--navy-20); }
+  .sf-top .breadcrumb .current { color: var(--navy); font-weight: 600; }
+  .sf-top .meta-r {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60);
+  }
+
+  .sf-layout {
+    display: grid;
+    grid-template-columns: 0.55fr 0.45fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* LEFT — wearable + cv visual */
+  .sf-visual {
+    position: relative;
+    background: var(--ivory-soft);
+    border: 1px solid var(--navy-12);
+    border-radius: 8px;
+    padding: 40px;
+    min-height: 540px;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* wearable device */
+  .device {
+    position: relative;
+    width: 220px; height: 280px;
+    border-radius: 26px;
+    background: linear-gradient(160deg, #1f3140 0%, #10243A 50%, #0A1628 100%);
+    box-shadow: inset 0 2px 0 rgba(245,241,232,0.08),
+                inset 0 -3px 10px rgba(0,0,0,0.4),
+                0 30px 60px -20px rgba(16,36,58,0.45);
+    display: flex; flex-direction: column;
+    padding: 18px;
+    align-items: center;
+  }
+  .device .strap-top, .device .strap-bot {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 30px;
+    background: var(--navy);
+    border: 1px solid rgba(245,241,232,0.06);
+  }
+  .device .strap-top { top: -30px; border-bottom: none; border-radius: 4px 4px 0 0; }
+  .device .strap-bot { bottom: -30px; border-top: none; border-radius: 0 0 4px 4px; }
+
+  .device .screen {
+    width: 100%; aspect-ratio: 1;
+    background: linear-gradient(180deg, #0A1A2E 0%, #0F2438 100%);
+    border-radius: 18px;
+    border: 1px solid rgba(245,241,232,0.06);
+    overflow: hidden;
+    position: relative;
+    display: flex; flex-direction: column;
+    padding: 12px;
+    margin-top: 8px;
+  }
+  .device .screen .top-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--sans); font-size: 8px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(245,241,232,0.55);
+  }
+  .device .screen .top-row .bat {
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .device .screen .top-row .bat .b {
+    display: inline-block; width: 12px; height: 6px; border: 1px solid rgba(245,241,232,0.55);
+    border-radius: 1px; position: relative;
+  }
+  .device .screen .top-row .bat .b::after {
+    content:''; position: absolute; left: 1px; top: 1px; width: 7px; height: 3px;
+    background: #5DD899;
+  }
+  .device .screen .cv-area {
+    flex: 1;
+    margin-top: 8px;
+    background:
+      linear-gradient(135deg, rgba(200,107,69,0.18) 0%, rgba(15,102,84,0.18) 100%);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .device .screen .cv-area .frame {
+    position: absolute;
+    border: 1px solid var(--terracotta);
+    border-radius: 2px;
+  }
+  .device .screen .cv-area .frame.f1 {
+    top: 22%; left: 28%; width: 50%; height: 55%;
+  }
+  .device .screen .cv-area .frame.f1::before {
+    content: ''; position: absolute; left: -4px; top: -4px;
+    width: 6px; height: 6px; border-top: 1px solid var(--terracotta);
+    border-left: 1px solid var(--terracotta);
+  }
+  .device .screen .cv-area .frame.f1::after {
+    content: ''; position: absolute; right: -4px; bottom: -4px;
+    width: 6px; height: 6px; border-bottom: 1px solid var(--terracotta);
+    border-right: 1px solid var(--terracotta);
+  }
+  .device .screen .cv-area .lbl {
+    position: absolute; top: 20%; left: 30%;
+    font-family: var(--sans); font-size: 6px;
+    color: var(--terracotta); letter-spacing: 0.18em; font-weight: 700;
+    background: rgba(0,0,0,0.4); padding: 1px 3px; border-radius: 2px;
+  }
+  .device .screen .cv-area .lbl2 {
+    position: absolute; bottom: 12%; right: 12%;
+    font-family: var(--sans); font-size: 6px;
+    color: #5DD899; letter-spacing: 0.18em; font-weight: 700;
+  }
+
+  .device .screen .stat-row {
+    margin-top: 8px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--sans); font-size: 7px;
+    color: rgba(245,241,232,0.65);
+    letter-spacing: 0.12em;
+  }
+  .device .screen .stat-row .pulse {
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .device .screen .stat-row .pulse .heart {
+    color: var(--terracotta); font-size: 8px;
+  }
+
+  /* dots + corner labels around the device */
+  .dev-deco {
+    position: absolute;
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .dev-deco.tl { top: 16px; left: 16px; }
+  .dev-deco.tr { top: 16px; right: 16px; text-align: right; }
+  .dev-deco.bl { bottom: 16px; left: 16px; }
+  .dev-deco.br { bottom: 16px; right: 16px; text-align: right; }
+  .dev-deco .v {
+    font-family: var(--serif); font-style: italic; font-size: 12px;
+    color: var(--terracotta); letter-spacing: 0; display: block; margin-top: 4px;
+  }
+
+  .cv-tags {
+    position: absolute;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .cv-tags.t { top: 70px; left: 60px; }
+  .cv-tags.r { top: 200px; right: 60px; align-items: flex-end; }
+  .cv-tags .t {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    background: var(--ivory);
+    padding: 4px 8px; border-radius: 3px;
+    border: 1px solid var(--navy-12);
+  }
+  .cv-tags .t .v { color: var(--terracotta); font-weight: 700; margin-left: 6px; }
+
+  /* RIGHT — typography & info */
+  .sf-right {
+    padding-top: 8px;
+  }
+  .sf-right .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+  }
+  .sf-right .name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 86px;
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 28px;
+  }
+  .sf-right .name em { font-style: italic; color: var(--forest); }
+  .sf-right .name .dot { color: var(--terracotta); font-style: italic; }
+
+  .sf-right .sub {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--navy-80);
+    margin-bottom: 28px;
+    max-width: 460px;
+  }
+
+  .sf-right .chips {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 32px;
+  }
+
+  /* mini architecture flow */
+  .flow {
+    background: var(--ivory-soft);
+    border: 1px solid var(--navy-12);
+    border-radius: 8px;
+    padding: 22px;
+    margin-top: 8px;
+  }
+  .flow .ttl {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 600;
+    margin-bottom: 16px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .flow .ttl .num {
+    font-family: var(--serif); font-style: italic; font-size: 12px;
+    color: var(--terracotta); letter-spacing: 0;
+  }
+  .flow .stages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    align-items: stretch;
+  }
+  .flow .stage {
+    text-align: center;
+    padding: 8px 6px;
+    border-right: 1px dashed var(--navy-12);
+    position: relative;
+  }
+  .flow .stage:last-child { border-right: none; }
+  .flow .stage .ic {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--ivory); border: 1px solid var(--navy);
+    color: var(--navy);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-style: italic; font-size: 12px;
+    margin-bottom: 8px;
+  }
+  .flow .stage .lbl {
+    font-family: var(--sans); font-size: 10px;
+    color: var(--navy); font-weight: 600; letter-spacing: 0.06em;
+    margin-bottom: 2px;
+  }
+  .flow .stage .sub {
+    font-family: var(--sans); font-size: 8px;
+    color: var(--navy-60); letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .flow .stage .arrow {
+    position: absolute; right: -5px; top: 14px;
+    color: var(--terracotta); font-size: 10px;
+  }
+  .flow .stage:last-child .arrow { display: none; }
+
+  /* bottom signature */
+  .sf-foot {
+    margin-top: 40px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-top: 20px;
+    border-top: 1px solid var(--navy-12);
+  }
+  .sf-foot .view {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy); font-weight: 600;
+    text-decoration: none;
+    padding-bottom: 8px; border-bottom: 1px solid var(--navy);
+  }
+  .sf-foot .italic {
+    font-family: var(--serif); font-style: italic;
+    font-size: 14px; color: var(--navy-60);
+  }
+</style>
+</head>
+<body>
+<div class="page" style="height: 1024px;">
+  <nav class="nav">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#">About</a>
+      <a href="#" class="active">Work</a>
+      <a href="#">Experience</a>
+      <a href="#">Research</a>
+      <a href="#">Resume</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <section class="sf-wrap">
+
+    <div class="sf-top">
+      <div class="breadcrumb">
+        <span class="num">06</span>
+        <span>Work</span>
+        <span class="sep">/</span>
+        <span class="current">SAFELINK</span>
+      </div>
+      <div class="meta-r">Hardware + Computer Vision · 06 / 12</div>
+    </div>
+
+    <div class="sf-layout">
+
+      <!-- LEFT — visual -->
+      <div class="sf-visual">
+
+        <div class="dev-deco tl">Wearable<span class="v">SAFELINK v1</span></div>
+        <div class="dev-deco tr">On-Device<span class="v">Edge AI</span></div>
+        <div class="dev-deco bl">Sensors<span class="v">6 ch.</span></div>
+        <div class="dev-deco br">Battery<span class="v">36 h</span></div>
+
+        <!-- device -->
+        <div class="device">
+          <div class="strap-top"></div>
+          <div class="strap-bot"></div>
+
+          <div class="screen">
+            <div class="top-row">
+              <span>09:42</span>
+              <span class="bat"><span class="b"></span>87</span>
+            </div>
+
+            <div class="cv-area">
+              <div class="frame f1"></div>
+              <div class="lbl">PERSON · 0.96</div>
+              <div class="lbl2">SAFE</div>
+            </div>
+
+            <div class="stat-row">
+              <span class="pulse"><span class="heart">●</span> 72 BPM</span>
+              <span>SAFE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- floating CV tags -->
+        <div class="cv-tags t">
+          <div class="t">YOLO Detection <span class="v">22 fps</span></div>
+          <div class="t">Anomaly <span class="v">on</span></div>
+        </div>
+        <div class="cv-tags r">
+          <div class="t">Geo-fence <span class="v">active</span></div>
+          <div class="t">SOS <span class="v">armed</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT — typography -->
+      <div class="sf-right">
+        <div class="num">06 — Project</div>
+        <h1 class="name">
+          SAFE<br>
+          <em>LINK</em><span class="dot">.</span>
+        </h1>
+        <p class="sub">
+          A <strong style="color:var(--navy);font-weight:600">multimodal smart wearable</strong>
+          for personal safety — fusing <strong style="color:var(--navy);font-weight:600">computer vision</strong>,
+          on-device inference and IoT sensors to detect threat contexts in
+          real time, with an SOS escalation path that routes live location
+          and audio to trusted contacts.
+        </p>
+
+        <div class="chips">
+          <span class="tech-chip">AI</span>
+          <span class="tech-chip">Computer Vision</span>
+          <span class="tech-chip">Edge Computing</span>
+          <span class="tech-chip">IoT</span>
+          <span class="tech-chip">Personal Safety</span>
+        </div>
+
+        <!-- mini architecture flow -->
+        <div class="flow">
+          <div class="ttl"><span>Edge Pipeline</span><span class="num">i.</span></div>
+          <div class="stages">
+            <div class="stage">
+              <div class="ic">1</div>
+              <div class="lbl">Sensors</div>
+              <div class="sub">6-channel</div>
+              <span class="arrow">→</span>
+            </div>
+            <div class="stage">
+              <div class="ic">2</div>
+              <div class="lbl">Edge CV</div>
+              <div class="sub">YOLO</div>
+              <span class="arrow">→</span>
+            </div>
+            <div class="stage">
+              <div class="ic">3</div>
+              <div class="lbl">Anomaly</div>
+              <div class="sub">ML</div>
+              <span class="arrow">→</span>
+            </div>
+            <div class="stage">
+              <div class="ic">4</div>
+              <div class="lbl">SOS Relay</div>
+              <div class="sub">IoT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sf-foot">
+      <a href="#" class="view">View Project <span>→</span></a>
+      <div class="italic">— built as research prototype, 11/2024 → 11/2025</div>
+    </div>
+
+  </section>
+
+  <div class="scroll-indicator">
+    <span>06 — Project 06 · SAFELINK</span>
+    <div class="track"></div>
+    <span>Next ↓</span>
+  </div>
+</div>
+</body>
+</html>

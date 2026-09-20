@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>03 — Selected Work · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .work-wrap { padding: 80px var(--page-x) 70px; position: relative; }
+
+  /* Big title block */
+  .work-title {
+    display: grid;
+    grid-template-columns: 0.7fr 0.3fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--navy-12);
+  }
+  .work-title h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 132px;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    color: var(--navy);
+  }
+  .work-title h1 em {
+    font-style: italic; color: var(--forest); font-weight: 400;
+  }
+  .work-title h1 .punct { color: var(--terracotta); font-style: italic; }
+
+  .work-title .meta {
+    text-align: right;
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy-60);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  .work-title .meta .num {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--terracotta); margin-right: 6px; letter-spacing: 0;
+  }
+  .work-title .meta .strong { color: var(--navy); font-weight: 600; }
+
+  /* Project list rows */
+  .proj-list {
+    margin-top: 20px;
+  }
+  .proj-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 1.1fr 220px 80px;
+    gap: 24px;
+    align-items: baseline;
+    padding: 26px 0;
+    border-top: 1px solid var(--navy-12);
+    cursor: pointer;
+    transition: padding-left .35s ease;
+    position: relative;
+  }
+  .proj-row:last-child { border-bottom: 1px solid var(--navy-12); }
+  .proj-row:hover { padding-left: 12px; }
+  .proj-row:hover::before {
+    content: '';
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    width: 6px; height: 6px; border-radius: 50%; background: var(--terracotta);
+  }
+
+  .proj-row .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--terracotta);
+    letter-spacing: 0;
+  }
+  .proj-row .name {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .proj-row .name .sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy-60);
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  .proj-row .desc {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--navy-80);
+    line-height: 1.5;
+  }
+  .proj-row .tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    align-items: center;
+  }
+  .proj-row .tags span {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy-60);
+    font-weight: 500;
+  }
+  .proj-row .tags .sep {
+    width: 4px; height: 4px; border-radius: 50%; background: var(--navy-20);
+  }
+  .proj-row .arrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy-60);
+    font-weight: 500;
+    text-align: right;
+    transition: color .25s, transform .25s;
+  }
+  .proj-row:hover .arrow { color: var(--terracotta); transform: translateX(8px); }
+
+  /* Featured big project at bottom */
+  .featured-strip {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 0.6fr 0.4fr;
+    gap: 60px;
+    align-items: center;
+    padding: 40px;
+    background: var(--navy);
+    color: var(--ivory);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-strip .ghost {
+    position: absolute; right: 40px; top: 10px;
+    font-family: var(--serif); font-style: italic; font-size: 220px;
+    color: rgba(245,241,232,0.06);
+    line-height: 0.85; letter-spacing: -0.04em;
+  }
+  .featured-strip .label {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(245,241,232,0.65); font-weight: 500;
+    margin-bottom: 18px;
+  }
+  .featured-strip h2 {
+    font-family: var(--serif); font-weight: 400; font-size: 52px;
+    line-height: 1; color: var(--ivory); letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .featured-strip h2 em { font-style: italic; color: var(--gold); }
+  .featured-strip .sub {
+    font-family: var(--sans); font-size: 14px;
+    color: rgba(245,241,232,0.75); line-height: 1.5;
+    max-width: 420px;
+  }
+  .featured-strip .right {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 16px;
+  }
+  .featured-strip .right .stat {
+    text-align: right;
+  }
+  .featured-strip .right .stat .v {
+    font-family: var(--serif); font-size: 32px; font-weight: 400;
+    color: var(--ivory); line-height: 1; letter-spacing: -0.02em;
+  }
+  .featured-strip .right .stat .l {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(245,241,232,0.55); font-weight: 500; margin-top: 4px;
+  }
+  .featured-strip .right .view {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--terracotta); font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="page" style="height: 1024px;">
+  <nav class="nav">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#">About</a>
+      <a href="#" class="active">Work</a>
+      <a href="#">Experience</a>
+      <a href="#">Research</a>
+      <a href="#">Resume</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <section class="work-wrap">
+    <div class="work-title">
+      <h1>Selected<br>Work<em>.</em></h1>
+      <div class="meta">
+        <div><span class="num">i</span> Eight Projects</div>
+        <div>Across <span class="strong">Healthcare</span>,</div>
+        <div><span class="strong">Customer AI</span>, Research</div>
+        <div style="margin-top:14px;">03 — 12</div>
+      </div>
+    </div>
+
+    <div class="proj-list">
+
+      <div class="proj-row">
+        <div class="num">01</div>
+        <div class="name">ClinData Explorer
+          <span class="sub">AI for Healthcare</span>
+        </div>
+        <div class="desc">AI-powered clinical cohort and data-quality explorer for hospital research desks.</div>
+        <div class="tags">
+          <span>Text-to-SQL</span><span class="sep"></span>
+          <span>Data Quality</span><span class="sep"></span>
+          <span>Full-Stack AI</span>
+        </div>
+        <div class="arrow">View →</div>
+      </div>
+
+      <div class="proj-row">
+        <div class="num">02</div>
+        <div class="name">McDonald's AI Agent
+          <span class="sub">Customer Support · Order Mgmt</span>
+        </div>
+        <div class="desc">AI customer-support and order-management workflow for retail F&B.</div>
+        <div class="tags">
+          <span>LLM</span><span class="sep"></span>
+          <span>AI Agents</span><span class="sep"></span>
+          <span>FastAPI</span>
+        </div>
+        <div class="arrow">View →</div>
+      </div>
+
+      <div class="proj-row">
+        <div class="num">03</div>
+        <div class="name">CardioRisk AI
+          <span class="sub">Clinical Decision Support</span>
+        </div>
+        <div class="desc">Heart-disease risk prediction prototype for clinical decision support.</div>
+        <div class="tags">
+          <span>Classification</span><span class="sep"></span>
+          <span>Healthcare</span><span class="sep"></span>
+          <span>ML</span>
+        </div>
+        <div class="arrow">View →</div>
+      </div>
+
+      <div class="proj-row">
+        <div class="num">04</div>
+        <div class="name">Enterprise RAG Assistant
+          <span class="sub">Document Intelligence</span>
+        </div>
+        <div class="desc">Retrieval-augmented generation system for enterprise document intelligence.</div>
+        <div class="tags">
+          <span>RAG</span><span class="sep"></span>
+          <span>Vector Embeddings</span><span class="sep"></span>
+          <span>Semantic Search</span>
+        </div>
+        <div class="arrow">View →</div>
+      </div>
+
+      <div class="proj-row">
+        <div class="num">05</div>
+        <div class="name">Medical Image Classification
+          <span class="sub">Deep Learning · Healthcare</span>
+        </div>
+        <div class="desc">Deep-learning system for medical image classification with augmentation pipeline.</div>
+        <div class="tags">
+          <span>CNN</span><span class="sep"></span>
+          <span>Computer Vision</span><span class="sep"></span>
+          <span>Augmentation</span>
+        </div>
+        <div class="arrow">View →</div>
+      </div>
+
+      <div class="proj-row">
+        <div class="num">06</div>
+        <div class="name">SAFELINK
+          <span class="sub">Multimodal Wearable · Research</span>
+        </div>
+        <div class="desc">Multimodal smart wearable system for personal safety.</div>
+        <div class="tags">
+          <span>Computer Vision</span><span class="sep"></span>
+          <span>Edge AI</span><span class="sep"></span>
+          <span>IoT</span>
+        </div>
+        <div class="arrow">View →</div>
+      </div>
+
+      <div class="proj-row">
+        <div class="num">07</div>
+        <div class="name">Computer Vision Model Suite
+          <span class="sub">Detection · Classification · Tracking</span>
+        </div>
+        <div class="desc">Suite of YOLO, image-classification and object-detection models.</div>
+        <div class="tags">
+          <span>YOLO</span><span class="sep"></span>
+          <span>Roboflow</span><span class="sep"></span>
+          <span>Detection</span>
+        </div>
+        <div class="arrow">View →</div>
+      </div>
+
+      <div class="proj-row">
+        <div class="num">08</div>
+        <div class="name">Sales Prediction System
+          <span class="sub">Forecasting · Regression</span>
+        </div>
+        <div class="desc">Regression-based sales forecasting system with feature engineering.</div>
+        <div class="tags">
+          <span>Regression</span><span class="sep"></span>
+          <span>EDA</span><span class="sep"></span>
+          <span>Forecasting</span>
+        </div>
+        <div class="arrow">View →</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="scroll-indicator">
+    <span>03 — Selected Work</span>
+    <div class="track"></div>
+    <span>Open project ↓</span>
+  </div>
+</div>
+</body>
+</html>

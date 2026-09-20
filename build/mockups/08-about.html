@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>08 — About · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .ab-wrap { padding: 80px var(--page-x) 70px; position: relative; }
+
+  /* Asymmetric header */
+  .ab-head {
+    display: grid;
+    grid-template-columns: 0.18fr 0.82fr;
+    gap: 60px;
+    align-items: end;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 60px;
+  }
+  .ab-head .left .eyebrow {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: var(--navy-60);
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .ab-head .left .eyebrow .num {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--terracotta); letter-spacing: 0; margin-right: 10px;
+  }
+
+  .ab-head .right {
+    display: flex; justify-content: space-between; align-items: end;
+  }
+  .ab-head .right .ttl {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .ab-head .right .pg {
+    font-family: var(--serif); font-style: italic; font-size: 16px;
+    color: var(--terracotta);
+  }
+
+  /* Main two-col body */
+  .ab-body {
+    display: grid;
+    grid-template-columns: 0.55fr 0.45fr;
+    gap: 80px;
+    align-items: start;
+    margin-bottom: 60px;
+  }
+
+  /* LEFT — big statement */
+  .ab-left .statement {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.04;
+    letter-spacing: -0.022em;
+    color: var(--navy);
+    margin-bottom: 40px;
+  }
+  .ab-left .statement em { font-style: italic; color: var(--forest); }
+  .ab-left .statement .accent { color: var(--terracotta); font-style: italic; }
+
+  .ab-left .quote-mark {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 80px;
+    color: var(--terracotta);
+    line-height: 0;
+    position: relative;
+    top: 16px;
+    margin-right: 8px;
+  }
+
+  .ab-left .paras p {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--navy-80);
+    margin-bottom: 16px;
+    max-width: 620px;
+  }
+  .ab-left .paras p strong { color: var(--navy); font-weight: 600; }
+  .ab-left .paras p em { font-family: var(--serif); font-style: italic; color: var(--forest); }
+
+  /* Signature */
+  .ab-left .sig {
+    margin-top: 28px;
+    display: flex; align-items: center; gap: 14px;
+    padding-top: 22px;
+    border-top: 1px solid var(--navy-12);
+    max-width: 460px;
+  }
+  .ab-left .sig .script {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 32px;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .ab-left .sig .who {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy-60);
+    font-weight: 500;
+  }
+
+  /* RIGHT — portrait composition */
+  .ab-right {
+    position: relative;
+    padding-top: 0;
+  }
+  .portrait-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--ivory-deep);
+    box-shadow: 0 30px 60px -30px rgba(16,36,58,0.25);
+  }
+  .portrait-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: contrast(1.02) saturate(0.92);
+  }
+  .portrait-card .tag {
+    position: absolute;
+    bottom: 14px; left: 14px;
+    background: var(--ivory);
+    padding: 8px 14px;
+    border-radius: 3px;
+    box-shadow: 0 6px 14px -8px rgba(0,0,0,0.2);
+  }
+  .portrait-card .tag .l {
+    font-family: var(--sans); font-size: 8px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .portrait-card .tag .v {
+    font-family: var(--serif); font-style: italic;
+    font-size: 14px; color: var(--navy); margin-top: 2px;
+  }
+
+  .portrait-side {
+    position: absolute;
+    right: -36px; top: 36px;
+    background: var(--navy);
+    color: var(--ivory);
+    padding: 16px 18px;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px -25px rgba(16,36,58,0.4);
+    width: 180px;
+  }
+  .portrait-side .l {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(245,241,232,0.55); font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .portrait-side .v {
+    font-family: var(--serif); font-size: 18px;
+    color: var(--ivory); line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .portrait-side .v em { font-style: italic; color: var(--gold); }
+  .portrait-side hr {
+    border: none; height: 1px;
+    background: rgba(245,241,232,0.18);
+    margin: 12px 0;
+  }
+  .portrait-side .list {
+    font-family: var(--sans); font-size: 10px;
+    color: rgba(245,241,232,0.75);
+    line-height: 1.8;
+  }
+
+  /* Bottom — 3 col philosophy */
+  .ab-philosophy {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--navy-12);
+    border-bottom: 1px solid var(--navy-12);
+    padding: 32px 0;
+  }
+  .ab-philosophy .col {
+    padding: 0 32px;
+    border-right: 1px solid var(--navy-12);
+  }
+  .ab-philosophy .col:first-child { padding-left: 0; }
+  .ab-philosophy .col:last-child { border-right: none; padding-right: 0; }
+  .ab-philosophy .col .num {
+    font-family: var(--serif); font-style: italic;
+    font-size: 18px; color: var(--terracotta);
+    margin-bottom: 10px;
+  }
+  .ab-philosophy .col .ttl {
+    font-family: var(--serif); font-size: 22px;
+    color: var(--navy); line-height: 1.2;
+    margin-bottom: 10px; letter-spacing: -0.01em;
+  }
+  .ab-philosophy .col .ttl em { font-style: italic; color: var(--forest); }
+  .ab-philosophy .col .body {
+    font-family: var(--sans); font-size: 13px;
+    color: var(--navy-80); line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<div class="page" style="height: 1280px;">
+  <nav class="nav">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#" class="active">About</a>
+      <a href="#">Work</a>
+      <a href="#">Experience</a>
+      <a href="#">Research</a>
+      <a href="#">Resume</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <section class="ab-wrap">
+
+    <div class="ab-head">
+      <div class="left">
+        <div class="eyebrow"><span class="num">04</span>About · Naveen Khan</div>
+      </div>
+      <div class="right">
+        <span class="ttl">A short, honest note from the engineer.</span>
+        <span class="pg">08 / 12</span>
+      </div>
+    </div>
+
+    <div class="ab-body">
+
+      <!-- LEFT — statement -->
+      <div class="ab-left">
+        <h1 class="statement">
+          <span class="quote-mark">"</span>I build AI<br>
+          systems, but I<br>
+          care about what<br>
+          they <em>actually</em><br>
+          <span class="accent">solve.</span>
+        </h1>
+
+        <div class="paras">
+          <p>
+            I'm <strong>Naveen Khan</strong>, an AI engineer based in Karachi.
+            I trained as a <strong>Computer Systems Engineer</strong> at
+            <strong>Mehran UET</strong> (2021–2025), and I've spent the last
+            six months in full-time AI engineering — shipping <em>real</em>
+            RAG assistants, clinical-data tools, and customer-facing agents
+            that need to actually work, not just demo well.
+          </p>
+          <p>
+            My practice sits between <strong>research</strong> and
+            <strong>product</strong>. I like the moment when a model becomes
+            a feature, when a notebook becomes a service, when messy real-world
+            data turns into something a clinician, a customer, or a researcher
+            can actually use. That bridge is where I work best.
+          </p>
+          <p>
+            Outside of shipping production work, I keep one foot in
+            <em>research</em> — most visibly on SAFELINK, a multimodal
+            wearable for personal safety. I read papers carefully, prototype
+            fast, and prefer a clean minimal system over an impressive one.
+          </p>
+        </div>
+
+        <div class="sig">
+          <span class="script">Naveen.</span>
+          <span class="who">Naveen Khan<br>AI Engineer · Karachi</span>
+        </div>
+      </div>
+
+      <!-- RIGHT — portrait + side card -->
+      <div class="ab-right">
+        <div class="portrait-card">
+          <img src="assets/portrait.png" alt="Naveen Khan portrait">
+          <div class="tag">
+            <div class="l">Portrait</div>
+            <div class="v">Naveen, '26</div>
+          </div>
+        </div>
+
+        <div class="portrait-side">
+          <div class="l">Snapshot</div>
+          <div class="v">Based in<br><em>Pakistan</em></div>
+          <hr>
+          <div class="l">Education</div>
+          <div class="list">
+            B.E. Computer Systems<br>
+            Mehran UET · 2021–25
+          </div>
+          <hr>
+          <div class="l">Currently</div>
+          <div class="list">
+            Full-Stack AI Engineer<br>
+            Sofstica Solutions
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- bottom philosophy strip -->
+    <div class="ab-philosophy">
+      <div class="col">
+        <div class="num">i.</div>
+        <div class="ttl"><em>Engineering</em> first.</div>
+        <div class="body">
+          A model is a small part of an AI product. I care about
+          evaluation, latency, retrieval, schema, error budgets and the
+          engineering underneath the demo.
+        </div>
+      </div>
+      <div class="col">
+        <div class="num">ii.</div>
+        <div class="ttl"><em>Problem</em> before model.</div>
+        <div class="body">
+          I start from the workflow being solved, the data actually available,
+          and the user that has to live with the result. The model choice
+          falls out of that, not the other way around.
+        </div>
+      </div>
+      <div class="col">
+        <div class="num">iii.</div>
+        <div class="ttl">Quiet, <em>honest</em> AI.</div>
+        <div class="body">
+          No exaggerated claims, no glowing brains. I prefer a small
+          well-tested system that a clinician or customer can trust over
+          a flashy one nobody can depend on.
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="scroll-indicator">
+    <span>08 — About</span>
+    <div class="track"></div>
+    <span>Skills ↓</span>
+  </div>
+</div>
+</body>
+</html>

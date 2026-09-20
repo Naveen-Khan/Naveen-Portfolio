@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>09 — Skills · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .sk-wrap { padding: 80px var(--page-x) 70px; position: relative; }
+
+  .sk-head {
+    display: grid;
+    grid-template-columns: 0.7fr 0.3fr;
+    gap: 60px;
+    align-items: end;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 56px;
+  }
+  .sk-head .left .eyebrow { margin-bottom: 22px; }
+  .sk-head .left h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 110px;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    color: var(--navy);
+  }
+  .sk-head .left h1 em { font-style: italic; color: var(--forest); }
+  .sk-head .left h1 .dot { color: var(--terracotta); font-style: italic; }
+
+  .sk-head .right {
+    text-align: right;
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    line-height: 1.6;
+  }
+  .sk-head .right .strong { color: var(--navy); font-weight: 600; }
+  .sk-head .right .num {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--terracotta); letter-spacing: 0; margin-right: 6px;
+  }
+
+  /* Cluster grid */
+  .sk-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--navy-12);
+    border: 1px solid var(--navy-12);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .sk-cluster {
+    background: var(--ivory);
+    padding: 32px 28px;
+    position: relative;
+    min-height: 270px;
+  }
+  .sk-cluster .head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 18px;
+  }
+  .sk-cluster .head .ttl {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .sk-cluster .head .ttl em { font-style: italic; color: var(--forest); }
+  .sk-cluster .head .num {
+    font-family: var(--serif); font-style: italic;
+    font-size: 14px; color: var(--terracotta); letter-spacing: 0;
+  }
+
+  .sk-cluster ul { list-style: none; }
+  .sk-cluster ul li {
+    font-family: var(--sans); font-size: 13.5px;
+    color: var(--navy-80); font-weight: 400;
+    padding: 7px 0;
+    display: flex; align-items: baseline; gap: 12px;
+    border-bottom: 1px dashed var(--navy-06);
+  }
+  .sk-cluster ul li:last-child { border-bottom: none; }
+  .sk-cluster ul li .marker {
+    font-family: var(--serif); font-style: italic;
+    font-size: 11px; color: var(--terracotta); letter-spacing: 0;
+    flex: 0 0 18px;
+  }
+  .sk-cluster ul li .nm { color: var(--navy); font-weight: 500; }
+  .sk-cluster ul li .lvl {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    margin-left: auto;
+  }
+  .sk-cluster ul li .lvl .lvl-dot {
+    display: inline-block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--navy-20);
+    margin-right: 2px;
+  }
+  .sk-cluster ul li .lvl .lvl-dot.on { background: var(--forest); }
+
+  /* Cluster 1 — featured (generative AI) — slight emphasis */
+  .sk-cluster.feat {
+    background: var(--ivory-soft);
+    position: relative;
+  }
+  .sk-cluster.feat::after {
+    content: 'i.';
+    position: absolute; top: 28px; right: 28px;
+    font-family: var(--serif); font-style: italic; font-size: 80px;
+    color: rgba(15,102,84,0.08); line-height: 1; letter-spacing: 0;
+  }
+  .sk-cluster.feat .head .ttl { color: var(--forest); }
+  .sk-cluster.feat ul li .marker { color: var(--forest); }
+
+  /* Bottom legend */
+  .sk-foot {
+    margin-top: 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--navy-12);
+  }
+  .sk-foot .legend {
+    display: flex; align-items: center; gap: 24px;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .sk-foot .legend .l {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sk-foot .legend .l .d {
+    display: inline-block; width: 5px; height: 5px;
+    border-radius: 50%; background: var(--forest);
+  }
+  .sk-foot .legend .l.off .d { background: var(--navy-20); }
+  .sk-foot .legend .l span { color: var(--navy); }
+
+  .sk-foot .note {
+    font-family: var(--serif); font-style: italic;
+    font-size: 14px; color: var(--navy-60);
+  }
+
+</style>
+</head>
+<body>
+<div class="page" style="height: 1280px;">
+  <nav class="nav">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#">About</a>
+      <a href="#">Work</a>
+      <a href="#">Experience</a>
+      <a href="#">Research</a>
+      <a href="#">Resume</a>
+      <a href="#" class="active">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <section class="sk-wrap">
+
+    <div class="sk-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span> Chapter 05 · Capabilities</div>
+        <h1>Skills &<br>Capabilities<em>.</em></h1>
+      </div>
+      <div class="right">
+        <div><span class="num">i</span>Six Domains</div>
+        <div><span class="strong">32</span> Skills</div>
+        <div>Across <span class="strong">AI Engineering</span></div>
+        <div style="margin-top: 14px;">09 / 12</div>
+      </div>
+    </div>
+
+    <div class="sk-grid">
+
+      <!-- 1. Generative AI — featured -->
+      <div class="sk-cluster feat">
+        <div class="head">
+          <span class="ttl"><em>Generative</em> AI</span>
+          <span class="num">i.</span>
+        </div>
+        <ul>
+          <li><span class="marker">a.</span><span class="nm">RAG</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">b.</span><span class="nm">LLM APIs</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">c.</span><span class="nm">Prompt Engineering</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">d.</span><span class="nm">Semantic Search</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+          <li><span class="marker">e.</span><span class="nm">Vector Embeddings</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">f.</span><span class="nm">Context Engineering</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+        </ul>
+      </div>
+
+      <!-- 2. Machine Learning -->
+      <div class="sk-cluster">
+        <div class="head">
+          <span class="ttl">Machine <em>Learning</em></span>
+          <span class="num">ii.</span>
+        </div>
+        <ul>
+          <li><span class="marker">a.</span><span class="nm">Classification</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">b.</span><span class="nm">Regression</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+          <li><span class="marker">c.</span><span class="nm">Feature Engineering</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">d.</span><span class="nm">EDA</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">e.</span><span class="nm">Model Evaluation</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+        </ul>
+      </div>
+
+      <!-- 3. Computer Vision -->
+      <div class="sk-cluster">
+        <div class="head">
+          <span class="ttl"><em>Computer</em> Vision</span>
+          <span class="num">iii.</span>
+        </div>
+        <ul>
+          <li><span class="marker">a.</span><span class="nm">YOLO</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">b.</span><span class="nm">Image Classification</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+          <li><span class="marker">c.</span><span class="nm">Object Detection</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">d.</span><span class="nm">Roboflow</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+          <li><span class="marker">e.</span><span class="nm">Data Augmentation</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+        </ul>
+      </div>
+
+      <!-- 4. Engineering -->
+      <div class="sk-cluster">
+        <div class="head">
+          <span class="ttl"><em>Engineering</em></span>
+          <span class="num">iv.</span>
+        </div>
+        <ul>
+          <li><span class="marker">a.</span><span class="nm">Python</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">b.</span><span class="nm">C++</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+          <li><span class="marker">c.</span><span class="nm">FastAPI</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">d.</span><span class="nm">REST APIs</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">e.</span><span class="nm">SQL</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">f.</span><span class="nm">Git / GitHub</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+        </ul>
+      </div>
+
+      <!-- 5. AI Automation -->
+      <div class="sk-cluster">
+        <div class="head">
+          <span class="ttl">AI <em>Automation</em></span>
+          <span class="num">v.</span>
+        </div>
+        <ul>
+          <li><span class="marker">a.</span><span class="nm">n8n</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">b.</span><span class="nm">AI Agents</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">c.</span><span class="nm">Webhooks</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+          <li><span class="marker">d.</span><span class="nm">API Integration</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">e.</span><span class="nm">Workflow Automation</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+        </ul>
+      </div>
+
+      <!-- 6. Infrastructure -->
+      <div class="sk-cluster">
+        <div class="head">
+          <span class="ttl"><em>Infrastructure</em></span>
+          <span class="num">vi.</span>
+        </div>
+        <ul>
+          <li><span class="marker">a.</span><span class="nm">Docker</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+          <li><span class="marker">b.</span><span class="nm">Vercel</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></span></li>
+          <li><span class="marker">c.</span><span class="nm">Azure</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot"></span><span class="lvl-dot"></span></span></li>
+          <li><span class="marker">d.</span><span class="nm">Streamlit</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">e.</span><span class="nm">Jupyter</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+          <li><span class="marker">f.</span><span class="nm">Google Colab</span><span class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="sk-foot">
+      <div class="legend">
+        <div class="l"><span class="d"></span>Working Knowledge</div>
+        <div class="l off"><span class="d"></span>Foundational</div>
+        <div style="opacity:0.5;">·</div>
+        <div>No progress bars. Just an honest map.</div>
+      </div>
+      <div class="note">— capability, not theatre.</div>
+    </div>
+
+  </section>
+
+  <div class="scroll-indicator">
+    <span>09 — Skills</span>
+    <div class="track"></div>
+    <span>Research ↓</span>
+  </div>
+</div>
+</body>
+</html>

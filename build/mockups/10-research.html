@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>10 — Research · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .rs-wrap { padding: 80px var(--page-x) 70px; position: relative; }
+
+  .rs-head {
+    display: grid;
+    grid-template-columns: 0.6fr 0.4fr;
+    gap: 80px;
+    align-items: end;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 60px;
+  }
+  .rs-head .left .eyebrow { margin-bottom: 22px; }
+  .rs-head .left h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--navy);
+  }
+  .rs-head .left h1 em { font-style: italic; color: var(--forest); }
+  .rs-head .left h1 .amp { color: var(--terracotta); font-style: italic; font-weight: 400; }
+  .rs-head .right {
+    text-align: right;
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    line-height: 1.6;
+  }
+  .rs-head .right .strong { color: var(--navy); font-weight: 600; }
+  .rs-head .right .num {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--terracotta); letter-spacing: 0; margin-right: 6px;
+  }
+
+  /* Featured research block */
+  .featured-research {
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+    gap: 64px;
+    align-items: start;
+    margin-bottom: 50px;
+  }
+  .featured-research .left .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 12px; border: 1px solid var(--terracotta);
+    border-radius: 100px;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--terracotta); font-weight: 600;
+    margin-bottom: 22px;
+  }
+  .featured-research .left .badge .dot {
+    width: 5px; height: 5px; border-radius: 50%; background: var(--terracotta);
+  }
+  .featured-research .left h2 {
+    font-family: var(--serif);
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+  .featured-research .left h2 em { font-style: italic; color: var(--forest); }
+  .featured-research .left .sub {
+    font-family: var(--sans); font-size: 14px;
+    line-height: 1.6; color: var(--navy-80);
+    margin-bottom: 26px;
+    max-width: 380px;
+  }
+  .featured-research .left .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+
+  .featured-research .left .meta {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    line-height: 1.8;
+    padding-top: 16px;
+    border-top: 1px solid var(--navy-12);
+  }
+  .featured-research .left .meta strong { color: var(--navy); font-weight: 600; }
+
+  /* Architecture diagram */
+  .arch {
+    background: var(--ivory-soft);
+    border: 1px solid var(--navy-12);
+    border-radius: 8px;
+    padding: 28px;
+    position: relative;
+  }
+  .arch .arch-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 22px;
+  }
+  .arch .arch-head .ttl {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy); font-weight: 600;
+  }
+  .arch .arch-head .num {
+    font-family: var(--serif); font-style: italic;
+    font-size: 12px; color: var(--terracotta); letter-spacing: 0;
+  }
+
+  .arch-stage {
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .arch-layer {
+    display: flex; align-items: stretch; gap: 16px;
+  }
+  .arch-layer .label {
+    flex: 0 0 110px;
+    display: flex; flex-direction: column; justify-content: center;
+    font-family: var(--sans);
+    padding-right: 16px;
+    border-right: 1px solid var(--navy-12);
+  }
+  .arch-layer .label .num {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--terracotta); letter-spacing: 0;
+  }
+  .arch-layer .label .nm {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy); font-weight: 600; margin-top: 4px;
+  }
+  .arch-layer .label .sub {
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500; margin-top: 2px;
+  }
+
+  .arch-nodes {
+    display: flex; gap: 12px; flex: 1;
+  }
+  .arch-node {
+    flex: 1;
+    background: var(--ivory);
+    border: 1px solid var(--navy-12);
+    border-radius: 6px;
+    padding: 10px 12px;
+    text-align: center;
+    position: relative;
+  }
+  .arch-node.primary { border-color: var(--forest); background: rgba(15,102,84,0.05); }
+  .arch-node.accent { border-color: var(--terracotta); background: rgba(200,107,69,0.06); }
+  .arch-node .nm {
+    font-family: var(--sans); font-size: 11px;
+    color: var(--navy); font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .arch-node .ds {
+    font-family: var(--sans); font-size: 9px;
+    color: var(--navy-60); line-height: 1.4;
+  }
+
+  .arch-arrow {
+    text-align: center;
+    color: var(--navy-40);
+    font-size: 12px;
+    margin: -8px 0;
+    position: relative;
+    z-index: 2;
+    background: var(--ivory-soft);
+    width: 24px; margin-left: 110px;
+    margin-left: calc(110px + 16px);
+  }
+  .arch-arrow-bg {
+    margin-left: calc(110px + 16px);
+    border-left: 1px dashed var(--navy-20);
+    padding-left: 24px;
+    border-bottom: 1px dashed var(--navy-20);
+    height: 1px;
+    width: calc(100% - 110px - 16px);
+    margin-bottom: -8px;
+    margin-top: -8px;
+  }
+
+  /* Output arrow */
+  .arch-output {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--navy-12);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .arch-output .label {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .arch-output .arrow-flow {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--serif); font-style: italic;
+    font-size: 16px; color: var(--terracotta);
+  }
+  .arch-output .out {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--forest); font-weight: 700;
+  }
+
+  /* Other research list */
+  .other-rs {
+    border-top: 1px solid var(--navy-12);
+    padding-top: 36px;
+  }
+  .other-rs .ttl-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 22px;
+  }
+  .other-rs .ttl-row .ttl {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy); font-weight: 600;
+  }
+  .other-rs .ttl-row .num {
+    font-family: var(--serif); font-style: italic;
+    font-size: 14px; color: var(--terracotta);
+  }
+  .other-rs .row {
+    display: grid; grid-template-columns: 60px 1fr 220px 80px;
+    gap: 24px; align-items: baseline;
+    padding: 18px 0;
+    border-top: 1px solid var(--navy-12);
+  }
+  .other-rs .row .n {
+    font-family: var(--serif); font-style: italic;
+    font-size: 18px; color: var(--terracotta);
+  }
+  .other-rs .row .ttl-c {
+    font-family: var(--serif); font-size: 22px;
+    color: var(--navy); letter-spacing: -0.01em;
+  }
+  .other-rs .row .ttl-c em { font-style: italic; color: var(--forest); }
+  .other-rs .row .tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .other-rs .row .tags span {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .other-rs .row .tags .sep {
+    width: 4px; height: 4px; border-radius: 50%; background: var(--navy-20);
+    align-self: center; margin: 0 6px;
+  }
+  .other-rs .row .arrow {
+    text-align: right;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+</style>
+</head>
+<body>
+<div class="page" style="height: 1280px;">
+  <nav class="nav">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#">About</a>
+      <a href="#">Work</a>
+      <a href="#">Experience</a>
+      <a href="#" class="active">Research</a>
+      <a href="#">Resume</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <section class="rs-wrap">
+
+    <div class="rs-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span> Chapter 06 · Lab &amp; Bench</div>
+        <h1>Research <span class="amp">&amp;</span><br><em>Experimentation</em><span style="color:var(--terracotta);font-style:italic;">.</span></h1>
+      </div>
+      <div class="right">
+        <div><span class="num">i</span> Featured Study</div>
+        <div>SAFELINK · Multimodal</div>
+        <div>Wearable Safety Device</div>
+        <div style="margin-top: 14px;">10 / 12</div>
+      </div>
+    </div>
+
+    <!-- Featured research -->
+    <div class="featured-research">
+      <div class="left">
+        <div class="badge"><span class="dot"></span>Featured Research</div>
+        <h2>SAFELINK:<br>A Multimodal<br><em>Smart Wearable</em><br>for Personal Safety.</h2>
+        <p class="sub">
+          A 12-month research project exploring how <strong style="color:var(--navy);font-weight:600">computer vision</strong>,
+          on-device inference and IoT sensors can be fused into a discreet
+          wearable that detects threat contexts in real time and routes
+          live location + audio to trusted contacts through an SOS escalation path.
+        </p>
+        <div class="chips">
+          <span class="tech-chip">AI</span>
+          <span class="tech-chip">Computer Vision</span>
+          <span class="tech-chip">Edge Computing</span>
+          <span class="tech-chip">IoT</span>
+          <span class="tech-chip">Personal Safety</span>
+        </div>
+        <div class="meta">
+          <strong>Duration</strong> &nbsp; 11/2024 → 11/2025 (12 months)<br>
+          <strong>Output</strong> &nbsp; Working prototype · SAFELINK v1<br>
+          <strong>Venue</strong> &nbsp; Mehran UET · Undergraduate Research
+        </div>
+      </div>
+
+      <!-- Architecture diagram -->
+      <div class="arch">
+        <div class="arch-head">
+          <span class="ttl">System Architecture · SAFELINK v1</span>
+          <span class="num">i.</span>
+        </div>
+
+        <div class="arch-stage">
+
+          <!-- Layer 1 -->
+          <div class="arch-layer">
+            <div class="label">
+              <span class="num">01</span>
+              <span class="nm">Sensing</span>
+              <span class="sub">On-body</span>
+            </div>
+            <div class="arch-nodes">
+              <div class="arch-node">
+                <div class="nm">Camera</div>
+                <div class="ds">Wearable POV</div>
+              </div>
+              <div class="arch-node">
+                <div class="nm">IMU</div>
+                <div class="ds">Motion / Fall</div>
+              </div>
+              <div class="arch-node">
+                <div class="nm">Mic</div>
+                <div class="ds">Audio context</div>
+              </div>
+              <div class="arch-node">
+                <div class="nm">GPS</div>
+                <div class="ds">Geo-fence</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="arch-arrow">↓</div>
+
+          <!-- Layer 2 -->
+          <div class="arch-layer">
+            <div class="label">
+              <span class="num">02</span>
+              <span class="nm">Edge Inference</span>
+              <span class="sub">On-device</span>
+            </div>
+            <div class="arch-nodes">
+              <div class="arch-node primary">
+                <div class="nm">YOLO Detector</div>
+                <div class="ds">Person / threat context</div>
+              </div>
+              <div class="arch-node primary">
+                <div class="nm">Anomaly Model</div>
+                <div class="ds">IMU + Audio fusion</div>
+              </div>
+              <div class="arch-node primary">
+                <div class="nm">Geo-fence Logic</div>
+                <div class="ds">Safe-zone check</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="arch-arrow">↓</div>
+
+          <!-- Layer 3 -->
+          <div class="arch-layer">
+            <div class="label">
+              <span class="num">03</span>
+              <span class="nm">Decision</span>
+              <span class="sub">Threat Fusion</span>
+            </div>
+            <div class="arch-nodes">
+              <div class="arch-node accent">
+                <div class="nm">Threat Score</div>
+                <div class="ds">CV + IMU + Geo fusion</div>
+              </div>
+              <div class="arch-node accent">
+                <div class="nm">SOS Trigger</div>
+                <div class="ds">Threshold / manual</div>
+              </div>
+              <div class="arch-node">
+                <div class="nm">Privacy Filter</div>
+                <div class="ds">On-device only</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="arch-arrow">↓</div>
+
+          <!-- Layer 4 -->
+          <div class="arch-layer">
+            <div class="label">
+              <span class="num">04</span>
+              <span class="nm">Relay</span>
+              <span class="sub">Cloud / IoT</span>
+            </div>
+            <div class="arch-nodes">
+              <div class="arch-node">
+                <div class="nm">Trusted Contacts</div>
+                <div class="ds">Push + SMS</div>
+              </div>
+              <div class="arch-node">
+                <div class="nm">Live Location</div>
+                <div class="ds">Streaming</div>
+              </div>
+              <div class="arch-node">
+                <div class="nm">Audio Stream</div>
+                <div class="ds">Optional · opt-in</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="arch-output">
+          <span class="label">Outcome</span>
+          <span class="arrow-flow">→ → →</span>
+          <span class="out">Discreet · Reliable · Privacy-first</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other research rows -->
+    <div class="other-rs">
+      <div class="ttl-row">
+        <span class="ttl">Other Experiments &amp; Side Projects</span>
+        <span class="num">ii.</span>
+      </div>
+
+      <div class="row">
+        <div class="n">i.</div>
+        <div class="ttl-c"><em>RAG</em> Retrieval Bench</div>
+        <div class="tags">
+          <span>Vector Embeddings</span><span class="sep"></span>
+          <span>Semantic Search</span><span class="sep"></span>
+          <span>Evaluation</span>
+        </div>
+        <div class="arrow">Notebook →</div>
+      </div>
+      <div class="row">
+        <div class="n">ii.</div>
+        <div class="ttl-c">Text-to-SQL on <em>Clinical</em> Schema</div>
+        <div class="tags">
+          <span>LLM</span><span class="sep"></span>
+          <span>SQL</span><span class="sep"></span>
+          <span>Healthcare</span>
+        </div>
+        <div class="arrow">Notebook →</div>
+      </div>
+      <div class="row">
+        <div class="n">iii.</div>
+        <div class="ttl-c">YOLO Data <em>Augmentation</em> Study</div>
+        <div class="tags">
+          <span>Computer Vision</span><span class="sep"></span>
+          <span>Augmentation</span><span class="sep"></span>
+          <span>Roboflow</span>
+        </div>
+        <div class="arrow">Notebook →</div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="scroll-indicator">
+    <span>10 — Research</span>
+    <div class="track"></div>
+    <span>Resume ↓</span>
+  </div>
+</div>
+</body>
+</html>

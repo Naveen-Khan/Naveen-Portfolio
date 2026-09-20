@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>04 — ClinData Explorer · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .proj-hero { padding: 60px var(--page-x) 0; position: relative; }
+
+  /* Top eyebrow + nav-of-project */
+  .proj-top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 48px;
+  }
+  .proj-top .breadcrumb {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .proj-top .breadcrumb .num {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--terracotta); letter-spacing: 0; margin-right: 8px;
+  }
+  .proj-top .breadcrumb .sep { margin: 0 10px; color: var(--navy-20); }
+  .proj-top .breadcrumb .current { color: var(--navy); font-weight: 600; }
+
+  .proj-top .slider {
+    display: flex; gap: 16px; align-items: center;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .proj-top .slider .item.active { color: var(--navy); font-weight: 600; }
+  .proj-top .slider .progress {
+    width: 220px; height: 1px; background: var(--navy-12); position: relative;
+  }
+  .proj-top .slider .progress::after {
+    content:''; position: absolute; left: 0; top: 0;
+    width: 12.5%; height: 1px; background: var(--terracotta);
+  }
+
+  /* Editorial layout */
+  .proj-layout {
+    display: grid;
+    grid-template-columns: 0.42fr 0.58fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 60px;
+  }
+
+  .proj-left .num {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 220px;
+    line-height: 0.82;
+    color: var(--navy);
+    letter-spacing: -0.04em;
+    margin-bottom: 16px;
+  }
+  .proj-left .num .dot { color: var(--terracotta); font-style: italic; }
+  .proj-left .name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 0.94;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 32px;
+  }
+  .proj-left .name em { font-style: italic; color: var(--forest); }
+  .proj-left .name .accent { color: var(--terracotta); font-style: italic; }
+
+  .proj-left .desc {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--navy-80);
+    max-width: 420px;
+    margin-bottom: 32px;
+  }
+  .proj-left .tags {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;
+  }
+  .proj-left .view-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy); font-weight: 600;
+    text-decoration: none;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--navy);
+  }
+
+  /* Right — realistic clinical UI mockup */
+  .mockup-frame {
+    background: var(--ivory-soft);
+    border: 1px solid var(--navy-12);
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 30px 60px -40px rgba(16,36,58,0.25);
+    position: relative;
+  }
+  .mockup-frame .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 14px;
+  }
+  .mockup-frame .topbar .left {
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    color: var(--navy);
+  }
+  .mockup-frame .topbar .left .dots {
+    display: flex; gap: 6px;
+  }
+  .mockup-frame .topbar .left .dots span {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--navy-12);
+  }
+  .mockup-frame .topbar .url {
+    font-family: var(--sans); font-size: 11px;
+    color: var(--navy-60); letter-spacing: 0.04em;
+  }
+  .mockup-frame .topbar .right {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60);
+  }
+
+  .cl-data {
+    display: grid; grid-template-columns: 180px 1fr; gap: 14px;
+  }
+  .cl-side {
+    background: var(--ivory);
+    border: 1px solid var(--navy-12);
+    border-radius: 4px;
+    padding: 14px;
+  }
+  .cl-side .ttl {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500; margin-bottom: 12px;
+  }
+  .cl-side ul { list-style: none; }
+  .cl-side ul li {
+    font-family: var(--sans); font-size: 11px;
+    color: var(--navy); padding: 6px 8px; border-radius: 3px;
+    margin-bottom: 2px; display: flex; align-items: center; gap: 8px;
+  }
+  .cl-side ul li.active { background: var(--navy); color: var(--ivory); }
+  .cl-side ul li .ic {
+    width: 8px; height: 8px; border-radius: 2px; background: var(--forest);
+    flex: 0 0 8px;
+  }
+  .cl-side ul li.active .ic { background: var(--terracotta); }
+  .cl-side .qlabel {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); margin-top: 16px; margin-bottom: 8px;
+  }
+  .cl-side .qrow {
+    font-family: var(--serif); font-style: italic;
+    font-size: 11px; color: var(--navy-80);
+    line-height: 1.5; padding: 8px 0;
+    border-top: 1px dashed var(--navy-12);
+  }
+  .cl-side .qrow .t { color: var(--terracotta); font-family: var(--sans); font-style: normal;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    display: block; margin-bottom: 4px; font-weight: 600;}
+
+  .cl-main {
+    background: var(--ivory);
+    border: 1px solid var(--navy-12);
+    border-radius: 4px;
+    padding: 14px;
+  }
+  .cl-main .prompt {
+    font-family: var(--serif);
+    font-size: 14px; color: var(--navy);
+    font-style: italic;
+    background: var(--ivory-deep);
+    padding: 10px 14px; border-radius: 4px;
+    margin-bottom: 14px;
+    border-left: 2px solid var(--terracotta);
+  }
+  .cl-main .prompt .q {
+    font-family: var(--sans); font-style: normal;
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 600;
+    display: block; margin-bottom: 6px;
+  }
+
+  .cl-main .tblhead {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px;
+  }
+  .cl-main .tblhead .ttl {
+    font-family: var(--sans); font-size: 11px; font-weight: 600; color: var(--navy);
+  }
+  .cl-main .tblhead .meta {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy-60);
+  }
+  .cl-main .tblhead .meta .bad {
+    display: inline-block; padding: 2px 6px; margin-left: 6px;
+    background: rgba(200,107,69,0.15);
+    color: var(--terracotta); border-radius: 100px; letter-spacing: 0.12em;
+  }
+
+  .cl-table {
+    width: 100%; border-collapse: collapse;
+    font-family: var(--sans); font-size: 10px;
+  }
+  .cl-table th {
+    text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--navy-12);
+    font-weight: 600; color: var(--navy-60);
+    letter-spacing: 0.12em; text-transform: uppercase; font-size: 9px;
+  }
+  .cl-table td {
+    padding: 8px 6px; border-bottom: 1px solid var(--navy-06);
+    color: var(--navy); font-size: 10.5px;
+  }
+  .cl-table td .bad { color: var(--terracotta); font-weight: 600; }
+  .cl-table td .ok { color: var(--forest); font-weight: 600; }
+  .cl-table .rowflag td { background: rgba(200,107,69,0.05); }
+
+  /* Stats row at bottom */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--navy-12);
+    border-bottom: 1px solid var(--navy-12);
+    margin: 0 var(--page-x);
+    padding: 32px 0;
+  }
+  .stats-row .stat {
+    border-right: 1px solid var(--navy-12);
+    padding: 0 32px;
+  }
+  .stats-row .stat:last-child { border-right: none; }
+  .stats-row .stat .label {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .stats-row .stat .label .num {
+    font-family: var(--serif); font-style: italic; font-size: 11px;
+    color: var(--terracotta); letter-spacing: 0;
+  }
+  .stats-row .stat .v {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--navy);
+    letter-spacing: -0.025em;
+  }
+  .stats-row .stat .v em { font-style: italic; color: var(--forest); }
+  .stats-row .stat .desc {
+    font-family: var(--sans); font-size: 11px;
+    color: var(--navy-60); margin-top: 10px; line-height: 1.5;
+  }
+
+  /* bottom bar */
+  .proj-foot {
+    margin: 40px var(--page-x) 0;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .proj-foot .arrow-nav {
+    display: flex; gap: 28px;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .proj-foot .arrow-nav .item.active { color: var(--navy); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="page" style="height: 1280px;">
+  <nav class="nav">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#">About</a>
+      <a href="#" class="active">Work</a>
+      <a href="#">Experience</a>
+      <a href="#">Research</a>
+      <a href="#">Resume</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <section class="proj-hero">
+    <div class="proj-top">
+      <div class="breadcrumb">
+        <span class="num">01</span>
+        <span>Work</span>
+        <span class="sep">/</span>
+        <span class="current">ClinData Explorer</span>
+      </div>
+      <div class="slider">
+        <span class="item active">01 ClinData</span>
+        <span class="item">02 McDonald's</span>
+        <span class="item">03 CardioRisk</span>
+        <span class="item">04 RAG</span>
+        <span class="item">05 Med AI</span>
+        <span class="item">06 SAFELINK</span>
+        <span class="progress"></span>
+      </div>
+    </div>
+
+    <div class="proj-layout">
+
+      <!-- LEFT — typography & meta -->
+      <div class="proj-left">
+        <div class="num">01<span class="dot">.</span></div>
+        <h1 class="name">
+          ClinData<br>
+          <em>Explorer</em><span class="accent">.</span>
+        </h1>
+        <p class="desc">
+          An AI-powered clinical cohort and data-quality explorer designed for
+          hospital research desks — turning 900K+ patient records into
+          queryable insight with natural-language SQL, on-the-fly cohort
+          filtering, and live data-quality rule evaluation.
+        </p>
+        <div class="tags">
+          <span class="tech-chip">AI for Healthcare</span>
+          <span class="tech-chip">Text-to-SQL</span>
+          <span class="tech-chip">Data Quality</span>
+          <span class="tech-chip">Full-Stack AI</span>
+        </div>
+        <a href="#" class="view-link">View Project <span>→</span></a>
+      </div>
+
+      <!-- RIGHT — realistic UI mockup -->
+      <div class="mockup-frame">
+        <div class="topbar">
+          <div class="left">
+            <span class="dots"><span></span><span></span><span></span></span>
+            ClinData Explorer · v1.4
+          </div>
+          <div class="url">cldata.local · cohort/diabetes-2024</div>
+          <div class="right">Live · EHR</div>
+        </div>
+
+        <div class="cl-data">
+          <!-- sidebar -->
+          <div class="cl-side">
+            <div class="ttl">Clinical Tables</div>
+            <ul>
+              <li class="active"><span class="ic"></span>Patients</li>
+              <li><span class="ic"></span>Encounters</li>
+              <li><span class="ic"></span>Lab Results</li>
+              <li><span class="ic"></span>Diagnoses</li>
+              <li><span class="ic"></span>Medications</li>
+              <li><span class="ic"></span>Vitals</li>
+              <li><span class="ic"></span>Procedures</li>
+            </ul>
+            <div class="qlabel">Quality Rules</div>
+            <div class="qrow">
+              <span class="t">R-01 · Missing DOB</span>
+              412 records flagged
+            </div>
+            <div class="qrow">
+              <span class="t">R-02 · Out-of-range HbA1c</span>
+              88 records flagged
+            </div>
+          </div>
+
+          <!-- main panel -->
+          <div class="cl-main">
+            <div class="prompt">
+              <span class="q">Natural Language Query</span>
+              "show me diabetic patients aged 40–65 with HbA1c above 7 in 2024"
+            </div>
+
+            <div class="tblhead">
+              <span class="ttl">Cohort Results — 8,402 patients</span>
+              <span class="meta">12 Rules · <span class="bad">3 Active Flags</span></span>
+            </div>
+
+            <table class="cl-table">
+              <thead>
+                <tr>
+                  <th>Patient ID</th>
+                  <th>Age</th>
+                  <th>Diagnosis</th>
+                  <th>HbA1c</th>
+                  <th>Last Visit</th>
+                  <th>Quality</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rowflag">
+                  <td>PKR-048291</td>
+                  <td>57</td>
+                  <td>T2DM</td>
+                  <td><span class="bad">8.4</span></td>
+                  <td>2024-09-12</td>
+                  <td><span class="bad">R-02</span></td>
+                </tr>
+                <tr>
+                  <td>PKR-048317</td>
+                  <td>52</td>
+                  <td>T2DM</td>
+                  <td>7.2</td>
+                  <td>2024-08-30</td>
+                  <td><span class="ok">OK</span></td>
+                </tr>
+                <tr class="rowflag">
+                  <td>PKR-048402</td>
+                  <td>63</td>
+                  <td>T2DM + HTN</td>
+                  <td><span class="bad">9.1</span></td>
+                  <td>2024-09-04</td>
+                  <td><span class="bad">R-02</span></td>
+                </tr>
+                <tr>
+                  <td>PKR-048519</td>
+                  <td>44</td>
+                  <td>T2DM</td>
+                  <td>7.0</td>
+                  <td>2024-07-22</td>
+                  <td><span class="ok">OK</span></td>
+                </tr>
+                <tr>
+                  <td>PKR-048588</td>
+                  <td>49</td>
+                  <td>T2DM</td>
+                  <td>7.5</td>
+                  <td>2024-09-18</td>
+                  <td><span class="ok">OK</span></td>
+                </tr>
+                <tr class="rowflag">
+                  <td>PKR-048612</td>
+                  <td>61</td>
+                  <td>T2DM</td>
+                  <td>—</td>
+                  <td>2024-06-14</td>
+                  <td><span class="bad">R-01</span></td>
+                </tr>
+                <tr>
+                  <td>PKR-048704</td>
+                  <td>58</td>
+                  <td>T2DM</td>
+                  <td>7.3</td>
+                  <td>2024-08-11</td>
+                  <td><span class="ok">OK</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Stats row -->
+  <div class="stats-row">
+    <div class="stat">
+      <div class="label"><span class="num">i</span>Patient Records</div>
+      <div class="v">912,284</div>
+      <div class="desc">EHR records queried</div>
+    </div>
+    <div class="stat">
+      <div class="label"><span class="num">ii</span>Clinical Tables</div>
+      <div class="v">10</div>
+      <div class="desc">Normalised schema</div>
+    </div>
+    <div class="stat">
+      <div class="label"><span class="num">iii</span>Data Quality Rules</div>
+      <div class="v">12</div>
+      <div class="desc">Live-evaluated</div>
+    </div>
+    <div class="stat">
+      <div class="label"><span class="num">iv</span>Query Latency</div>
+      <div class="v"><em>1.8</em>s</div>
+      <div class="desc">Avg · NL → result set</div>
+    </div>
+  </div>
+
+  <div class="proj-foot">
+    <div class="arrow-nav">
+      <span class="item">← Previous</span>
+      <span class="item active">01 / 08 — ClinData Explorer</span>
+      <span class="item">Next →</span>
+    </div>
+    <div class="meta-label">04 / 12</div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>04 — Project 01 · ClinData Explorer</span>
+    <div class="track"></div>
+    <span>Next project ↓</span>
+  </div>
+</div>
+</body>
+</html>

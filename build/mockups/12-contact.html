@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>12 — Contact · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .ct-wrap { padding: 80px var(--page-x) 70px; position: relative; min-height: 880px; }
+
+  /* big eyebrow row */
+  .ct-top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 70px;
+  }
+  .ct-top .l {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .ct-top .l .num {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--terracotta); letter-spacing: 0; margin-right: 8px;
+  }
+  .ct-top .r {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+
+  /* main 2-col layout */
+  .ct-body {
+    display: grid;
+    grid-template-columns: 0.62fr 0.38fr;
+    gap: 60px;
+    align-items: start;
+    margin-bottom: 80px;
+  }
+
+  /* LEFT — headline + CTA */
+  .ct-left .eyebrow { margin-bottom: 36px; }
+  .ct-left .headline {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 124px;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--navy);
+    margin-bottom: 36px;
+  }
+  .ct-left .headline em { font-style: italic; color: var(--forest); }
+  .ct-left .headline .punct { color: var(--terracotta); font-style: italic; }
+
+  .ct-left .sub {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--navy-80);
+    max-width: 540px;
+    margin-bottom: 44px;
+  }
+  .ct-left .sub em {
+    font-family: var(--serif); font-style: italic; color: var(--forest);
+  }
+  .ct-left .sub strong { color: var(--navy); font-weight: 600; }
+
+  .cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    background: var(--navy); color: var(--ivory);
+    padding: 18px 28px 18px 32px;
+    border-radius: 100px;
+    font-family: var(--sans); font-size: 13px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .cta .arrow {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--terracotta); color: var(--ivory);
+    font-size: 14px;
+  }
+
+  /* RIGHT — contact info card */
+  .ct-right {
+    background: var(--ivory-soft);
+    border: 1px solid var(--navy-12);
+    border-radius: 8px;
+    padding: 32px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ct-right .corner-ghost {
+    position: absolute;
+    right: -8px; top: -40px;
+    font-family: var(--serif); font-style: italic;
+    font-size: 220px;
+    color: rgba(16,36,58,0.04);
+    line-height: 0.85; pointer-events: none;
+  }
+  .ct-right .ttl {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 600;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--navy-12);
+    display: flex; justify-content: space-between;
+  }
+  .ct-right .ttl .num {
+    font-family: var(--serif); font-style: italic; font-size: 13px;
+    color: var(--terracotta); letter-spacing: 0;
+  }
+
+  .ct-row {
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--navy-12);
+    position: relative;
+  }
+  .ct-row:last-child { border-bottom: none; }
+  .ct-row .lbl {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .ct-row .val {
+    font-family: var(--serif); font-size: 18px;
+    color: var(--navy); letter-spacing: -0.005em;
+    line-height: 1.2;
+  }
+  .ct-row .val em { font-style: italic; color: var(--forest); }
+  .ct-row .val a {
+    color: var(--navy); text-decoration: none;
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 1px;
+  }
+  .ct-row .meta {
+    font-family: var(--sans); font-size: 10px;
+    color: var(--navy-60); letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* Footer band */
+  .ct-foot {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 36px;
+    border-top: 1px solid var(--navy-12);
+    margin-top: 30px;
+  }
+  .ct-foot .lt {
+    font-family: var(--serif); font-style: italic;
+    font-size: 18px; color: var(--navy-60);
+  }
+  .ct-foot .lt .accent { color: var(--terracotta); }
+  .ct-foot .rt {
+    display: flex; gap: 24px; align-items: center;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+  }
+  .ct-foot .rt .nm {
+    font-family: var(--serif); font-style: italic;
+    font-size: 14px; color: var(--navy); letter-spacing: 0;
+  }
+</style>
+</head>
+<body>
+<div class="page" style="height: 1024px;">
+  <nav class="nav">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#">About</a>
+      <a href="#">Work</a>
+      <a href="#">Experience</a>
+      <a href="#">Research</a>
+      <a href="#">Resume</a>
+      <a href="#" class="active">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <section class="ct-wrap">
+
+    <div class="ct-top">
+      <div class="l"><span class="num">12</span>Contact · Final Page</div>
+      <div class="r">12 / 12</div>
+    </div>
+
+    <div class="ct-body">
+
+      <!-- LEFT — big editorial statement -->
+      <div class="ct-left">
+        <div class="eyebrow"><span class="dot"></span> Last chapter · Open inbox</div>
+
+        <h1 class="headline">
+          Let's build<br>
+          something<br>
+          <em>intelligent</em><span class="punct">.</span>
+        </h1>
+
+        <p class="sub">
+          Have an <strong>AI product</strong>, <em>research idea</em>,
+          or <strong>engineering challenge</strong>? I'm based in Karachi,
+          open to AI engineering opportunities, and reply to every genuine
+          email. Tell me what you're trying to solve.
+        </p>
+
+        <a href="mailto:naveenkhan0059@gmail.com" class="cta">
+          Let's Talk
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <!-- RIGHT — info card -->
+      <div class="ct-right">
+        <div class="corner-ghost">@</div>
+        <div class="ttl"><span>Channels</span><span class="num">i.</span></div>
+
+        <div class="ct-row">
+          <span class="lbl">Email · Primary</span>
+          <span class="val"><a href="mailto:naveenkhan0059@gmail.com">naveenkhan0059<br>@gmail.com</a></span>
+          <span class="meta">Best for projects &amp; research</span>
+        </div>
+
+        <div class="ct-row">
+          <span class="lbl">GitHub</span>
+          <span class="val"><a href="https://github.com/Naveen-Khan">github.com/<em>Naveen-Khan</em></a></span>
+          <span class="meta">Code · Notebooks · Open source</span>
+        </div>
+
+        <div class="ct-row">
+          <span class="lbl">Location</span>
+          <span class="val">Karachi · <em>Pakistan</em></span>
+          <span class="meta">Asia / Karachi · UTC+05</span>
+        </div>
+
+        <div class="ct-row">
+          <span class="lbl">Availability</span>
+          <span class="val">Open to <em>AI Engineering</em></span>
+          <span class="meta">Full-time · Remote-friendly</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ct-foot">
+      <div class="lt">— End of <span class="accent">portfolio</span>. Thanks for reading.</div>
+      <div class="rt">
+        <span>© 2026</span>
+        <span class="nm">Naveen Khan</span>
+        <span>· AI Engineer</span>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="scroll-indicator">
+    <span>12 — Contact</span>
+    <div class="track"></div>
+    <span>↑ Back to top</span>
+  </div>
+</div>
+</body>
+</html>

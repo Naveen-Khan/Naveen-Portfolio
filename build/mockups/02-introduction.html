@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>02 — Introduction · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .intro-wrap { padding: 90px var(--page-x) 70px; position: relative; }
+
+  /* left rail with vertical chapter marker */
+  .chapter-rail {
+    position: absolute;
+    left: 32px; top: 140px;
+    width: 24px;
+    display: flex; flex-direction: column; align-items: center; gap: 24px;
+  }
+  .chapter-rail .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 28px;
+    color: var(--terracotta);
+    line-height: 1;
+  }
+  .chapter-rail .line {
+    width: 1px;
+    flex: 1;
+    background: var(--navy-20);
+    min-height: 80px;
+  }
+  .chapter-rail .label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--navy-60);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* eyebrow row */
+  .intro-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 80px;
+  }
+  .intro-header .section-title { color: var(--navy); }
+  .intro-header .right {
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--navy-60); font-weight: 500;
+  }
+
+  /* oversized editorial statement */
+  .statement {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 76px;
+    line-height: 1.04;
+    letter-spacing: -0.022em;
+    color: var(--navy);
+    max-width: 1240px;
+    margin-bottom: 80px;
+  }
+  .statement em { font-style: italic; color: var(--forest); font-weight: 400; }
+  .statement .marked {
+    background: linear-gradient(180deg, transparent 65%, rgba(200,107,69,0.18) 65%);
+    padding: 0 4px;
+  }
+  .statement .quote {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--terracotta);
+    font-weight: 400;
+  }
+
+  /* Two column body */
+  .intro-cols {
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+    gap: 80px;
+    margin-top: 40px;
+  }
+  .intro-cols .col-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy-60);
+    font-weight: 500;
+    padding-top: 6px;
+    border-top: 1px solid var(--navy-12);
+  }
+  .intro-cols .col-label .top {
+    display: flex; justify-content: space-between;
+    padding-top: 12px;
+  }
+  .intro-cols .col-label .top .num {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--terracotta);
+  }
+
+  .intro-body p {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--navy-80);
+    margin-bottom: 18px;
+  }
+  .intro-body p strong { color: var(--navy); font-weight: 600; }
+  .intro-body p em { font-family: var(--serif); font-style: italic; color: var(--forest); }
+
+  /* Domain tags row */
+  .domains {
+    display: flex; flex-wrap: wrap; gap: 24px;
+    margin-top: 48px; padding-top: 36px;
+    border-top: 1px solid var(--navy-12);
+  }
+  .domains .dom {
+    display: flex; align-items: baseline; gap: 10px;
+    font-family: var(--sans); font-size: 13px; color: var(--navy);
+    font-weight: 500; letter-spacing: 0.04em;
+  }
+  .domains .dom .n {
+    font-family: var(--serif); font-style: italic; font-size: 12px;
+    color: var(--terracotta); letter-spacing: 0;
+  }
+  .domains .dom .sep {
+    width: 1px; height: 12px; background: var(--navy-20);
+    margin: 0 12px; align-self: center;
+  }
+
+  /* decorative oversized ghost text */
+  .ghost-text {
+    position: absolute;
+    right: 40px; top: 240px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 220px;
+    color: var(--navy);
+    opacity: 0.04;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<div class="page" style="height: 1024px;">
+  <nav class="nav">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#">About</a>
+      <a href="#" class="active">Work</a>
+      <a href="#">Experience</a>
+      <a href="#">Research</a>
+      <a href="#">Resume</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <!-- vertical chapter rail -->
+  <div class="chapter-rail">
+    <span class="num">01</span>
+    <span class="line"></span>
+    <span class="label">Introduction</span>
+  </div>
+
+  <!-- ghost text -->
+  <div class="ghost-text">a&nbsp;i</div>
+
+  <section class="intro-wrap">
+    <div class="intro-header">
+      <div class="section-title">— Chapter 01 / Introduction</div>
+      <div class="right">A note on what I do &nbsp;·&nbsp; 02 / 12</div>
+    </div>
+
+    <h1 class="statement">
+      I work at the intersection of <em>AI</em>,
+      <span class="marked">software engineering</span>,
+      and real-world <em>problem solving</em><span class="quote">.</span>
+    </h1>
+
+    <div class="intro-cols">
+      <div class="col-label">
+        <div class="top"><span>Field of Practice</span><span class="num">i.</span></div>
+      </div>
+      <div class="intro-body">
+        <p>
+          I'm <strong>Naveen Khan</strong>, an AI engineer based in Karachi,
+          Pakistan. My work spans <strong>machine learning</strong>,
+          <strong>generative AI</strong>, <strong>retrieval-augmented systems</strong>,
+          <strong>computer vision</strong> and the <em>full-stack productisation</em>
+          of intelligent features — from research prototype to production backend.
+        </p>
+        <p>
+          I build <strong>RAG assistants</strong> that read through enterprise
+          documents, <strong>clinical data tools</strong> that surface cohort
+          insight from messy EHR tables, <strong>vision pipelines</strong> for medical
+          imagery and wearables, and <strong>AI agents</strong> wired into real
+          workflows through FastAPI, n8n and webhooks. I care about the engineering
+          underneath as much as the model on top.
+        </p>
+      </div>
+    </div>
+
+    <div class="domains">
+      <div class="dom"><span class="n">i</span> Machine Learning</div>
+      <div class="sep"></div>
+      <div class="dom"><span class="n">ii</span> Generative AI</div>
+      <div class="sep"></div>
+      <div class="dom"><span class="n">iii</span> RAG Systems</div>
+      <div class="sep"></div>
+      <div class="dom"><span class="n">iv</span> Computer Vision</div>
+      <div class="sep"></div>
+      <div class="dom"><span class="n">v</span> AI Automation</div>
+      <div class="sep"></div>
+      <div class="dom"><span class="n">vi</span> Backend Systems</div>
+      <div class="sep"></div>
+      <div class="dom"><span class="n">vii</span> Full-Stack AI Products</div>
+    </div>
+  </section>
+
+  <div class="scroll-indicator">
+    <span>02 — Introduction</span>
+    <div class="track"></div>
+    <span>Continue ↓</span>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>07 — Experience · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .exp-wrap { padding: 80px var(--page-x) 70px; position: relative; }
+
+  /* Top title block — asymmetric */
+  .exp-head {
+    display: grid;
+    grid-template-columns: 0.42fr 0.58fr;
+    gap: 80px;
+    align-items: end;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--navy-12);
+    margin-bottom: 70px;
+  }
+  .exp-head .left .eyebrow { margin-bottom: 22px; }
+  .exp-head .left h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 108px;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    color: var(--navy);
+  }
+  .exp-head .left h1 em { font-style: italic; color: var(--forest); }
+  .exp-head .left h1 .dot { color: var(--terracotta); font-style: italic; }
+
+  .exp-head .right {
+    text-align: right;
+  }
+  .exp-head .right .v {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 120px;
+    line-height: 1;
+    color: var(--navy);
+    letter-spacing: -0.04em;
+  }
+  .exp-head .right .v em { font-style: italic; color: var(--terracotta); }
+  .exp-head .right .lbl {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+  .exp-head .right .lbl strong { color: var(--navy); font-weight: 600; }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 80px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px; top: 12px; bottom: 12px;
+    width: 1px;
+    background: var(--navy-12);
+  }
+
+  .tl-row {
+    display: grid;
+    grid-template-columns: 0.2fr 0.6fr 0.2fr;
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--navy-12);
+    position: relative;
+  }
+  .tl-row::before {
+    content: '';
+    position: absolute;
+    left: -64px; top: 38px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--ivory);
+    border: 1px solid var(--navy);
+    z-index: 2;
+  }
+  .tl-row.active::before {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    box-shadow: 0 0 0 5px rgba(200, 107, 69, 0.18);
+  }
+
+  .tl-row .left .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 36px;
+    color: var(--terracotta);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .tl-row .left .date {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    line-height: 1.5;
+  }
+  .tl-row .left .date .strong { color: var(--navy); font-weight: 600; }
+
+  .tl-row .mid .role {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .tl-row .mid .role em { font-style: italic; color: var(--forest); }
+  .tl-row .mid .company {
+    font-family: var(--sans); font-size: 12px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .tl-row .mid .desc {
+    font-family: var(--sans); font-size: 13.5px;
+    color: var(--navy-80); line-height: 1.65;
+    max-width: 580px;
+  }
+  .tl-row .mid .desc strong { color: var(--navy); font-weight: 600; }
+  .tl-row .mid .tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 14px;
+  }
+
+  .tl-row .right {
+    text-align: right;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    padding-top: 12px;
+  }
+  .tl-row .right .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 10px;
+    border: 1px solid var(--navy-20);
+    border-radius: 100px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .tl-row .right .badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--forest); }
+  .tl-row .right .badge.alt { color: var(--terracotta); border-color: var(--terracotta); }
+  .tl-row .right .badge.alt .dot { background: var(--terracotta); }
+  .tl-row .right .city {
+    font-family: var(--serif); font-style: italic; font-size: 13px;
+    color: var(--navy-60); margin-top: 8px; letter-spacing: 0;
+    text-transform: none;
+  }
+
+</style>
+</head>
+<body>
+<div class="page" style="height: 1280px;">
+  <nav class="nav">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#">About</a>
+      <a href="#">Work</a>
+      <a href="#" class="active">Experience</a>
+      <a href="#">Research</a>
+      <a href="#">Resume</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <section class="exp-wrap">
+
+    <div class="exp-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span> Chapter 03 · Experience</div>
+        <h1>Building<br>AI systems,<br><em>hands-on</em><span>.</span></h1>
+      </div>
+      <div class="right">
+        <div class="v"><em>06</em></div>
+        <div class="lbl">
+          Months<br>
+          <strong>Building AI Systems</strong><br>
+          2024 → Present
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-row active">
+        <div class="left">
+          <div class="num">01</div>
+          <div class="date"><span class="strong">08 / 2026</span><br>Present</div>
+        </div>
+        <div class="mid">
+          <div class="role">Full-Stack AI <em>Engineer</em></div>
+          <div class="company">Sofstica Solutions</div>
+          <div class="desc">
+            Designing and shipping <strong>production AI features</strong> across
+            the full stack — RAG assistants, AI agents, document-intelligence
+            pipelines, and FastAPI services backing customer-facing products.
+          </div>
+          <div class="tags">
+            <span class="tech-chip">Generative AI</span>
+            <span class="tech-chip">RAG</span>
+            <span class="tech-chip">FastAPI</span>
+            <span class="tech-chip">Full-Stack</span>
+          </div>
+        </div>
+        <div class="right">
+          <div class="badge"><span class="dot"></span>Current</div>
+          <div class="city">Karachi</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="left">
+          <div class="num">02</div>
+          <div class="date"><span class="strong">01 / 2026 – 04 / 2026</span><br>4 months</div>
+        </div>
+        <div class="mid">
+          <div class="role">AI Engineer <em>Intern</em></div>
+          <div class="company">ITSolera Pvt. Ltd.</div>
+          <div class="desc">
+            Built <strong>LLM-powered features</strong> for client products,
+            prototyped retrieval pipelines, and contributed to the deployment
+            of <strong>AI agents</strong> wired into real customer workflows.
+          </div>
+          <div class="tags">
+            <span class="tech-chip">LLM</span>
+            <span class="tech-chip">AI Agents</span>
+            <span class="tech-chip">Python</span>
+          </div>
+        </div>
+        <div class="right">
+          <div class="badge alt"><span class="dot"></span>Internship</div>
+          <div class="city">Karachi</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="left">
+          <div class="num">03</div>
+          <div class="date"><span class="strong">07 / 2025 – 08 / 2025</span><br>2 months</div>
+        </div>
+        <div class="mid">
+          <div class="role">AI Engineer <em>Intern</em></div>
+          <div class="company">Civil Aviation Authority of Pakistan</div>
+          <div class="desc">
+            Worked on internal <strong>data-driven tooling</strong> and
+            prototype ML features supporting aviation operations — including
+            exploratory analytics and prediction workflows on operational data.
+          </div>
+          <div class="tags">
+            <span class="tech-chip">ML</span>
+            <span class="tech-chip">EDA</span>
+            <span class="tech-chip">Python</span>
+          </div>
+        </div>
+        <div class="right">
+          <div class="badge alt"><span class="dot"></span>Internship</div>
+          <div class="city">Karachi</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="left">
+          <div class="num">04</div>
+          <div class="date"><span class="strong">11 / 2024 – 11 / 2025</span><br>12 months</div>
+        </div>
+        <div class="mid">
+          <div class="role">AI <em>Researcher</em></div>
+          <div class="company">SAFELINK — Multimodal Wearable</div>
+          <div class="desc">
+            Led research on a <strong>multimodal smart wearable</strong> for
+            personal safety — fusing computer vision, edge inference and IoT
+            sensors into a working prototype with an SOS escalation path.
+          </div>
+          <div class="tags">
+            <span class="tech-chip">Computer Vision</span>
+            <span class="tech-chip">Edge AI</span>
+            <span class="tech-chip">IoT</span>
+          </div>
+        </div>
+        <div class="right">
+          <div class="badge"><span class="dot"></span>Research</div>
+          <div class="city">Mehran UET</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="scroll-indicator">
+    <span>07 — Experience</span>
+    <div class="track"></div>
+    <span>About ↓</span>
+  </div>
+</div>
+</body>
+</html>

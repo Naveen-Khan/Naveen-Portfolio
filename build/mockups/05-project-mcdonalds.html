@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>05 — McDonald's AI Support · Naveen Khan</title>
+<link rel="stylesheet" href="editorial.css">
+<style>
+  .page.dark-bg {
+    background: var(--paper-dark);
+    color: var(--ivory);
+  }
+  .nav.dark-bg .brand,
+  .nav.dark-bg .menu a,
+  .nav.dark-bg .pill {
+    color: var(--ivory);
+  }
+  .nav.dark-bg .brand .mono { border-color: var(--ivory); }
+  .nav.dark-bg .pill { border-color: rgba(245,241,232,0.4); }
+
+  .mcd-wrap {
+    padding: 60px var(--page-x) 70px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    gap: 80px;
+    align-items: center;
+    min-height: 760px;
+  }
+
+  /* decorative ghost text */
+  .ghost-num-dark {
+    position: absolute;
+    right: 60px; top: 100px;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 380px;
+    line-height: 0.82;
+    color: rgba(245, 241, 232, 0.05);
+    letter-spacing: -0.04em;
+    pointer-events: none;
+  }
+
+  /* Left — typography */
+  .mcd-left {
+    position: relative;
+    z-index: 2;
+  }
+  .mcd-left .eyebrow.light { color: rgba(245,241,232,0.6); margin-bottom: 28px; }
+  .mcd-left .eyebrow.light .dot { background: var(--gold); }
+  .mcd-left .eyebrow .bar { background: rgba(245,241,232,0.4); }
+
+  .mcd-headline {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 86px;
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    color: var(--ivory);
+    margin-bottom: 36px;
+  }
+  .mcd-headline em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .mcd-headline .punct {
+    color: var(--terracotta);
+    font-style: italic;
+  }
+
+  .mcd-sub {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(245, 241, 232, 0.72);
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+  .mcd-sub strong { color: var(--ivory); font-weight: 600; }
+
+  .mcd-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .mcd-tags .chip {
+    padding: 6px 12px;
+    border: 1px solid rgba(245,241,232,0.25);
+    border-radius: 100px;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(245,241,232,0.8); font-weight: 500;
+  }
+
+  .mcd-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(245,241,232,0.18);
+  }
+  .mcd-meta .col .label {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(245,241,232,0.55); font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .mcd-meta .col .v {
+    font-family: var(--serif); font-size: 22px;
+    color: var(--ivory); letter-spacing: -0.01em;
+  }
+  .mcd-meta .col .v em { font-style: italic; color: var(--gold); }
+
+  .mcd-view {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--terracotta); font-weight: 600;
+    text-decoration: none; margin-top: 24px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--terracotta);
+  }
+
+  /* Right — chat UI mockup */
+  .chat-mockup {
+    background: var(--ivory);
+    color: var(--navy);
+    border-radius: 14px;
+    padding: 0;
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+  .chat-mockup .ch-head {
+    background: var(--navy);
+    color: var(--ivory);
+    padding: 16px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .chat-mockup .ch-head .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--sans); font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .chat-mockup .ch-head .brand .glyph {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--terracotta); color: var(--ivory);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+  }
+  .chat-mockup .ch-head .status {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(245,241,232,0.7);
+  }
+  .chat-mockup .ch-head .status .dot {
+    display: inline-block; width: 6px; height: 6px;
+    border-radius: 50%; background: #5DD899;
+    margin-right: 6px;
+  }
+  .chat-mockup .ch-head .ic-menu {
+    font-family: var(--sans); color: rgba(245,241,232,0.6); font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .chat-mockup .ch-body {
+    padding: 22px 22px 8px;
+    background: var(--ivory);
+  }
+  .msg {
+    margin-bottom: 14px;
+    display: flex; flex-direction: column;
+  }
+  .msg.user { align-items: flex-end; }
+  .msg .meta {
+    font-family: var(--sans); font-size: 9px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .msg .bub {
+    padding: 12px 16px; border-radius: 16px;
+    font-family: var(--sans); font-size: 13px; line-height: 1.5;
+    max-width: 75%;
+  }
+  .msg.user .bub {
+    background: var(--navy); color: var(--ivory);
+    border-bottom-right-radius: 4px;
+  }
+  .msg.bot .bub {
+    background: var(--ivory-soft); color: var(--navy);
+    border: 1px solid var(--navy-12);
+    border-bottom-left-radius: 4px;
+  }
+  .msg.bot .bub .ord {
+    margin-top: 10px;
+    background: var(--ivory);
+    border: 1px solid var(--navy-12);
+    border-radius: 8px;
+    padding: 10px;
+  }
+  .msg.bot .bub .ord .ttl {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy-60); font-weight: 600;
+    display: flex; justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .msg.bot .bub .ord .ttl .s {
+    color: var(--forest); font-weight: 700;
+  }
+  .msg.bot .bub .ord ul { list-style: none; }
+  .msg.bot .bub .ord ul li {
+    display: flex; justify-content: space-between;
+    font-size: 12px; padding: 4px 0;
+    border-bottom: 1px dashed var(--navy-06);
+  }
+  .msg.bot .bub .ord ul li:last-child { border-bottom: none; }
+  .msg.bot .bub .ord ul li .q {
+    color: var(--navy-60); font-size: 10px;
+  }
+
+  .msg.bot .bub .actions {
+    display: flex; gap: 8px; margin-top: 10px;
+  }
+  .msg.bot .bub .actions button {
+    background: transparent;
+    border: 1px solid var(--navy-20);
+    border-radius: 100px;
+    padding: 6px 12px;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy); font-weight: 600;
+    cursor: pointer;
+  }
+  .msg.bot .bub .actions button.pri {
+    background: var(--terracotta); border-color: var(--terracotta); color: var(--ivory);
+  }
+
+  .chat-mockup .ch-input {
+    padding: 14px 22px 22px;
+    background: var(--ivory);
+    display: flex; align-items: center; gap: 12px;
+    border-top: 1px solid var(--navy-12);
+  }
+  .chat-mockup .ch-input .field {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid var(--navy-20);
+    border-radius: 100px;
+    font-family: var(--sans); font-size: 12px;
+    color: var(--navy-60);
+  }
+  .chat-mockup .ch-input .send {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--navy); color: var(--ivory);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="page dark-bg" style="height: 1024px;">
+  <nav class="nav dark-bg">
+    <div class="brand"><span class="mono">NK</span>NAVEEN&nbsp;KHAN</div>
+    <div class="menu">
+      <a href="#">About</a>
+      <a href="#" class="active">Work</a>
+      <a href="#">Experience</a>
+      <a href="#">Research</a>
+      <a href="#">Resume</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="pill">Let's Talk <span class="arrow">→</span></a>
+  </nav>
+
+  <div class="ghost-num-dark">02</div>
+
+  <section class="mcd-wrap">
+
+    <!-- LEFT -->
+    <div class="mcd-left">
+      <div class="eyebrow light"><span class="dot"></span> Project 02 &nbsp;·&nbsp; Customer AI</div>
+
+      <h1 class="mcd-headline">
+        Customer<br>
+        support,<br>
+        <em>reimagined</em><span class="punct">.</span>
+      </h1>
+
+      <p class="mcd-sub">
+        An <strong>AI customer-support and order-management</strong> agent
+        for a retail F&B operator — answering natural-language order queries,
+        modifying live orders, handling refunds, and routing edge cases to
+        the right human queue.
+      </p>
+
+      <div class="mcd-tags">
+        <span class="chip">LLM Orchestration</span>
+        <span class="chip">AI Agents</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">Order Mgmt</span>
+      </div>
+
+      <div class="mcd-meta">
+        <div class="col">
+          <div class="label">Type</div>
+          <div class="v">Customer <em>AI</em></div>
+        </div>
+        <div class="col">
+          <div class="label">Stack</div>
+          <div class="v">FastAPI · LLM</div>
+        </div>
+        <div class="col">
+          <div class="label">Scope</div>
+          <div class="v">Production</div>
+        </div>
+      </div>
+
+      <a href="#" class="mcd-view">View Project <span>→</span></a>
+    </div>
+
+    <!-- RIGHT — chat mockup -->
+    <div class="chat-mockup">
+      <div class="ch-head">
+        <div class="brand">
+          <span class="glyph">M</span>
+          McD AI &nbsp;·&nbsp; Support
+        </div>
+        <div class="status"><span class="dot"></span>Online · 09:42</div>
+        <div class="ic-menu">···</div>
+      </div>
+
+      <div class="ch-body">
+        <div class="msg user">
+          <span class="meta">You · 09:41</span>
+          <div class="bub">Hi, I'd like to add a McFlurry to my order #MK-22841 and change the fries to large.</div>
+        </div>
+
+        <div class="msg bot">
+          <span class="meta">McD AI · 09:42</span>
+          <div class="bub">
+            Got it — I've pulled up order <strong>#MK-22841</strong>. Here's the proposed update:
+            <div class="ord">
+              <div class="ttl"><span>Order Update</span><span class="s">+ PKR 540</span></div>
+              <ul>
+                <li><span>Fries · Medium → Large</span><span class="q">+ 180</span></li>
+                <li><span>Add McFlurry Oreo</span><span class="q">+ 360</span></li>
+                <li><span>Delivery ETA</span><span class="q">~22 min</span></li>
+              </ul>
+            </div>
+            <div class="actions">
+              <button class="pri">Confirm</button>
+              <button>Edit</button>
+              <button>Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ch-input">
+        <div class="field">Ask about your order…</div>
+        <div class="send">↑</div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="scroll-indicator">
+    <span style="color: rgba(245,241,232,0.55);">05 — Project 02 · McDonald's AI</span>
+    <div class="track" style="background: rgba(245,241,232,0.15);"></div>
+    <span style="color: rgba(245,241,232,0.55);">Continue ↓</span>
+  </div>
+</div>
+</body>
+</html>
