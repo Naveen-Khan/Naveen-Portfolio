@@ -1,0 +1,229 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =====================================================================
+   NAVEEN KHAN — Editorial Portfolio Design System
+   ===================================================================== */
+
+@theme inline {
+  /* editorial color palette */
+  --color-ivory: #F5F1E8;
+  --color-ivory-soft: #EFE9DC;
+  --color-ivory-deep: #E6DECC;
+  --color-navy: #10243A;
+  --color-navy-dark: #0C1A2C;
+  --color-forest: #0F6654;
+  --color-forest-soft: #1B7A66;
+  --color-terracotta: #C86B45;
+  --color-gold: #B99A5B;
+  --color-sage: #AAB9A5;
+  --color-paper-dark: #0C1A2C;
+
+  /* shadcn tokens mapped to editorial palette */
+  --color-background: var(--color-ivory);
+  --color-foreground: var(--color-navy);
+  --color-card: var(--color-ivory);
+  --color-card-foreground: var(--color-navy);
+  --color-popover: var(--color-ivory);
+  --color-popover-foreground: var(--color-navy);
+  --color-primary: var(--color-navy);
+  --color-primary-foreground: var(--color-ivory);
+  --color-secondary: var(--color-ivory-soft);
+  --color-secondary-foreground: var(--color-navy);
+  --color-muted: var(--color-ivory-soft);
+  --color-muted-foreground: #5a6b7d;
+  --color-accent: var(--color-ivory-deep);
+  --color-accent-foreground: var(--color-navy);
+  --color-destructive: #dc2626;
+  --color-border: rgba(16, 36, 58, 0.12);
+  --color-input: rgba(16, 36, 58, 0.12);
+  --color-ring: var(--color-navy);
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 14px;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* sidebar not used but keep token valid */
+  --color-sidebar: var(--color-ivory);
+  --color-sidebar-foreground: var(--color-navy);
+  --color-sidebar-primary: var(--color-navy);
+  --color-sidebar-primary-foreground: var(--color-ivory);
+  --color-sidebar-accent: var(--color-ivory-soft);
+  --color-sidebar-accent-foreground: var(--color-navy);
+  --color-sidebar-border: rgba(16, 36, 58, 0.12);
+  --color-sidebar-ring: var(--color-navy);
+
+  /* chart tokens (unused but valid) */
+  --color-chart-1: var(--color-forest);
+  --color-chart-2: var(--color-terracotta);
+  --color-chart-3: var(--color-gold);
+  --color-chart-4: var(--color-sage);
+  --color-chart-5: var(--color-navy);
+}
+
+:root {
+  --font-ivory: #F5F1E8;
+  --font-navy: #10243A;
+  --font-forest: #0F6654;
+  --font-terracotta: #C86B45;
+  --font-gold: #B99A5B;
+}
+
+html, body {
+  background: var(--color-ivory);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+}
+
+/* selection */
+::selection {
+  background: var(--color-terracotta);
+  color: var(--color-ivory);
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--color-ivory-soft); }
+::-webkit-scrollbar-thumb { background: rgba(16,36,58,0.18); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(16,36,58,0.32); }
+
+/* === Editorial utility classes === */
+.editorial-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(16, 36, 58, 0.6);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.editorial-eyebrow.light { color: rgba(245, 241, 232, 0.7); }
+
+.editorial-eyebrow .dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--color-terracotta);
+  display: inline-block;
+}
+
+.editorial-meta-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(16, 36, 58, 0.6);
+}
+
+.editorial-section-title {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(16, 36, 58, 0.6);
+}
+
+.editorial-rule {
+  height: 1px;
+  background: rgba(16, 36, 58, 0.12);
+  width: 100%;
+}
+
+.editorial-tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(16, 36, 58, 0.2);
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(16, 36, 58, 0.8);
+}
+
+.dark-chip {
+  border-color: rgba(245, 241, 232, 0.22);
+  color: rgba(245, 241, 232, 0.75);
+}
+
+.editorial-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  text-decoration: none;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-navy);
+  transition: color 0.25s ease;
+}
+.editorial-cta:hover { color: var(--color-terracotta); border-color: var(--color-terracotta); }
+
+/* serif headline */
+.editorial-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.96;
+  color: var(--color-navy);
+}
+.editorial-serif em {
+  font-style: italic;
+  color: var(--color-forest);
+  font-weight: 400;
+}
+
+/* vertical rotated label */
+.editorial-vertical {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(16, 36, 58, 0.6);
+}
+
+/* hide scrollbar for horizontal scroll regions */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+
+/* framer motion reveal: avoid flash before hydration */
+.reveal-init { opacity: 0; }
+
+/* responsive type scaling */
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+}
