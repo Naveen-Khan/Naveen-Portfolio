@@ -3,7 +3,11 @@
 import { Reveal } from "./reveal";
 import { PROJECTS } from "@/lib/portfolio";
 
-export function SelectedWorkSection() {
+interface Props {
+  onSelectProject: (slug: string) => void;
+}
+
+export function SelectedWorkSection({ onSelectProject }: Props) {
   return (
     <section id="work" className="relative py-16 md:py-24 px-6 md:px-10 lg:px-12">
       <div className="max-w-[1400px] mx-auto">
@@ -39,13 +43,13 @@ export function SelectedWorkSection() {
           </Reveal>
         </div>
 
-        {/* Project rows */}
+        {/* Project rows — click opens detail view */}
         <div className="mt-5">
           {PROJECTS.map((p, i) => (
             <Reveal key={p.num} delay={i * 0.04}>
-              <a
-                href={p.num === "01" ? "#project-clindata" : p.num === "02" ? "#project-mcdonalds" : p.num === "06" ? "#project-safelink" : "#work"}
-                className="group grid grid-cols-[40px_1fr_80px] sm:grid-cols-[60px_1fr_1.1fr_220px_80px] gap-3 sm:gap-6 items-baseline py-5 md:py-6 border-t border-[rgba(16,36,58,0.12)] relative transition-[padding] duration-300 hover:pl-3"
+              <button
+                onClick={() => onSelectProject(p.slug)}
+                className="group w-full text-left grid grid-cols-[40px_1fr_80px] sm:grid-cols-[60px_1fr_1.1fr_220px_80px] gap-3 sm:gap-6 items-baseline py-5 md:py-6 border-t border-[rgba(16,36,58,0.12)] relative transition-[padding] duration-300 hover:pl-3 cursor-pointer"
               >
                 {/* hover dot */}
                 <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[6px] h-[6px] rounded-full bg-[#C86B45] opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -54,9 +58,9 @@ export function SelectedWorkSection() {
                   {p.num}
                 </div>
 
-                <div className="font-serif text-[22px] md:text-[30px] text-[#10243A] leading-[1.1] tracking-[-0.01em]">
+                <div className="font-serif text-[22px] md:text-[30px] text-[#10243A] leading-[1.1] tracking-[-0.01em] group-hover:text-[#C86B45] transition-colors">
                   {p.name}
-                  <span className="block font-sans text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.6)] mt-1.5 font-medium">
+                  <span className="block font-sans text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.6)] mt-1.5 font-medium group-hover:text-[#10243A] transition-colors">
                     {p.category}
                   </span>
                 </div>
@@ -82,11 +86,19 @@ export function SelectedWorkSection() {
                 <div className="text-right font-sans text-[11px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium group-hover:text-[#C86B45] group-hover:translate-x-2 transition-all">
                   View →
                 </div>
-              </a>
+              </button>
             </Reveal>
           ))}
           <div className="border-b border-[rgba(16,36,58,0.12)]" />
         </div>
+
+        {/* Helper text */}
+        <Reveal delay={0.2}>
+          <div className="mt-10 md:mt-12 flex items-center justify-center gap-2 text-[10px] tracking-[0.32em] uppercase text-[rgba(16,36,58,0.5)] font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C86B45]" />
+            Click any project to open its detail page
+          </div>
+        </Reveal>
       </div>
     </section>
   );
