@@ -25,17 +25,24 @@ export function ScrollProgress() {
 }
 
 export function EditorialNav() {
-  const [active, setActive] = useState<string>("home");
+  const [active, setActive] = useState<string>("about");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  // detect active section
+  // detect active section — default to About (since hero/home isn't in the nav menu)
   useEffect(() => {
     const sections = ["home", ...NAV_ITEMS.map((i) => i.href.replace("#", ""))];
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
+          if (e.isIntersecting) {
+            // When home is in view, default to About as active (matches mockup)
+            if (e.target.id === "home") {
+              setActive("about");
+            } else {
+              setActive(e.target.id);
+            }
+          }
         });
       },
       { rootMargin: "-30% 0px -60% 0px" }
