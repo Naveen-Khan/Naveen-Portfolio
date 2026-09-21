@@ -78,7 +78,7 @@ export function ResearchSection() {
               <span className="dot" />
               Chapter 06 · Lab &amp; Bench
             </div>
-            <h2 className="editorial-serif text-[60px] sm:text-[72px] md:text-[84px] lg:text-[96px] leading-[0.9] tracking-[-0.04em]">
+            <h2 className="editorial-serif text-[48px] sm:text-[60px] md:text-[72px] lg:text-[80px] leading-[0.9] tracking-[-0.04em]">
               Research{" "}
               <span className="text-[#C86B45] italic font-normal">&amp;</span>
               <br />

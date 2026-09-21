@@ -50,7 +50,7 @@ export function HeroSection() {
             initial="hidden"
             animate="show"
             custom={1}
-            className="editorial-serif text-[44px] sm:text-[64px] md:text-[80px] lg:text-[96px] leading-[0.96] tracking-[-0.025em] mb-7 md:mb-8"
+            className="editorial-serif text-[40px] sm:text-[56px] md:text-[68px] lg:text-[78px] leading-[0.96] tracking-[-0.025em] mb-7 md:mb-8"
             style={{ fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
           >
             <span className="block">Building</span>
@@ -126,34 +126,34 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative h-[480px] sm:h-[560px] md:h-[640px] lg:h-[720px]"
+          className="relative h-[420px] sm:h-[500px] md:h-[560px] lg:h-[620px]"
         >
           {/* ORGANIC ARCH SHAPE — solid filled gradient (gold→terracotta), sits behind portrait */}
           <div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-[260px] h-[440px] sm:w-[320px] sm:h-[540px] md:w-[380px] md:h-[600px] lg:w-[420px] lg:h-[660px]"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-[230px] h-[380px] sm:w-[280px] sm:h-[470px] md:w-[330px] md:h-[520px] lg:w-[360px] lg:h-[570px]"
             style={{
               background: "linear-gradient(180deg, #B99A5B 0%, #C86B45 100%)",
-              borderRadius: "220px 220px 24px 24px",
+              borderRadius: "190px 190px 20px 20px",
               opacity: 0.92,
             }}
           >
             {/* small decorative ring on top-left of arch (outside) */}
             <div
-              className="absolute -top-7 -left-10 w-[110px] h-[110px] rounded-full border border-[rgba(16,36,58,0.2)]"
+              className="absolute -top-6 -left-9 w-[90px] h-[90px] rounded-full border border-[rgba(16,36,58,0.2)]"
               aria-hidden
             />
           </div>
 
-          {/* PORTRAIT FRAME — on top of arch, inset 60px from top, narrower than arch so arch peeks out on top + sides */}
+          {/* PORTRAIT FRAME — on top of arch, inset 50px from top, narrower than arch so arch peeks out on top + sides */}
           <div
-            className="absolute top-[60px] left-1/2 -translate-x-1/2 w-[220px] h-[380px] sm:w-[280px] sm:h-[460px] md:w-[340px] md:h-[520px] lg:w-[360px] lg:h-[580px] overflow-hidden bg-[#E6DECC]"
+            className="absolute top-[50px] left-1/2 -translate-x-1/2 w-[195px] h-[330px] sm:w-[245px] sm:h-[400px] md:w-[295px] md:h-[450px] lg:w-[320px] lg:h-[500px] overflow-hidden bg-[#E6DECC]"
             style={{
-              borderRadius: "180px 180px 16px 16px",
+              borderRadius: "160px 160px 14px 14px",
               boxShadow: "0 30px 60px -30px rgba(16,36,58,0.25)",
             }}
           >
             <Image
-              src="/portfolio/portrait.png"
+              src="/portfolio/portrait-v2.png"
               alt="Naveen Khan — AI Engineer portrait"
               fill
               className="object-cover"

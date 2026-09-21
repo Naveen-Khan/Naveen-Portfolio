@@ -18,7 +18,7 @@ export function SelectedWorkSection({ onSelectProject }: Props) {
               <span className="dot" />
               Chapter 02 · Selected Work
             </div>
-            <h2 className="editorial-serif text-[64px] sm:text-[88px] md:text-[110px] lg:text-[132px] leading-[0.88] tracking-[-0.04em]">
+            <h2 className="editorial-serif text-[52px] sm:text-[72px] md:text-[88px] lg:text-[100px] leading-[0.88] tracking-[-0.04em]">
               Selected
               <br />
               Work<em>.</em>

@@ -4,7 +4,7 @@
 // Renders an editorial "schematic" panel with project-specific motif data.
 
 interface GenericVisualProps {
-  visualType: "cardio" | "rag" | "medical" | "cv-suite" | "sales";
+  visualType: "cardio" | "rag" | "cv-suite";
 }
 
 interface PanelRow {
@@ -196,44 +196,8 @@ function getConfig(visualType: string): {
         ],
       };
     case "medical":
-      return {
-        title: "Medical Image AI · Classifier",
-        status: "Research · v0.7",
-        schematic: [
-          {
-            title: "Input · Image Volume",
-            rows: [
-              { label: "Modality", value: "X-ray" },
-              { label: "Resolution", value: "512×512" },
-              { label: "Augmentation", value: "Clinical-aware" },
-            ],
-          },
-          {
-            title: "Model · CNN",
-            accent: true,
-            rows: [
-              { label: "Backbone", value: "Transfer" },
-              { label: "Classes", value: "4" },
-              { label: "Loss", value: "Focal" },
-            ],
-          },
-          {
-            title: "Output · Clinician View",
-            rows: [
-              { label: "Top Class", value: "Pneumonia" },
-              { label: "Confidence", value: "0.93" },
-              { label: "Grad-CAM", value: "Yes" },
-            ],
-          },
-        ],
-        motifTitle: "Evaluation · Held-out Test Set",
-        motif: [
-          { label: "Accuracy", value: "0.89" },
-          { label: "F1", value: "0.87" },
-          { label: "AUC", value: "0.92" },
-          { label: "Sensitivity", value: "0.91" },
-        ],
-      };
+      // Removed — Radiomed now has its own bespoke visual.
+      return getDefaultConfig();
     case "cv-suite":
       return {
         title: "Computer Vision Model Suite",
@@ -274,51 +238,19 @@ function getConfig(visualType: string): {
         ],
       };
     case "sales":
-      return {
-        title: "Sales Prediction · Forecasting",
-        status: "Production · v1.0",
-        schematic: [
-          {
-            title: "Input · Historical Sales",
-            rows: [
-              { label: "History", value: "3 yrs daily" },
-              { label: "Features", value: "20+" },
-              { label: "External", value: "Calendar + Promo" },
-            ],
-          },
-          {
-            title: "Model · Regressor",
-            accent: true,
-            rows: [
-              { label: "Algorithm", value: "Gradient Boost" },
-              { label: "Tuning", value: "Bayesian" },
-              { label: "CV", value: "Time-series" },
-            ],
-          },
-          {
-            title: "Output · Forecast",
-            rows: [
-              { label: "Horizon", value: "30 / 90 days" },
-              { label: "Granularity", value: "Per-SKU" },
-              { label: "Aggregate", value: "Auto roll-up" },
-            ],
-          },
-        ],
-        motifTitle: "Backtest · Held-out Period",
-        motif: [
-          { label: "MAPE", value: "7.4%" },
-          { label: "RMSE", value: "12.3" },
-          { label: "R²", value: "0.91" },
-          { label: "Bias", value: "+0.8%" },
-        ],
-      };
+      // Removed — Revenue AI now has its own bespoke visual.
+      return getDefaultConfig();
     default:
-      return {
-        title: "Project · Detail",
-        status: "",
-        schematic: [],
-        motifTitle: "",
-        motif: [],
-      };
+      return getDefaultConfig();
   }
+}
+
+function getDefaultConfig() {
+  return {
+    title: "Project · Detail",
+    status: "",
+    schematic: [],
+    motifTitle: "",
+    motif: [],
+  };
 }

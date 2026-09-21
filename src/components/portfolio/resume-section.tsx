@@ -46,7 +46,9 @@ const PROJECT_ROWS = [
   { num: "01", cat: "Healthcare AI", name: "ClinData Explorer", desc: "AI-powered clinical cohort & data-quality explorer · Text-to-SQL · 912K records." },
   { num: "02", cat: "Customer AI", name: "McDonald's AI Agent", desc: "AI customer-support and order-management workflow · LLM · FastAPI." },
   { num: "04", cat: "Document AI", name: "Enterprise RAG Assistant", desc: "Retrieval-augmented generation system for enterprise document intelligence." },
+  { num: "05", cat: "Clinical AI", name: "Radiomed", desc: "Automated medical image diagnosis assistant · CNN · 99.8% top accuracy." },
   { num: "06", cat: "Wearable · CV", name: "SAFELINK", desc: "Multimodal smart wearable for personal safety · CV + Edge + IoT." },
+  { num: "08", cat: "Forecasting", name: "Revenue AI", desc: "Sales prediction dashboard · polynomial regression · budget sliders." },
 ];
 
 const ACHIEVEMENTS = [
@@ -67,7 +69,7 @@ export function ResumeSection() {
               <span className="dot" />
               Chapter 07 · Resume
             </div>
-            <h2 className="editorial-serif text-[72px] sm:text-[96px] md:text-[110px] lg:text-[124px] leading-[0.88] tracking-[-0.04em]">
+            <h2 className="editorial-serif text-[56px] sm:text-[72px] md:text-[88px] lg:text-[96px] leading-[0.88] tracking-[-0.04em]">
               Résumé<em>.</em>
             </h2>
           </Reveal>

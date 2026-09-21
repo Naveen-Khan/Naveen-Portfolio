@@ -6,6 +6,8 @@ import { Reveal } from "./reveal";
 import { ClinDataVisual } from "./visuals/clindata-visual";
 import { McdonaldsVisual } from "./visuals/mcdonalds-visual";
 import { SafelinkVisual } from "./visuals/safelink-visual";
+import { RadiomedVisual } from "./visuals/radiomed-visual";
+import { RevenueAiVisual } from "./visuals/revenue-ai-visual";
 import { GenericVisual } from "./visuals/generic-visual";
 import { PROJECTS, type ProjectDetail } from "@/lib/portfolio";
 
@@ -63,7 +65,7 @@ export function ProjectDetailView({ detail, onClose, onSelect }: Props) {
           <div>
             <Reveal>
               <div
-                className="font-serif text-[120px] sm:text-[160px] md:text-[200px] leading-[0.82] tracking-[-0.04em] mb-3"
+                className="font-serif text-[90px] sm:text-[120px] md:text-[160px] leading-[0.82] tracking-[-0.04em] mb-3"
                 style={{ color: "var(--color-ivory)", fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
               >
                 {detail.num}
@@ -72,7 +74,7 @@ export function ProjectDetailView({ detail, onClose, onSelect }: Props) {
             </Reveal>
             <Reveal delay={0.1}>
               <h1
-                className="font-serif text-[40px] sm:text-[52px] md:text-[60px] leading-[0.94] tracking-[-0.025em] mb-5"
+                className="font-serif text-[36px] sm:text-[44px] md:text-[52px] leading-[0.94] tracking-[-0.025em] mb-4"
                 style={{ color: "var(--color-ivory)", fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
               >
                 {detail.heroTitleLines.map((line, i) => (
@@ -147,11 +149,11 @@ export function ProjectDetailView({ detail, onClose, onSelect }: Props) {
               {detail.visualType === "clindata" && <ClinDataVisual />}
               {detail.visualType === "mcdonalds" && <McdonaldsVisual />}
               {detail.visualType === "safelink" && <SafelinkVisual />}
+              {detail.visualType === "radiomed" && <RadiomedVisual />}
+              {detail.visualType === "revenue-ai" && <RevenueAiVisual />}
               {(detail.visualType === "cardio" ||
                 detail.visualType === "rag" ||
-                detail.visualType === "medical" ||
-                detail.visualType === "cv-suite" ||
-                detail.visualType === "sales") && (
+                detail.visualType === "cv-suite") && (
                 <GenericVisual visualType={detail.visualType} />
               )}
             </motion.div>

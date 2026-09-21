@@ -123,7 +123,7 @@ export function AboutSection() {
                 style={{ aspectRatio: "4 / 5" }}
               >
                 <Image
-                  src="/portfolio/portrait.png"
+                  src="/portfolio/portrait-v2.png"
                   alt="Naveen Khan — portrait"
                   fill
                   className="object-cover"

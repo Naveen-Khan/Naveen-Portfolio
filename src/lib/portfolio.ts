@@ -22,9 +22,9 @@ export interface ProjectDetail extends Project {
     | "safelink"
     | "cardio"
     | "rag"
-    | "medical"
+    | "radiomed"
     | "cv-suite"
-    | "sales";
+    | "revenue-ai";
   stats?: Array<{
     roman: string;
     label: string;
@@ -117,12 +117,12 @@ export const PROJECTS: Project[] = [
   },
   {
     num: "05",
-    slug: "medical-image-classification",
-    name: "Medical Image Classification",
-    category: "Deep Learning · Healthcare",
+    slug: "radiomed",
+    name: "Radiomed",
+    category: "Automated Medical Image Diagnosis Assistant",
     description:
-      "Deep-learning system for medical image classification with augmentation pipeline.",
-    tags: ["CNN", "Computer Vision", "Augmentation"],
+      "Automated medical image diagnosis assistant for clinical decision support.",
+    tags: ["CNN", "Computer Vision", "Healthcare"],
   },
   {
     num: "06",
@@ -142,11 +142,11 @@ export const PROJECTS: Project[] = [
   },
   {
     num: "08",
-    slug: "sales-prediction-system",
-    name: "Sales Prediction System",
-    category: "Forecasting · Regression",
-    description: "Regression-based sales forecasting system with feature engineering.",
-    tags: ["Regression", "EDA", "Forecasting"],
+    slug: "revenue-ai",
+    name: "Revenue AI",
+    category: "Sales Prediction · Forecasting",
+    description: "AI-powered sales prediction dashboard using polynomial regression.",
+    tags: ["Regression", "Forecasting", "Dashboard"],
   },
 ];
 
@@ -239,23 +239,23 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     stack: "Python · LLM · Vector DB · FastAPI",
     year: "2026",
   },
-  "medical-image-classification": {
+  radiomed: {
     ...PROJECTS[4],
     tagline:
-      "Deep-learning system for medical image classification with augmentation pipeline.",
+      "Automated medical image diagnosis assistant for clinical decision support.",
     longDescription:
-      "A CNN-based image classifier trained on a curated medical imaging dataset, with a custom augmentation pipeline that respects clinical invariances (no transforms that change diagnostic content). Includes evaluation against held-out specialist-labelled test set and visual attention maps to support clinician review.",
-    heroTitleLines: ["Medical", "Image", "AI"],
-    heroItalicPart: "Image",
-    visualType: "medical",
+      "Radiomed is an automated medical image diagnosis assistant that helps clinicians review imaging studies (Brain MRI, Chest X-Ray, Lung CT) with AI-assisted diagnostic predictions, confidence scores, and explainability. The system wraps a CNN-based classifier with a clinical workspace UI for account-based access, study review, and explainability reports.",
+    heroTitleLines: ["Radiomed"],
+    heroItalicPart: "Radiomed",
+    visualType: "radiomed",
     stats: [
-      { roman: "i", label: "Model", value: "CNN", desc: "Transfer-learned" },
-      { roman: "ii", label: "Augmentation", value: "Clinical", desc: "Invariance-aware" },
-      { roman: "iii", label: "Eval", value: "Held-out", desc: "Specialist-labelled" },
-      { roman: "iv", label: "Interp.", value: "Grad-CAM", desc: "Attention maps", italic: true },
+      { roman: "i", label: "Modalities", value: "4", desc: "MRI · X-ray · CT" },
+      { roman: "ii", label: "Top Accuracy", value: "99.8%", desc: "Pneumonia · X-ray" },
+      { roman: "iii", label: "Features", value: "Explainable", desc: "Grad-CAM reports" },
+      { roman: "iv", label: "Access", value: "Accounts", desc: "Clinician workspace", italic: true },
     ],
-    scope: "Deep Learning · Healthcare",
-    stack: "Python · TensorFlow · OpenCV · Roboflow",
+    scope: "Clinical Decision Support",
+    stack: "Python · CNN · Streamlit · FastAPI",
     year: "2025",
   },
   safelink: {
@@ -300,23 +300,23 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     stack: "Python · YOLO · Roboflow · FastAPI",
     year: "2025",
   },
-  "sales-prediction-system": {
+  "revenue-ai": {
     ...PROJECTS[7],
     tagline:
-      "Regression-based sales forecasting system with feature engineering and evaluation.",
+      "AI-powered sales prediction dashboard using polynomial regression.",
     longDescription:
-      "A regression-based sales forecasting system that predicts future demand from historical sales, calendar features, promotions, and external signals. Includes an EDA layer for understanding sales drivers, a feature-engineering pipeline, model comparison across regressors, and an evaluation report with backtesting against held-out periods.",
-    heroTitleLines: ["Sales", "Prediction"],
-    heroItalicPart: "Prediction",
-    visualType: "sales",
+      "Revenue AI is an interactive sales prediction dashboard that forecasts product sales from advertising spend across TV, Radio, and Newspaper channels. A polynomial regression model trained on historical campaign data powers the predictions; the dashboard exposes budget sliders, a budget-breakdown donut chart, model statistics (R² and RMSE), and a real-time predicted-sales figure.",
+    heroTitleLines: ["Revenue", "AI"],
+    heroItalicPart: "AI",
+    visualType: "revenue-ai",
     stats: [
-      { roman: "i", label: "Model", value: "Regressor", desc: "Gradient boosting" },
-      { roman: "ii", label: "Features", value: "20+", desc: "Calendar + promo + ext." },
-      { roman: "iii", label: "Eval", value: "Backtest", desc: "Held-out horizon" },
-      { roman: "iv", label: "Output", value: "Forecast", desc: "Per-SKU + aggregate", italic: true },
+      { roman: "i", label: "Model", value: "Poly Reg", desc: "Polynomial regression" },
+      { roman: "ii", label: "Inputs", value: "3 channels", desc: "TV · Radio · Newspaper" },
+      { roman: "iii", label: "Output", value: "Sales", desc: "Predicted units (k)" },
+      { roman: "iv", label: "Eval", value: "R² / RMSE", desc: "Live model stats", italic: true },
     ],
-    scope: "Forecasting · Regression",
-    stack: "Python · scikit-learn · Pandas",
+    scope: "Sales Prediction · Forecasting",
+    stack: "Python · scikit-learn · Streamlit",
     year: "2025",
   },
 };

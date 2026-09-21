@@ -65,7 +65,7 @@ export function ContactSection() {
             </Reveal>
 
             <Reveal delay={0.05}>
-              <h2 className="editorial-serif text-[64px] sm:text-[88px] md:text-[100px] lg:text-[124px] leading-[0.9] tracking-[-0.04em] mb-7 md:mb-9">
+              <h2 className="editorial-serif text-[48px] sm:text-[64px] md:text-[80px] lg:text-[96px] leading-[0.9] tracking-[-0.04em] mb-7 md:mb-9">
                 Let&apos;s build
                 <br />
                 something

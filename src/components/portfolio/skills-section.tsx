@@ -44,7 +44,7 @@ export function SkillsSection() {
               <span className="dot" />
               Chapter 05 · Capabilities
             </div>
-            <h2 className="editorial-serif text-[64px] sm:text-[80px] md:text-[100px] lg:text-[110px] leading-[0.88] tracking-[-0.04em]">
+            <h2 className="editorial-serif text-[52px] sm:text-[64px] md:text-[76px] lg:text-[84px] leading-[0.88] tracking-[-0.04em]">
               Skills &amp;
               <br />
               Capabilities<em>.</em>
@@ -69,27 +69,20 @@ export function SkillsSection() {
           </Reveal>
         </div>
 
-        {/* Cluster grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[rgba(16,36,58,0.12)] border border-[rgba(16,36,58,0.12)] rounded-md overflow-hidden">
+        {/* Cluster grid — 2 rows × 3 cols, each card with its own subtle border */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {SKILL_CLUSTERS.map((cluster, ci) => (
             <Reveal key={cluster.title} delay={ci * 0.06}>
               <div
-                className={`p-7 md:p-8 relative min-h-[270px] ${
-                  cluster.featured ? "bg-[#EFE9DC]" : "bg-[#F5F1E8]"
+                className={`p-6 md:p-7 relative rounded-md border min-h-[260px] ${
+                  cluster.featured
+                    ? "border-[#0F6654] bg-[#EFE9DC]"
+                    : "border-[rgba(16,36,58,0.14)] bg-[#F5F1E8]"
                 }`}
               >
-                {cluster.featured && (
+                <div className="flex items-baseline justify-between pb-3.5 border-b border-[rgba(16,36,58,0.12)] mb-4">
                   <span
-                    className="absolute top-7 right-7 font-serif italic text-[80px] text-[rgba(15,102,84,0.08)] leading-none"
-                    aria-hidden
-                  >
-                    i.
-                  </span>
-                )}
-
-                <div className="flex items-baseline justify-between pb-3.5 border-b border-[rgba(16,36,58,0.12)] mb-4.5">
-                  <span
-                    className={`font-serif text-[22px] md:text-[24px] leading-none tracking-[-0.01em] ${
+                    className={`font-serif text-[20px] md:text-[22px] leading-none tracking-[-0.01em] ${
                       cluster.featured ? "text-[#0F6654]" : "text-[#10243A]"
                     }`}
                   >
