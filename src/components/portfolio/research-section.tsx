@@ -127,8 +127,10 @@ export function ResearchSection() {
                 A 12-month research project exploring how{" "}
                 <strong className="text-[#10243A] font-semibold">computer vision</strong>,
                 on-device inference and IoT sensors can be fused into a discreet wearable
-                that detects threat contexts in real time and routes live location + audio
-                to trusted contacts through an SOS escalation path.
+                that detects threat contexts in real time — combining YOLO-based person
+                detection, IMU motion + audio anomaly fusion, and geo-fence logic — and
+                triggers an SOS escalation path that routes live location, audio stream,
+                and threat-context metadata to trusted contacts.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
@@ -248,8 +250,20 @@ export function ResearchSection() {
               >
                 <span className="font-serif italic text-[18px] text-[#C86B45]">{r.roman}</span>
                 <span className="font-serif text-[18px] sm:text-[22px] text-[#10243A] tracking-[-0.01em]">
-                  <em className="italic text-[#0F6654]">{r.titleItalic}</em>
-                  {r.title.replace(r.titleItalic, "")}
+                  {(() => {
+                    // Render title with the italic word in its proper place
+                    if (!r.titleItalic || !r.title.includes(r.titleItalic)) {
+                      return r.title;
+                    }
+                    const parts = r.title.split(r.titleItalic);
+                    return (
+                      <>
+                        {parts[0]}
+                        <em className="italic text-[#0F6654]">{r.titleItalic}</em>
+                        {parts[1]}
+                      </>
+                    );
+                  })()}
                 </span>
                 <div className="hidden sm:flex flex-wrap gap-1.5 items-center">
                   {r.tags.map((t, ti) => (

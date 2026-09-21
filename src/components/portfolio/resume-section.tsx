@@ -13,11 +13,11 @@ const EDUCATION = {
 
 const EXPERIENCE_ROWS = [
   {
-    date: "08 / 2026 →",
-    period: "Present",
-    name: "Full-Stack AI Engineer",
+    date: "08 / 2026",
+    period: "Project-Based Learning",
+    name: "AI Hackathon Participant",
     place: "Sofstica Solutions · Karachi",
-    desc: "Production AI features across RAG, AI agents, and document intelligence.",
+    desc: "Shipped end-to-end AI features (RAG, AI agents, document intelligence) as part of a project-based learning sprint.",
   },
   {
     date: "01 — 04 / 2026",
@@ -43,16 +43,18 @@ const EXPERIENCE_ROWS = [
 ];
 
 const PROJECT_ROWS = [
-  { num: "01", cat: "Healthcare AI", name: "ClinData Explorer", desc: "AI-powered clinical cohort & data-quality explorer · Text-to-SQL · 912K records." },
+  { num: "01", cat: "Healthcare AI", name: "ClinData Explorer", desc: "AI-powered clinical cohort & data-quality explorer · Text-to-SQL · 912K records · Live on Azure." },
   { num: "02", cat: "Customer AI", name: "McDonald's AI Agent", desc: "AI customer-support and order-management workflow · LLM · FastAPI." },
+  { num: "03", cat: "Clinical Decision Support", name: "CardioRisk AI", desc: "Heart-disease risk prediction · 97.6% accuracy (SVM) · 3,800+ patients · Next.js + Vercel." },
   { num: "04", cat: "Document AI", name: "Enterprise RAG Assistant", desc: "Retrieval-augmented generation system for enterprise document intelligence." },
   { num: "05", cat: "Clinical AI", name: "Radiomed", desc: "Automated medical image diagnosis assistant · CNN · 99.8% top accuracy." },
   { num: "06", cat: "Wearable · CV", name: "SAFELINK", desc: "Multimodal smart wearable for personal safety · CV + Edge + IoT." },
-  { num: "08", cat: "Forecasting", name: "Revenue AI", desc: "Sales prediction dashboard · polynomial regression · budget sliders." },
+  { num: "07", cat: "Forecasting", name: "Revenue AI", desc: "Sales forecasting · Polynomial Regression · 95.3% R² · 0.903 MAE · Streamlit." },
+  { num: "08", cat: "AI Automation", name: "OutreachAI", desc: "AI-powered email outreach agent · n8n + LLM · 50+ emails/day · $0.02/email." },
 ];
 
 const ACHIEVEMENTS = [
-  "Designed & shipped production RAG assistant at Sofstica.",
+  "Shipped end-to-end AI features (RAG + AI agents) at Sofstica hackathon.",
   "Led 12-month SAFELINK research project to working prototype.",
   "Completed 3 AI internships across industry & government.",
   "B.E. Computer Systems Engineering, Mehran UET (2021–2025).",
@@ -93,7 +95,8 @@ export function ResumeSection() {
           <div className="relative">
             <Reveal>
               <a
-                href={`mailto:${PROFILE.email}?subject=Requesting Naveen Khan's Resume PDF`}
+                href="/Naveen-Khan-Resume.pdf"
+                download="Naveen-Khan-Resume.pdf"
                 className="block bg-[#10243A] text-[#F5F1E8] rounded-md p-7 md:p-8 relative overflow-hidden hover:scale-[1.01] transition-transform"
               >
                 <span
@@ -217,8 +220,18 @@ export function ResumeSection() {
                     </div>
                     <div>
                       <div className="font-serif text-[17px] md:text-[18px] text-[#10243A] font-medium tracking-[-0.01em] leading-[1.2] mb-1">
-                        <em className="italic text-[#0F6654]">{r.name.split(" ").slice(-1)[0]}</em>
-                        <span> {r.name.replace(r.name.split(" ").slice(-1)[0], "")}</span>
+                        {(() => {
+                          // Italicize the LAST word of the role name and keep it in place
+                          const lastWord = r.name.split(" ").slice(-1)[0];
+                          const rest = r.name.split(" ").slice(0, -1).join(" ");
+                          return (
+                            <>
+                              {rest}
+                              {rest && " "}
+                              <em className="italic text-[#0F6654]">{lastWord}</em>
+                            </>
+                          );
+                        })()}
                       </div>
                       <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.6)] font-medium mb-1.5">
                         {r.place}

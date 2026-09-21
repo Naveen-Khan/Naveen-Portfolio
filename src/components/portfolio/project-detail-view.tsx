@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Github, ExternalLink } from "lucide-react";
 import { Reveal } from "./reveal";
 import { ClinDataVisual } from "./visuals/clindata-visual";
 import { McdonaldsVisual } from "./visuals/mcdonalds-visual";
 import { SafelinkVisual } from "./visuals/safelink-visual";
 import { RadiomedVisual } from "./visuals/radiomed-visual";
 import { RevenueAiVisual } from "./visuals/revenue-ai-visual";
+import { OutreachVisual } from "./visuals/outreach-visual";
 import { GenericVisual } from "./visuals/generic-visual";
 import { PROJECTS, type ProjectDetail } from "@/lib/portfolio";
 
@@ -151,12 +152,43 @@ export function ProjectDetailView({ detail, onClose, onSelect }: Props) {
               {detail.visualType === "safelink" && <SafelinkVisual />}
               {detail.visualType === "radiomed" && <RadiomedVisual />}
               {detail.visualType === "revenue-ai" && <RevenueAiVisual />}
+              {detail.visualType === "outreach" && <OutreachVisual />}
               {(detail.visualType === "cardio" ||
                 detail.visualType === "rag" ||
                 detail.visualType === "cv-suite") && (
                 <GenericVisual visualType={detail.visualType} />
               )}
             </motion.div>
+
+            {/* Project links (GitHub / Live) */}
+            {detail.links && (detail.links.github || detail.links.live) && (
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                {detail.links.github && (
+                  <a
+                    href={detail.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-[rgba(245,241,232,0.25)] text-[11px] font-semibold tracking-[0.18em] uppercase text-[#F5F1E8] hover:bg-[#F5F1E8] hover:text-[#0C1A2C] transition-colors"
+                  >
+                    <Github className="w-3.5 h-3.5" />
+                    View on GitHub
+                    <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+                  </a>
+                )}
+                {detail.links.live && (
+                  <a
+                    href={detail.links.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#C86B45] border border-[#C86B45] text-[11px] font-semibold tracking-[0.18em] uppercase text-[#F5F1E8] hover:bg-[#B55538] transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    Open Live Demo
+                    <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+                  </a>
+                )}
+              </div>
+            )}
           </Reveal>
         </div>
       </section>

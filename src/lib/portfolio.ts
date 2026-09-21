@@ -23,8 +23,8 @@ export interface ProjectDetail extends Project {
     | "cardio"
     | "rag"
     | "radiomed"
-    | "cv-suite"
-    | "revenue-ai";
+    | "revenue-ai"
+    | "outreach";
   stats?: Array<{
     roman: string;
     label: string;
@@ -33,6 +33,10 @@ export interface ProjectDetail extends Project {
     italic?: boolean;
   }>;
   metaRows?: Array<{ label: string; value: string }>;
+  links?: {
+    github?: string;
+    live?: string;
+  };
   flowStages?: Array<{ num: string; label: string; sub: string }>;
   scope: string;
   stack: string;
@@ -47,8 +51,9 @@ export interface ExperienceItem {
   period: string;
   description: string;
   tags: string[];
-  status: "current" | "internship" | "research";
+  status: "current" | "internship" | "research" | "project";
   city: string;
+  details?: string[];
 }
 
 export interface Skill {
@@ -134,19 +139,19 @@ export const PROJECTS: Project[] = [
   },
   {
     num: "07",
-    slug: "cv-model-suite",
-    name: "Computer Vision Model Suite",
-    category: "Detection · Classification · Tracking",
-    description: "Suite of YOLO, image-classification and object-detection models.",
-    tags: ["YOLO", "Roboflow", "Detection"],
-  },
-  {
-    num: "08",
     slug: "revenue-ai",
     name: "Revenue AI",
     category: "Sales Prediction · Forecasting",
     description: "AI-powered sales prediction dashboard using polynomial regression.",
     tags: ["Regression", "Forecasting", "Dashboard"],
+  },
+  {
+    num: "08",
+    slug: "outreach-ai",
+    name: "OutreachAI",
+    category: "AI Automation · Email Outreach",
+    description: "AI-powered email outreach agent that sends 50+ personalized emails daily.",
+    tags: ["n8n", "LLM", "AI Agents"],
   },
 ];
 
@@ -175,6 +180,10 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     scope: "Full-Stack AI",
     stack: "Python · FastAPI · LLM · SQL",
     year: "2026",
+    links: {
+      github: "https://github.com/Naveen-Khan/Ai-Based-Clinical-Data-Exprorar-Analysis",
+      live: "https://clindata-frontend.agreeablehill-90bfeb84.centralindia.azurecontainerapps.io",
+    },
   },
   "mcdonalds-ai-agent": {
     ...PROJECTS[1],
@@ -194,31 +203,32 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     scope: "Customer AI · Production",
     stack: "LLM · FastAPI · AI Agents",
     year: "2026",
+    links: {
+      github: "https://github.com/Naveen-Khan/Machdonals-ai-agent",
+    },
   },
   "cardiorisk-ai": {
     ...PROJECTS[2],
     tagline:
-      "Heart-disease risk prediction prototype for clinical decision support.",
+      "An intelligent web application that predicts heart-disease risk using 13 clinical variables with 97.6% accuracy.",
     longDescription:
-      "A supervised-learning system that estimates a patient's 10-year cardiovascular risk score from routine vitals, lab results and history. The model is wrapped behind a calm, clinical UI that surfaces the contributing risk factors so a clinician can understand and validate the prediction rather than accept it blindly.",
+      "An intelligent web application that predicts heart disease risk using 13 clinical variables with 97.6% accuracy. Powered by Support Vector Machine (SVM) and validated on 3,800+ patient records, the platform delivers real-time risk stratification and multi-format medical reports (PDF, CSV, Excel). A Logistic Regression baseline (80.5% accuracy) is included for clinical comparison. Deployed globally via Vercel.",
     heroTitleLines: ["Cardio", "Risk", "AI"],
     heroItalicPart: "Risk",
     visualType: "cardio",
     stats: [
-      { roman: "i", label: "Model", value: "Classifier", desc: "Gradient boosting" },
-      { roman: "ii", label: "Features", value: "24", desc: "Vitals + labs + history" },
-      { roman: "iii", label: "Output", value: "Risk Score", desc: "10-year CV risk" },
-      {
-        roman: "iv",
-        label: "Explainability",
-        value: "Yes",
-        desc: "Per-feature contribution",
-        italic: true,
-      },
+      { roman: "i", label: "Accuracy", value: "97.6%", desc: "SVM classifier" },
+      { roman: "ii", label: "Patients", value: "3,800+", desc: "Validated records" },
+      { roman: "iii", label: "Variables", value: "13", desc: "Clinical features" },
+      { roman: "iv", label: "Baseline", value: "80.5%", desc: "Logistic Regression", italic: true },
     ],
     scope: "Clinical Decision Support",
-    stack: "Python · scikit-learn · Streamlit",
+    stack: "Python · Next.js · SQLite · Tailwind · Vercel",
     year: "2025",
+    links: {
+      github: "https://github.com/Naveen-Khan",
+      live: "https://web-un87u2afa-naveenkhan0111-4662s-projects.vercel.app/",
+    },
   },
   "enterprise-rag-assistant": {
     ...PROJECTS[3],
@@ -238,6 +248,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     scope: "Document Intelligence",
     stack: "Python · LLM · Vector DB · FastAPI",
     year: "2026",
+    links: {
+      github: "https://github.com/Naveen-Khan/Ai-RAG-Based-Chatbot",
+    },
   },
   radiomed: {
     ...PROJECTS[4],
@@ -257,6 +270,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     scope: "Clinical Decision Support",
     stack: "Python · CNN · Streamlit · FastAPI",
     year: "2025",
+    links: {
+      github: "https://github.com/Naveen-Khan",
+    },
   },
   safelink: {
     ...PROJECTS[5],
@@ -280,59 +296,74 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     scope: "Hardware + Computer Vision · Research",
     stack: "Python · YOLO · Edge · IoT",
     year: "2024 → 2025",
-  },
-  "cv-model-suite": {
-    ...PROJECTS[6],
-    tagline:
-      "A suite of YOLO, image-classification and object-detection models trained across multiple domains.",
-    longDescription:
-      "A reusable suite of computer-vision models — YOLO-based real-time object detectors, image classifiers, and tracking pipelines — trained across industrial, retail and safety domains. Includes a data-preparation + augmentation layer powered by Roboflow, an evaluation harness, and an inference wrapper that exposes each model through a unified REST API.",
-    heroTitleLines: ["Computer", "Vision", "Suite"],
-    heroItalicPart: "Vision",
-    visualType: "cv-suite",
-    stats: [
-      { roman: "i", label: "Models", value: "5+", desc: "YOLO + classifiers" },
-      { roman: "ii", label: "Domains", value: "3", desc: "Industrial · Retail · Safety" },
-      { roman: "iii", label: "Pipeline", value: "Roboflow", desc: "Augmentation + versioning" },
-      { roman: "iv", label: "Inference", value: "REST API", desc: "Unified wrapper", italic: true },
-    ],
-    scope: "Detection · Classification · Tracking",
-    stack: "Python · YOLO · Roboflow · FastAPI",
-    year: "2025",
+    links: {
+      github: "https://github.com/Naveen-Khan/Multimodal-Smar-Wearable-Device-For-Personal-Saftey",
+    },
   },
   "revenue-ai": {
-    ...PROJECTS[7],
+    ...PROJECTS[6],
     tagline:
-      "AI-powered sales prediction dashboard using polynomial regression.",
+      "An intelligent sales forecasting platform powered by Polynomial Regression.",
     longDescription:
-      "Revenue AI is an interactive sales prediction dashboard that forecasts product sales from advertising spend across TV, Radio, and Newspaper channels. A polynomial regression model trained on historical campaign data powers the predictions; the dashboard exposes budget sliders, a budget-breakdown donut chart, model statistics (R² and RMSE), and a real-time predicted-sales figure.",
+      "Revenue AI is an intelligent sales forecasting platform powered by Polynomial Regression. It analyzes advertising investments across TV, Radio, and Newspaper channels to predict future sales, optimize marketing budgets, and deliver actionable business insights through an interactive dashboard. Achieved 95.3% R² accuracy with 0.903 MAE, enabling businesses to make data-driven marketing decisions with confidence.",
     heroTitleLines: ["Revenue", "AI"],
     heroItalicPart: "AI",
     visualType: "revenue-ai",
     stats: [
-      { roman: "i", label: "Model", value: "Poly Reg", desc: "Polynomial regression" },
-      { roman: "ii", label: "Inputs", value: "3 channels", desc: "TV · Radio · Newspaper" },
-      { roman: "iii", label: "Output", value: "Sales", desc: "Predicted units (k)" },
-      { roman: "iv", label: "Eval", value: "R² / RMSE", desc: "Live model stats", italic: true },
+      { roman: "i", label: "R² Accuracy", value: "95.3%", desc: "Polynomial regression" },
+      { roman: "ii", label: "MAE", value: "0.903", desc: "Mean absolute error" },
+      { roman: "iii", label: "Inputs", value: "3 channels", desc: "TV · Radio · Newspaper" },
+      { roman: "iv", label: "Output", value: "Forecast", desc: "Predicted sales (k)", italic: true },
     ],
     scope: "Sales Prediction · Forecasting",
-    stack: "Python · scikit-learn · Streamlit",
+    stack: "Python · Polynomial Regression · Streamlit",
     year: "2025",
+    links: {
+      github: "https://github.com/Naveen-Khan/RevenueAi",
+    },
+  },
+  "outreach-ai": {
+    ...PROJECTS[7],
+    tagline:
+      "An AI-powered email outreach agent that sends 50+ personalized emails daily.",
+    longDescription:
+      "OutreachAI is an AI-powered email automation agent built with n8n that sends 50+ personalized sales emails daily to potential clients. The system automatically reads company data from Google Sheets, generates tailored outreach emails using LLMs (via OpenRouter), sends them without manual intervention, and logs all email content back to the sheet. Reduced manual effort by 90% while maintaining a cost of approximately $0.02 per email.",
+    heroTitleLines: ["Outreach", "AI"],
+    heroItalicPart: "AI",
+    visualType: "outreach",
+    stats: [
+      { roman: "i", label: "Throughput", value: "50+/day", desc: "Personalized emails" },
+      { roman: "ii", label: "Cost / Email", value: "$0.02", desc: "LLM-driven generation" },
+      { roman: "iii", label: "Effort Saved", value: "90%", desc: "Manual reduction" },
+      { roman: "iv", label: "Automation", value: "n8n + LLM", desc: "End-to-end pipeline", italic: true },
+    ],
+    scope: "AI Automation · Email Outreach",
+    stack: "n8n · OpenRouter LLM · Google Sheets · Gmail API · JS · GCP",
+    year: "2026",
+    links: {
+      github: "https://github.com/Naveen-Khan/Smart-Email-Outreach-Agent",
+    },
   },
 };
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
     num: "01",
-    role: "Full-Stack AI Engineer",
+    role: "AI Hackathon Participant",
     company: "Sofstica Solutions",
     date: "08 / 2026",
-    period: "Present",
+    period: "Project-Based Learning",
     description:
-      "Designing and shipping production AI features across the full stack — RAG assistants, AI agents, document-intelligence pipelines, and FastAPI services backing customer-facing products.",
+      "Participated in an intensive AI hackathon hosted by Sofstica Solutions — built and shipped end-to-end AI features across the full stack as part of a project-based learning sprint. Delivered RAG assistants, AI agents, document-intelligence pipelines, and FastAPI services backing customer-facing prototypes.",
     tags: ["Generative AI", "RAG", "FastAPI", "Full-Stack"],
-    status: "current",
+    status: "project",
     city: "Karachi",
+    details: [
+      "Designed and shipped production RAG assistant prototype end-to-end.",
+      "Built AI agents wired into real customer workflows through FastAPI.",
+      "Implemented document-intelligence pipeline for unstructured data extraction.",
+      "Worked in a sprint-based format with code reviews and live demos.",
+    ],
   },
   {
     num: "02",
@@ -345,6 +376,12 @@ export const EXPERIENCE: ExperienceItem[] = [
     tags: ["LLM", "AI Agents", "Python"],
     status: "internship",
     city: "Karachi",
+    details: [
+      "Engineered LLM-powered client features with retrieval pipelines.",
+      "Deployed AI agents wired into customer-facing workflows.",
+      "Built Python prototypes for internal data tooling.",
+      "Collaborated with senior engineers on production rollouts.",
+    ],
   },
   {
     num: "03",
@@ -357,6 +394,12 @@ export const EXPERIENCE: ExperienceItem[] = [
     tags: ["ML", "EDA", "Python"],
     status: "internship",
     city: "Karachi",
+    details: [
+      "Built exploratory analytics dashboards on operational aviation data.",
+      "Prototyped ML prediction workflows for internal use.",
+      "Wrote Python data-cleaning + feature-engineering pipelines.",
+      "Presented findings to internal stakeholders.",
+    ],
   },
   {
     num: "04",
@@ -365,10 +408,16 @@ export const EXPERIENCE: ExperienceItem[] = [
     date: "11 / 2024 – 11 / 2025",
     period: "12 months",
     description:
-      "Led research on a multimodal smart wearable for personal safety — fusing computer vision, edge inference and IoT sensors into a working prototype with an SOS escalation path.",
+      "Led research on a multimodal smart wearable for personal safety — fusing computer vision, edge inference and IoT sensors into a working prototype with an SOS escalation path that routes live location + audio to trusted contacts.",
     tags: ["Computer Vision", "Edge AI", "IoT"],
     status: "research",
     city: "Mehran UET",
+    details: [
+      "Fused computer vision + IMU + audio anomaly detection on-device.",
+      "Implemented YOLO-based threat-context detector running on edge hardware.",
+      "Built SOS escalation pipeline routing live location + audio to contacts.",
+      "Delivered SAFELINK v1 working prototype at Mehran UET.",
+    ],
   },
 ];
 
@@ -384,6 +433,7 @@ export const SKILL_CLUSTERS: SkillCluster[] = [
       { name: "Prompt Engineering", level: 3 },
       { name: "Semantic Search", level: 2 },
       { name: "Vector Embeddings", level: 3 },
+      { name: "Vector DBs (Faiss, Pinecone)", level: 3 },
       { name: "Context Engineering", level: 2 },
     ],
   },
@@ -421,6 +471,11 @@ export const SKILL_CLUSTERS: SkillCluster[] = [
       { name: "FastAPI", level: 3 },
       { name: "REST APIs", level: 3 },
       { name: "SQL", level: 3 },
+      { name: "PostgreSQL", level: 2 },
+      { name: "HTML", level: 3 },
+      { name: "CSS", level: 3 },
+      { name: "JavaScript", level: 3 },
+      { name: "PHP", level: 2 },
       { name: "Git / GitHub", level: 3 },
     ],
   },
@@ -444,6 +499,7 @@ export const SKILL_CLUSTERS: SkillCluster[] = [
       { name: "Docker", level: 2 },
       { name: "Vercel", level: 2 },
       { name: "Azure", level: 1 },
+      { name: "GCP", level: 2 },
       { name: "Streamlit", level: 3 },
       { name: "Jupyter", level: 3 },
       { name: "Google Colab", level: 3 },

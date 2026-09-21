@@ -7,6 +7,8 @@ const statusBadge = (status: ExperienceItem["status"]) => {
   switch (status) {
     case "current":
       return { label: "Current", color: "gold" };
+    case "project":
+      return { label: "Project-Based", color: "gold" };
     case "research":
       return { label: "Research", color: "gold" };
     case "internship":
@@ -69,12 +71,12 @@ export function ExperienceSection() {
                   {/* node dot */}
                   <span
                     className={`absolute -left-[18px] md:-left-[50px] top-[34px] w-[11px] h-[11px] rounded-full z-[2] border ${
-                      exp.status === "current"
+                      exp.status === "current" || exp.status === "project"
                         ? "bg-[#C86B45] border-[#C86B45]"
                         : "bg-[#0C1A2C] border-[#F5F1E8]"
                     }`}
                     style={
-                      exp.status === "current"
+                      exp.status === "current" || exp.status === "project"
                         ? { boxShadow: "0 0 0 5px rgba(200,107,69,0.18)" }
                         : undefined
                     }
@@ -117,6 +119,28 @@ export function ExperienceSection() {
                         </span>
                       ))}
                     </div>
+
+                    {/* Inline experience details — bullet list */}
+                    {exp.details && exp.details.length > 0 && (
+                      <div className="mt-4 pt-3.5 border-t border-dashed border-[rgba(245,241,232,0.15)]">
+                        <div className="text-[9px] tracking-[0.32em] uppercase text-[rgba(245,241,232,0.55)] font-medium mb-2.5">
+                          Experience Details
+                        </div>
+                        <ul className="space-y-1.5">
+                          {exp.details.map((d, di) => (
+                            <li
+                              key={di}
+                              className="flex items-baseline gap-2.5 text-[12.5px] text-[rgba(245,241,232,0.72)] leading-[1.5]"
+                            >
+                              <span className="font-serif italic text-[10px] text-[#C86B45] flex-shrink-0 w-4">
+                                {String.fromCharCode(97 + di)}.
+                              </span>
+                              <span>{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
 
                   {/* badge + city */}
