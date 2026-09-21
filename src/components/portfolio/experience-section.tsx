@@ -16,10 +16,10 @@ const statusBadge = (status: ExperienceItem["status"]) => {
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="relative py-16 md:py-24 px-6 md:px-10 lg:px-12">
+    <section id="experience" className="relative py-12 md:py-16 px-6 md:px-10 lg:px-12">
       <div className="max-w-[1400px] mx-auto">
         {/* Head */}
-        <div className="grid grid-cols-1 md:grid-cols-[0.42fr_0.58fr] gap-8 md:gap-20 items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-14 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-[0.42fr_0.58fr] gap-6 md:gap-12 items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-8 md:mb-10">
           <Reveal>
             <div className="editorial-eyebrow mb-5 md:mb-6">
               <span className="dot" />

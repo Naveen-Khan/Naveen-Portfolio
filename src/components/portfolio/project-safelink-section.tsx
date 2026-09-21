@@ -37,7 +37,7 @@ export function ProjectSafelinkSection() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[0.55fr_0.45fr] gap-10 md:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.55fr_0.45fr] gap-8 md:gap-12 items-start">
           {/* LEFT — visual */}
           <Reveal y={40}>
             <div className="relative bg-[#EFE9DC] border border-[rgba(16,36,58,0.12)] rounded-lg p-8 md:p-10 min-h-[440px] sm:min-h-[540px] overflow-hidden flex items-center justify-center">

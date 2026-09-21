@@ -29,7 +29,7 @@ export function ProjectClinDataSection() {
       <div className="max-w-[1400px] mx-auto">
         {/* Top */}
         <Reveal>
-          <div className="flex flex-wrap justify-between items-center pb-5 border-b border-[rgba(16,36,58,0.12)] mb-10 md:mb-12">
+          <div className="flex flex-wrap justify-between items-center pb-5 border-b border-[rgba(16,36,58,0.12)] mb-8 md:mb-10">
             <div className="text-[11px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium">
               <span className="font-serif italic text-[14px] text-[#C86B45] mr-2">01</span>
               Work <span className="mx-2.5 text-[rgba(16,36,58,0.2)]">/</span>
@@ -50,7 +50,7 @@ export function ProjectClinDataSection() {
         </Reveal>
 
         {/* Project layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[0.42fr_0.58fr] gap-10 md:gap-12 items-start mb-12 md:mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.42fr_0.58fr] gap-10 md:gap-12 items-start mb-8 md:mb-10">
           {/* LEFT */}
           <div>
             <Reveal>

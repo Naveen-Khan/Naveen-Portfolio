@@ -69,10 +69,10 @@ const OTHER_RS = [
 
 export function ResearchSection() {
   return (
-    <section id="research" className="relative py-16 md:py-24 px-6 md:px-10 lg:px-12 bg-[#F5F1E8]">
+    <section id="research" className="relative py-12 md:py-16 px-6 md:px-10 lg:px-12 bg-[#F5F1E8]">
       <div className="max-w-[1400px] mx-auto">
         {/* Head */}
-        <div className="grid grid-cols-1 md:grid-cols-[0.6fr_0.4fr] gap-6 md:gap-20 items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-12 md:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-[0.6fr_0.4fr] gap-6 md:gap-20 items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-8 md:mb-10">
           <Reveal>
             <div className="editorial-eyebrow mb-5 md:mb-6">
               <span className="dot" />
@@ -102,7 +102,7 @@ export function ResearchSection() {
         </div>
 
         {/* Featured research */}
-        <div className="grid grid-cols-1 lg:grid-cols-[0.4fr_0.6fr] gap-10 md:gap-16 items-start mb-10 md:mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.4fr_0.6fr] gap-8 md:gap-12 items-start mb-8 md:mb-10">
           {/* Left */}
           <div>
             <Reveal>

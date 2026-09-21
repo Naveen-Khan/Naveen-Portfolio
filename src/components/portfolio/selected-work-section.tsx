@@ -9,10 +9,10 @@ interface Props {
 
 export function SelectedWorkSection({ onSelectProject }: Props) {
   return (
-    <section id="work" className="relative py-16 md:py-24 px-6 md:px-10 lg:px-12">
+    <section id="work" className="relative py-12 md:py-16 px-6 md:px-10 lg:px-12">
       <div className="max-w-[1400px] mx-auto">
         {/* Title block */}
-        <div className="grid grid-cols-1 md:grid-cols-[0.7fr_0.3fr] gap-8 md:gap-20 items-end mb-10 md:mb-12 pb-7 border-b border-[rgba(16,36,58,0.12)]">
+        <div className="grid grid-cols-1 md:grid-cols-[0.7fr_0.3fr] gap-6 md:gap-12 items-end mb-8 md:mb-10 pb-7 border-b border-[rgba(16,36,58,0.12)]">
           <Reveal>
             <div className="editorial-eyebrow mb-5 md:mb-7">
               <span className="dot" />

@@ -36,7 +36,7 @@ const CHANNELS = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative py-16 md:py-24 px-6 md:px-10 lg:px-12">
+    <section id="contact" className="relative py-12 md:py-16 px-6 md:px-10 lg:px-12">
       <div className="max-w-[1400px] mx-auto">
         {/* Top */}
         <Reveal>

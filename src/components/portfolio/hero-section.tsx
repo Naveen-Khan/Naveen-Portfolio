@@ -16,7 +16,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative pt-24 md:pt-28 pb-16 md:pb-20 px-6 md:px-10 lg:px-12 overflow-hidden"
+      className="relative pt-20 md:pt-24 pb-12 md:pb-16 px-6 md:px-10 lg:px-12 overflow-hidden"
     >
       {/* Vertical side label — pinned to left edge, vertically centered with hero content (lg+ only) */}
       <div
@@ -31,7 +31,7 @@ export function HeroSection() {
         </span>
       </div>
 
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_0.95fr] gap-10 lg:gap-16 items-center pt-6 lg:pt-10">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_0.95fr] gap-10 lg:gap-12 items-center pt-4 lg:pt-6">
         {/* LEFT */}
         <div>
           <motion.div
@@ -39,7 +39,7 @@ export function HeroSection() {
             initial="hidden"
             animate="show"
             custom={0}
-            className="editorial-eyebrow mb-6 md:mb-9"
+            className="editorial-eyebrow mb-5 md:mb-7"
           >
             <span className="dot" />
             AI Engineer / Machine Learning / Generative AI
@@ -231,7 +231,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator at bottom */}
-      <div className="mt-14 md:mt-20 max-w-[1400px] mx-auto flex items-center justify-between text-[10px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium">
+      <div className="mt-10 md:mt-14 max-w-[1400px] mx-auto flex items-center justify-between text-[10px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium">
         <span>01 — Home</span>
         <div className="flex-1 h-[1px] mx-6 bg-[rgba(16,36,58,0.12)] relative">
           <div className="absolute left-0 top-0 h-[1px] w-[38%] bg-[#10243A]" />

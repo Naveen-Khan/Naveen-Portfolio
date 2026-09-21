@@ -58,10 +58,10 @@ const ACHIEVEMENTS = [
 
 export function ResumeSection() {
   return (
-    <section id="resume" className="relative py-16 md:py-24 px-6 md:px-10 lg:px-12">
+    <section id="resume" className="relative py-12 md:py-16 px-6 md:px-10 lg:px-12">
       <div className="max-w-[1400px] mx-auto">
         {/* Head */}
-        <div className="grid grid-cols-1 md:grid-cols-[0.7fr_0.3fr] gap-6 md:gap-12 items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-12 md:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-[0.7fr_0.3fr] gap-6 md:gap-12 items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-8 md:mb-10">
           <Reveal>
             <div className="editorial-eyebrow mb-5 md:mb-6">
               <span className="dot" />

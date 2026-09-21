@@ -87,6 +87,8 @@ html, body {
 
 html {
   scroll-behavior: smooth;
+  /* Standard website spacing — tightened from previous over-padded layout */
+  font-size: 16px;
 }
 
 body {
@@ -106,6 +108,11 @@ body {
 ::-webkit-scrollbar-track { background: var(--color-ivory-soft); }
 ::-webkit-scrollbar-thumb { background: rgba(16,36,58,0.18); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(16,36,58,0.32); }
+
+/* === Standard section rhythm ===
+   Sections use py-12 (48px) base / md:py-16 (64px) for desktop.
+   Inter-section dividers come from the bottom border.
+   Reduced from the previous py-16 md:py-24 (64px/96px). */
 
 /* === Editorial utility classes === */
 .editorial-eyebrow {
@@ -222,6 +229,26 @@ body {
 
 /* framer motion reveal: avoid flash before hydration */
 .reveal-init { opacity: 0; }
+
+/* === Dark detail theme — applied to project detail slides === */
+.dark-detail {
+  background: var(--color-navy-dark);
+  color: var(--color-ivory);
+}
+.dark-detail .editorial-eyebrow { color: rgba(245, 241, 232, 0.7); }
+.dark-detail .editorial-eyebrow .dot { background: var(--color-gold); }
+.dark-detail .editorial-meta-label,
+.dark-detail .editorial-section-title { color: rgba(245, 241, 232, 0.55); }
+.dark-detail .editorial-rule { background: rgba(245, 241, 232, 0.15); }
+.dark-detail .editorial-tech-chip {
+  border-color: rgba(245, 241, 232, 0.22);
+  color: rgba(245, 241, 232, 0.8);
+}
+.dark-detail .editorial-cta {
+  color: var(--color-ivory);
+  border-color: var(--color-ivory);
+}
+.dark-detail .editorial-cta:hover { color: var(--color-terracotta); border-color: var(--color-terracotta); }
 
 /* responsive type scaling */
 @media (max-width: 768px) {

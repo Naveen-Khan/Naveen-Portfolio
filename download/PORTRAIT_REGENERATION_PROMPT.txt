@@ -1,0 +1,103 @@
+============================================================================
+NAVEEN KHAN — AI PORTRAIT REGENERATION SYSTEM PROMPT
+============================================================================
+Use this prompt with any AI image generation tool (Midjourney v6,
+Flux.1 Pro, DALL·E 3, Stable Diffusion XL, or equivalent) to generate
+a clean, professional, editorial-quality portrait that matches the
+warm ivory + deep navy + muted gold/terracotta palette of the
+portfolio website.
+
+============================================================================
+PROMPT (copy everything below the line)
+============================================================================
+
+Editorial fashion portrait photograph of a young South Asian woman
+wearing a soft black niqab and matching abaya with subtle tone-on-tone
+embroidery, only her calm, intelligent eyes visible, looking directly
+at the camera with a composed, confident, professional expression.
+
+She is photographed against a seamless warm ivory backdrop (color
+#F5F1E8, slightly cream, not pure white) with soft natural studio
+lighting from the upper-left, gentle gradient shadow falling to the
+lower-right of her frame, no harsh highlights, no greenish tint from
+any outdoor environment.
+
+Wardrobe: minimalist matte black abaya and matching niqab in a soft
+matte fabric (not shiny), with restrained tone-on-tone embroidery
+near the neckline, no ID badges, no logos, no jewelry visible, no
+text on clothing.
+
+Crop: framed from mid-torso upward, head and shoulders centered,
+subject occupies about 70% of the frame height, generous negative
+space above the head and to one side.
+
+Mood: editorial, calm, intelligent, premium, like a high-end magazine
+profile shot (think Vogue portrait editorial, Aperture magazine,
+Time magazine person of the year portrait — composed, dignified, not
+glamorous, not AI-looking, no futuristic elements, no glow, no neon,
+no circuit-board patterns, no robots, no AI-themed iconography).
+
+Style: shot on Hasselblad medium format, 85mm lens at f/2.8, natural
+window light, subtle film grain, soft global contrast, slightly
+desaturated warm color grade (cream + black + faint warm gold
+highlights), no HDR, no plastic skin, no over-sharpening.
+
+Negative prompt: outdoor background, trees, garden, sun, ID badge,
+logo, jewelry, smiling teeth, futuristic, neon, cyberpunk, robot,
+AI brain illustration, glowing circuit, particles, blurry background,
+shallow depth of field bokeh, Instagram filter, AI plastic skin,
+exaggerated features, multiple subjects.
+
+Aspect ratio: 4:5 portrait orientation.
+
+============================================================================
+PARAMETERS TO USE WITH EACH TOOL
+============================================================================
+
+Midjourney v6:
+  --ar 4:5 --style raw --stylize 150 --v 6
+  (Append the parameters at the end of the prompt above.)
+
+Flux.1 Pro / Flux.1 Dev:
+  Use the prompt as-is. Set aspect ratio to 4:5. Steps: 28-35.
+  Guidance: 3.5-4.2. Seed: randomize until satisfied.
+
+DALL·E 3 (via ChatGPT / API):
+  Paste the prompt verbatim. Request "portrait" + "4:5 vertical" +
+  "photorealistic, no text" + "single subject".
+
+Stable Diffusion XL + ControlNet (optional):
+  Use the prompt verbatim. Steps: 35. CFG: 5-6. Sampler: DPM++ 2M Karras.
+  Optionally use a ControlNet Depth pass from a clean reference photo
+  to lock facial structure while regenerating wardrobe and background.
+
+============================================================================
+TIPS FOR BEST RESULTS
+============================================================================
+
+1. Generate 8-12 variations, pick the one where:
+   - the eyes look directly at the camera
+   - the abaya falls cleanly without wrinkles or stray fabric
+   - the background is uniformly cream/ivory (no gradients of green)
+   - the expression is calm and intelligent (not smiling, not sad)
+
+2. If the niqab fabric looks too shiny, add to the negative prompt:
+   "shiny fabric, satin, glossy reflection, plastic sheen"
+
+3. If the background has any green tint (from outdoor samples the AI
+   may have learned), add to the negative prompt:
+   "green background, foliage, trees, outdoor, garden, sun"
+
+4. For final use in the portfolio hero arch:
+   - Crop to a vertical 4:5 ratio
+   - Apply a slight warm color grade (5-10K cooler than neutral,
+     +5 saturation, +3 contrast)
+   - Resize to 720×900 px or 1080×1350 px for retina
+   - Save as PNG with transparent or solid cream (#E6DECC) background
+     matching the inner arch fill color
+
+5. File path to use after generation:
+   /home/z/my-project/public/portfolio/portrait.png
+   (replace the existing file with your generated version)
+
+============================================================================

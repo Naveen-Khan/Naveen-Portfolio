@@ -24,37 +24,37 @@ export function GenericVisual({ visualType }: GenericVisualProps) {
 
   return (
     <div
-      className="bg-[#EFE9DC] border border-[rgba(16,36,58,0.12)] rounded-lg p-6 md:p-8"
-      style={{ boxShadow: "0 30px 60px -40px rgba(16,36,58,0.25)" }}
+      className="bg-[rgba(245,241,232,0.04)] border border-[rgba(245,241,232,0.18)] rounded-lg p-5 md:p-7"
+      style={{ boxShadow: "0 30px 60px -40px rgba(0,0,0,0.5)" }}
     >
       {/* topbar */}
-      <div className="flex items-center justify-between pb-4 border-b border-[rgba(16,36,58,0.12)] mb-6">
-        <div className="flex items-center gap-3 text-[12px] font-semibold text-[#10243A]">
+      <div className="flex items-center justify-between pb-3.5 border-b border-[rgba(245,241,232,0.18)] mb-5">
+        <div className="flex items-center gap-3 text-[12px] font-semibold text-[#F5F1E8]">
           <span className="flex gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-[rgba(16,36,58,0.12)]" />
-            <span className="w-2 h-2 rounded-full bg-[rgba(16,36,58,0.12)]" />
-            <span className="w-2 h-2 rounded-full bg-[rgba(16,36,58,0.12)]" />
+            <span className="w-2 h-2 rounded-full bg-[rgba(245,241,232,0.25)]" />
+            <span className="w-2 h-2 rounded-full bg-[rgba(245,241,232,0.25)]" />
+            <span className="w-2 h-2 rounded-full bg-[rgba(245,241,232,0.25)]" />
           </span>
           {config.title}
         </div>
-        <div className="text-[10px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.6)] hidden md:block">
+        <div className="text-[10px] tracking-[0.18em] uppercase text-[rgba(245,241,232,0.55)] hidden md:block">
           {config.status}
         </div>
       </div>
 
       {/* central schematic */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5">
         {config.schematic.map((s, i) => (
           <div
             key={s.title}
             className={`relative rounded-md p-4 border ${
               s.accent
-                ? "border-[#C86B45] bg-[rgba(200,107,69,0.06)]"
-                : "border-[rgba(16,36,58,0.12)] bg-[#F5F1E8]"
+                ? "border-[#C86B45] bg-[rgba(200,107,69,0.08)]"
+                : "border-[rgba(245,241,232,0.15)] bg-[rgba(245,241,232,0.03)]"
             }`}
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[10px] tracking-[0.18em] uppercase text-[#10243A] font-semibold">
+              <span className="text-[10px] tracking-[0.18em] uppercase text-[#F5F1E8] font-semibold">
                 {s.title}
               </span>
               <span className="font-serif italic text-[12px] text-[#C86B45]">
@@ -65,10 +65,10 @@ export function GenericVisual({ visualType }: GenericVisualProps) {
               {s.rows.map((r) => (
                 <div
                   key={r.label}
-                  className="flex justify-between items-baseline text-[11px] py-1 border-b border-dashed border-[rgba(16,36,58,0.06)] last:border-0"
+                  className="flex justify-between items-baseline text-[11px] py-1 border-b border-dashed border-[rgba(245,241,232,0.08)] last:border-0"
                 >
-                  <span className="text-[rgba(16,36,58,0.6)]">{r.label}</span>
-                  <span className="text-[#10243A] font-semibold text-[11px]">
+                  <span className="text-[rgba(245,241,232,0.6)]">{r.label}</span>
+                  <span className="text-[#F5F1E8] font-semibold text-[11px]">
                     {r.value}
                   </span>
                 </div>
@@ -84,9 +84,9 @@ export function GenericVisual({ visualType }: GenericVisualProps) {
       </div>
 
       {/* motif strip */}
-      <div className="bg-[#F5F1E8] border border-[rgba(16,36,58,0.12)] rounded-md p-4">
-        <div className="flex justify-between items-baseline mb-3">
-          <span className="text-[9px] tracking-[0.32em] uppercase text-[#10243A] font-semibold">
+      <div className="bg-[rgba(245,241,232,0.05)] border border-[rgba(245,241,232,0.15)] rounded-md p-3.5">
+        <div className="flex justify-between items-baseline mb-2.5">
+          <span className="text-[9px] tracking-[0.32em] uppercase text-[#F5F1E8] font-semibold">
             {config.motifTitle}
           </span>
           <span className="font-serif italic text-[11px] text-[#C86B45]">live</span>
@@ -94,10 +94,10 @@ export function GenericVisual({ visualType }: GenericVisualProps) {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {config.motif.map((m) => (
             <div key={m.label} className="text-center">
-              <div className="font-serif text-[20px] md:text-[24px] text-[#10243A] leading-none">
+              <div className="font-serif text-[18px] md:text-[22px] text-[#F5F1E8] leading-none">
                 {m.value}
               </div>
-              <div className="text-[9px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.6)] font-medium mt-1">
+              <div className="text-[9px] tracking-[0.18em] uppercase text-[rgba(245,241,232,0.55)] font-medium mt-1">
                 {m.label}
               </div>
             </div>

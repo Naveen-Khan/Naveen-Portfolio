@@ -27,10 +27,10 @@ const PHILOSOPHY = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative py-16 md:py-24 px-6 md:px-10 lg:px-12">
+    <section id="about" className="relative py-12 md:py-16 px-6 md:px-10 lg:px-12">
       <div className="max-w-[1400px] mx-auto">
         {/* Head */}
-        <div className="grid grid-cols-1 md:grid-cols-[0.18fr_0.82fr] gap-6 md:gap-12 items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-12 md:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-[0.18fr_0.82fr] gap-6 md:gap-12 items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-8 md:mb-10">
           <div className="hidden md:block">
             <div className="editorial-vertical">
               <span className="font-serif italic text-[14px] text-[#C86B45] mr-2.5 normal-case tracking-normal">
@@ -48,7 +48,7 @@ export function AboutSection() {
         </div>
 
         {/* Body */}
-        <div className="grid grid-cols-1 lg:grid-cols-[0.55fr_0.45fr] gap-10 md:gap-20 items-start mb-12 md:mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.55fr_0.45fr] gap-8 md:gap-12 items-start mb-8 md:mb-10">
           {/* LEFT */}
           <div>
             <Reveal>

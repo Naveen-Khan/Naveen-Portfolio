@@ -14,7 +14,7 @@ const DOMAINS = [
 
 export function IntroductionSection() {
   return (
-    <section id="intro" className="relative py-16 md:py-24 px-6 md:px-10 lg:px-12">
+    <section id="intro" className="relative py-12 md:py-16 px-6 md:px-10 lg:px-12">
       <div className="max-w-[1400px] mx-auto relative">
         {/* chapter rail */}
         <div className="hidden lg:flex absolute left-0 top-[110px] w-6 flex-col items-center gap-6">
@@ -33,7 +33,7 @@ export function IntroductionSection() {
         </div>
 
         {/* header */}
-        <Reveal className="flex justify-between items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-12 md:mb-20">
+        <Reveal className="flex justify-between items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-8 md:mb-10">
           <span className="editorial-section-title">— Chapter 01 / Introduction</span>
           <span className="text-[11px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.6)] font-medium hidden sm:inline">
             A note on what I do · 02 / 12
@@ -58,7 +58,7 @@ export function IntroductionSection() {
         </Reveal>
 
         {/* two-col body */}
-        <div className="grid grid-cols-1 md:grid-cols-[0.4fr_0.6fr] gap-8 md:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-[0.4fr_0.6fr] gap-6 md:gap-12">
           <Reveal>
             <div className="editorial-meta-label pt-0 border-t border-[rgba(16,36,58,0.12)]">
               <div className="flex justify-between pt-3">
