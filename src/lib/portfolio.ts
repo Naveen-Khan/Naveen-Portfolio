@@ -175,7 +175,6 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     year: "2026",
     links: {
       github: "https://github.com/Naveen-Khan/Ai-Based-Clinical-Data-Exprorar-Analysis",
-      live: "https://clindata-frontend.agreeablehill-90bfeb84.centralindia.azurecontainerapps.io",
     },
   },
   "mcdonalds-ai-agent": {
@@ -290,7 +289,6 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     year: "2025",
     links: {
       github: "https://github.com/Naveen-Khan/RevenueAi",
-      live: "https://forcasting-ai.vercel.app/",
     },
   },
   "lead-generation-agent": {

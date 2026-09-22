@@ -29,22 +29,12 @@ export function AboutSection() {
   return (
     <section id="about" className="relative py-12 md:py-16 px-6 md:px-10 lg:px-12">
       <div className="max-w-[1400px] mx-auto">
-        {/* Head */}
-        <div className="grid grid-cols-1 md:grid-cols-[0.18fr_0.82fr] gap-6 md:gap-12 items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-8 md:mb-10">
-          <div className="hidden md:block">
-            <div className="editorial-vertical">
-              <span className="font-serif italic text-[14px] text-[#C86B45] mr-2.5 normal-case tracking-normal">
-                04
-              </span>
-              About · Naveen Khan
-            </div>
-          </div>
-          <div className="flex justify-between items-end">
-            <span className="editorial-meta-label">
-              A short, honest note from the engineer.
-            </span>
-            <span className="font-serif italic text-[16px] text-[#C86B45]">08 / 12</span>
-          </div>
+        {/* Head — clean row, no vertical chapter rail */}
+        <div className="flex justify-between items-end pb-7 border-b border-[rgba(16,36,58,0.12)] mb-8 md:mb-10">
+          <span className="editorial-meta-label">
+            A short, honest note from the engineer.
+          </span>
+          <span className="font-serif italic text-[16px] text-[#C86B45]">08 / 12</span>
         </div>
 
         {/* Body */}
