@@ -140,6 +140,7 @@ export function HeroSection() {
               className="object-cover"
               style={{ filter: "contrast(1.02) saturate(0.92)" }}
               priority
+              loading="eager"
               sizes="(max-width: 768px) 280px, 360px"
             />
           </div>

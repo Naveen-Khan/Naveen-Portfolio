@@ -141,6 +141,8 @@ export function ContactSection() {
                     {c.valHref ? (
                       <a
                         href={c.valHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="font-serif text-[18px] text-[#F5F1E8] tracking-[-0.005em] leading-[1.2] border-b border-[#C86B45] inline-block self-start pb-0.5 hover:text-[#C86B45] transition-colors break-all"
                       >
                         {c.val.split(c.valEm || "_____").map((part, idx) => (
