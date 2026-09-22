@@ -10,7 +10,7 @@ function LevelDots({ level }: { level: number }) {
         <span
           key={i}
           className={`w-[5px] h-[5px] rounded-full mx-0.5 ${
-            i <= level ? "bg-[#5DD899]" : "bg-[rgba(245,241,232,0.2)]"
+            i <= level ? "bg-[#B99A5B]" : "bg-[rgba(245,241,232,0.2)]"
           }`}
         />
       ))}
@@ -45,7 +45,7 @@ export function SkillsSection() {
         <div className="grid grid-cols-1 md:grid-cols-[0.7fr_0.3fr] gap-6 md:gap-12 items-end pb-7 border-b border-[rgba(245,241,232,0.18)] mb-8 md:mb-10">
           <Reveal>
             <div className="editorial-eyebrow light mb-5 md:mb-6">
-              <span className="dot" style={{ background: "var(--color-forest-light)" }} />
+              <span className="dot" style={{ background: "var(--color-gold)" }} />
               Chapter 05 · Capabilities
             </div>
             <h2
@@ -54,7 +54,7 @@ export function SkillsSection() {
             >
               Skills &amp;
               <br />
-              Capabilities<em className="italic text-[#5DD899]">.</em>
+              Capabilities<em className="italic text-[#B99A5B]">.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
@@ -82,7 +82,7 @@ export function SkillsSection() {
               <div
                 className={`p-6 md:p-7 relative rounded-md border min-h-[260px] ${
                   cluster.featured
-                    ? "border-[#5DD899] bg-[rgba(93,216,153,0.08)]"
+                    ? "border-[#B99A5B] bg-[rgba(185,154,91,0.08)]"
                     : "border-[rgba(245,241,232,0.15)] bg-[rgba(245,241,232,0.03)]"
                 }`}
               >
@@ -92,11 +92,11 @@ export function SkillsSection() {
                   >
                     {cluster.italicPart ? (
                       <>
-                        <em className="italic text-[#5DD899]">{cluster.title}</em>{" "}
+                        <em className="italic text-[#B99A5B]">{cluster.title}</em>{" "}
                         {cluster.italicPart}
                       </>
                     ) : (
-                      <em className="italic text-[#5DD899]">{cluster.title}</em>
+                      <em className="italic text-[#B99A5B]">{cluster.title}</em>
                     )}
                   </span>
                   <span className="font-serif italic text-[14px] text-[#C86B45]">
@@ -119,7 +119,7 @@ export function SkillsSection() {
           <div className="mt-10 flex flex-wrap justify-between items-center gap-4 pt-6 border-t border-[rgba(245,241,232,0.18)]">
             <div className="flex flex-wrap items-center gap-5 text-[10px] tracking-[0.22em] uppercase text-[rgba(245,241,232,0.55)] font-medium">
               <span className="flex items-center gap-2">
-                <span className="w-[5px] h-[5px] rounded-full bg-[#5DD899]" />
+                <span className="w-[5px] h-[5px] rounded-full bg-[#B99A5B]" />
                 Working Knowledge
               </span>
               <span className="flex items-center gap-2">

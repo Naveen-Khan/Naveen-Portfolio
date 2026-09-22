@@ -20,7 +20,6 @@
   --color-gold: #B99A5B;
   --color-sage: #AAB9A5;
   --color-paper-dark: #0C1A2C;
-  --color-forest-light: #5DD899;
 
   /* shadcn tokens mapped to editorial palette */
   --color-background: var(--color-ivory);
@@ -64,7 +63,7 @@
   /* chart tokens (unused but valid) */
   --color-chart-1: var(--color-forest);
   --color-chart-2: var(--color-terracotta);
-  --color-chart-3: var(--color-forest-light);
+  --color-chart-3: var(--color-gold);
   --color-chart-4: var(--color-sage);
   --color-chart-5: var(--color-navy);
 }
@@ -237,7 +236,7 @@ body {
   color: var(--color-ivory);
 }
 .dark-detail .editorial-eyebrow { color: rgba(245, 241, 232, 0.7); }
-.dark-detail .editorial-eyebrow .dot { background: var(--color-forest-light); }
+.dark-detail .editorial-eyebrow .dot { background: var(--color-gold); }
 .dark-detail .editorial-meta-label,
 .dark-detail .editorial-section-title { color: rgba(245, 241, 232, 0.55); }
 .dark-detail .editorial-rule { background: rgba(245, 241, 232, 0.15); }

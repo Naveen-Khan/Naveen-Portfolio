@@ -70,7 +70,7 @@ export function ContactSection() {
           <div>
             <Reveal>
               <div className="editorial-eyebrow light mb-7 md:mb-9">
-                <span className="dot" style={{ background: "var(--color-forest-light)" }} />
+                <span className="dot" style={{ background: "var(--color-gold)" }} />
                 Last chapter · Open inbox
               </div>
             </Reveal>
@@ -84,7 +84,7 @@ export function ContactSection() {
                 <br />
                 something
                 <br />
-                <em className="italic text-[#5DD899]">intelligent</em>
+                <em className="italic text-[#B99A5B]">intelligent</em>
                 <span className="text-[#C86B45] italic">.</span>
               </h2>
             </Reveal>
@@ -93,7 +93,7 @@ export function ContactSection() {
               <p className="text-[16px] md:text-[17px] leading-[1.6] text-[rgba(245,241,232,0.72)] max-w-[540px] mb-10 md:mb-11">
                 Have an{" "}
                 <strong className="text-[#F5F1E8] font-semibold">AI product</strong>,{" "}
-                <em className="font-serif italic text-[#5DD899]">research idea</em>, or{" "}
+                <em className="font-serif italic text-[#B99A5B]">research idea</em>, or{" "}
                 <strong className="text-[#F5F1E8] font-semibold">
                   engineering challenge
                 </strong>
@@ -147,7 +147,7 @@ export function ContactSection() {
                           <span key={idx}>
                             {part}
                             {idx === 0 && c.valEm && (
-                              <em className="italic text-[#5DD899]">{c.valEm}</em>
+                              <em className="italic text-[#B99A5B]">{c.valEm}</em>
                             )}
                           </span>
                         ))}
@@ -158,7 +158,7 @@ export function ContactSection() {
                           <span key={idx}>
                             {part}
                             {idx === 0 && c.valEm && (
-                              <em className="italic text-[#5DD899]">{c.valEm}</em>
+                              <em className="italic text-[#B99A5B]">{c.valEm}</em>
                             )}
                           </span>
                         ))}

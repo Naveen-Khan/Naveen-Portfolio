@@ -32,7 +32,7 @@ export function ExperienceSection({ onSelectExperience }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-[0.42fr_0.58fr] gap-6 md:gap-12 items-end pb-7 border-b border-[rgba(245,241,232,0.18)] mb-8 md:mb-10">
           <Reveal>
             <div className="editorial-eyebrow light mb-5 md:mb-6">
-              <span className="dot" style={{ background: "var(--color-forest-light)" }} />
+              <span className="dot" style={{ background: "var(--color-gold)" }} />
               Chapter 03 · Experience
             </div>
             <h2
@@ -43,7 +43,7 @@ export function ExperienceSection({ onSelectExperience }: Props) {
               <br />
               AI systems,
               <br />
-              <em className="italic text-[#5DD899]">hands-on</em>
+              <em className="italic text-[#B99A5B]">hands-on</em>
               <span className="text-[#C86B45] italic">.</span>
             </h2>
           </Reveal>
@@ -111,9 +111,9 @@ export function ExperienceSection({ onSelectExperience }: Props) {
 
                   {/* role + company (description + tags moved to detail view only) */}
                   <div>
-                    <div className="font-serif text-[22px] md:text-[28px] text-[#F5F1E8] tracking-[-0.015em] leading-[1.1] mb-1.5 group-hover:text-[#5DD899] transition-colors">
+                    <div className="font-serif text-[22px] md:text-[28px] text-[#F5F1E8] tracking-[-0.015em] leading-[1.1] mb-1.5 group-hover:text-[#B99A5B] transition-colors">
                       {exp.role.replace(exp.role.split(" ").slice(-1)[0], "")}
-                      <em className="italic text-[#5DD899]">
+                      <em className="italic text-[#B99A5B]">
                         {" "}
                         {exp.role.split(" ").slice(-1)[0]}
                       </em>
@@ -142,7 +142,7 @@ export function ExperienceSection({ onSelectExperience }: Props) {
                     >
                       <span
                         className={`w-[5px] h-[5px] rounded-full ${
-                          badge.color === "terracotta" ? "bg-[#C86B45]" : "bg-[#5DD899]"
+                          badge.color === "terracotta" ? "bg-[#C86B45]" : "bg-[#B99A5B]"
                         }`}
                       />
                       {badge.label}

@@ -42,28 +42,28 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
 
   return (
     <div
-      className="min-h-screen dark-detail"
-      style={{ background: "var(--color-navy-dark)", color: "var(--color-ivory)" }}
+      className="min-h-screen"
+      style={{ background: "var(--color-ivory)", color: "var(--color-navy)" }}
     >
       {/* Top breadcrumb + back */}
       <div className="pt-20 md:pt-24 px-6 md:px-10 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
           <Reveal>
-            <div className="flex flex-wrap justify-between items-center gap-4 pb-4 border-b border-[rgba(245,241,232,0.15)] mb-8 md:mb-10">
+            <div className="flex flex-wrap justify-between items-center gap-4 pb-4 border-b border-[rgba(16,36,58,0.10)] mb-8 md:mb-10">
               <button
                 onClick={onClose}
-                className="group inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase text-[rgba(245,241,232,0.6)] font-medium hover:text-[#F5F1E8] transition-colors"
+                className="group inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium hover:text-[#10243A] transition-colors"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 Back to experience
               </button>
-              <div className="text-[11px] tracking-[0.22em] uppercase text-[rgba(245,241,232,0.6)] font-medium">
+              <div className="text-[11px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium">
                 <span className="font-serif italic text-[14px] text-[#C86B45] mr-2">
                   {item.num}
                 </span>
                 Experience{" "}
-                <span className="mx-2.5 text-[rgba(245,241,232,0.2)]">/</span>
-                <span className="text-[#F5F1E8] font-semibold">{item.role}</span>
+                <span className="mx-2.5 text-[rgba(16,36,58,0.2)]">/</span>
+                <span className="text-[#10243A] font-semibold">{item.role}</span>
               </div>
             </div>
           </Reveal>
@@ -90,16 +90,16 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
                 style={{ color: "var(--color-ivory)", fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
               >
                 {restRole}{" "}
-                <em className="italic text-[#5DD899]">{lastWord}</em>
+                <em className="italic text-[#0F6654]">{lastWord}</em>
               </h1>
             </Reveal>
             <Reveal delay={0.15}>
-              <div className="text-[14px] tracking-[0.18em] uppercase text-[rgba(245,241,232,0.55)] font-medium mb-5">
+              <div className="text-[14px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.55)] font-medium mb-5">
                 {item.company}
               </div>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="text-[15px] leading-[1.65] text-[rgba(245,241,232,0.72)] max-w-[420px] mb-7">
+              <p className="text-[15px] leading-[1.65] text-[rgba(16,36,58,0.72)] max-w-[420px] mb-7">
                 {item.description}
               </p>
             </Reveal>
@@ -108,7 +108,7 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
                 {item.tags.map((t) => (
                   <span
                     key={t}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[rgba(245,241,232,0.22)] rounded-full text-[10px] font-medium tracking-[0.16em] uppercase text-[rgba(245,241,232,0.8)]"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[rgba(16,36,58,0.20)] rounded-full text-[10px] font-medium tracking-[0.16em] uppercase text-[rgba(16,36,58,0.8)]"
                   >
                     {t}
                   </span>
@@ -117,31 +117,31 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
             </Reveal>
             <Reveal delay={0.3}>
               {/* Meta rows */}
-              <div className="space-y-3 pt-5 border-t border-[rgba(245,241,232,0.18)]">
+              <div className="space-y-3 pt-5 border-t border-[rgba(16,36,58,0.12)]">
                 <div className="flex items-baseline gap-3 text-[12px]">
-                  <Calendar className="w-3.5 h-3.5 text-[#5DD899] flex-shrink-0" />
-                  <span className="text-[rgba(245,241,232,0.55)] text-[10px] tracking-[0.22em] uppercase font-medium">
+                  <Calendar className="w-3.5 h-3.5 text-[#0F6654] flex-shrink-0" />
+                  <span className="text-[rgba(16,36,58,0.55)] text-[10px] tracking-[0.22em] uppercase font-medium">
                     Duration
                   </span>
-                  <span className="text-[#F5F1E8] font-semibold ml-auto text-right">
+                  <span className="text-[#10243A] font-semibold ml-auto text-right">
                     {item.date} · {item.period}
                   </span>
                 </div>
                 <div className="flex items-baseline gap-3 text-[12px]">
-                  <Building2 className="w-3.5 h-3.5 text-[#5DD899] flex-shrink-0" />
-                  <span className="text-[rgba(245,241,232,0.55)] text-[10px] tracking-[0.22em] uppercase font-medium">
+                  <Building2 className="w-3.5 h-3.5 text-[#0F6654] flex-shrink-0" />
+                  <span className="text-[rgba(16,36,58,0.55)] text-[10px] tracking-[0.22em] uppercase font-medium">
                     Organization
                   </span>
-                  <span className="text-[#F5F1E8] font-semibold ml-auto text-right">
+                  <span className="text-[#10243A] font-semibold ml-auto text-right">
                     {item.company}
                   </span>
                 </div>
                 <div className="flex items-baseline gap-3 text-[12px]">
-                  <MapPin className="w-3.5 h-3.5 text-[#5DD899] flex-shrink-0" />
-                  <span className="text-[rgba(245,241,232,0.55)] text-[10px] tracking-[0.22em] uppercase font-medium">
+                  <MapPin className="w-3.5 h-3.5 text-[#0F6654] flex-shrink-0" />
+                  <span className="text-[rgba(16,36,58,0.55)] text-[10px] tracking-[0.22em] uppercase font-medium">
                     Location
                   </span>
-                  <span className="text-[#F5F1E8] font-semibold ml-auto text-right">
+                  <span className="text-[#10243A] font-semibold ml-auto text-right">
                     {item.city}
                   </span>
                 </div>
@@ -156,22 +156,22 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="bg-[rgba(245,241,232,0.04)] border border-[rgba(245,241,232,0.18)] rounded-lg p-6 md:p-7"
+              className="bg-[rgba(16,36,58,0.04)] border border-[rgba(16,36,58,0.12)] rounded-lg p-6 md:p-7"
               style={{ boxShadow: "0 30px 60px -40px rgba(0,0,0,0.5)" }}
             >
               {/* status badge + count */}
-              <div className="flex items-center justify-between pb-4 border-b border-[rgba(245,241,232,0.18)] mb-5">
+              <div className="flex items-center justify-between pb-4 border-b border-[rgba(16,36,58,0.12)] mb-5">
                 <div className="flex items-center gap-2">
                   <span
                     className={`inline-flex items-center gap-1.5 px-3 py-1 border rounded-full text-[10px] tracking-[0.18em] uppercase font-semibold ${
                       badge.color === "terracotta"
                         ? "border-[#C86B45] text-[#C86B45]"
-                        : "border-[rgba(245,241,232,0.22)] text-[#F5F1E8]"
+                        : "border-[rgba(16,36,58,0.20)] text-[#10243A]"
                     }`}
                   >
                     <span
                       className={`w-[5px] h-[5px] rounded-full ${
-                        badge.color === "terracotta" ? "bg-[#C86B45]" : "bg-[#5DD899]"
+                        badge.color === "terracotta" ? "bg-[#C86B45]" : "bg-[#B99A5B]"
                       }`}
                     />
                     {badge.label}
@@ -185,14 +185,14 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
               {/* Highlights list */}
               {item.details && item.details.length > 0 && (
                 <div>
-                  <div className="text-[10px] tracking-[0.32em] uppercase text-[#F5F1E8] font-semibold mb-4">
+                  <div className="text-[10px] tracking-[0.32em] uppercase text-[#10243A] font-semibold mb-4">
                     Key Highlights
                   </div>
                   <ul className="space-y-3">
                     {item.details.map((d, di) => (
                       <li
                         key={di}
-                        className="flex items-baseline gap-3 text-[13.5px] text-[rgba(245,241,232,0.78)] leading-[1.55] py-2 border-b border-dashed border-[rgba(245,241,232,0.1)] last:border-0"
+                        className="flex items-baseline gap-3 text-[13.5px] text-[rgba(16,36,58,0.78)] leading-[1.55] py-2 border-b border-dashed border-[rgba(16,36,58,0.06)] last:border-0"
                       >
                         <span className="font-serif italic text-[12px] text-[#C86B45] flex-shrink-0 w-5 mt-0.5">
                           {["i", "ii", "iii", "iv", "v", "vi"][di]}.
@@ -205,15 +205,15 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
               )}
 
               {/* Tags section */}
-              <div className="mt-5 pt-5 border-t border-[rgba(245,241,232,0.18)]">
-                <div className="text-[10px] tracking-[0.32em] uppercase text-[#F5F1E8] font-semibold mb-3">
+              <div className="mt-5 pt-5 border-t border-[rgba(16,36,58,0.12)]">
+                <div className="text-[10px] tracking-[0.32em] uppercase text-[#10243A] font-semibold mb-3">
                   Technologies &amp; Skills
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {item.tags.map((t) => (
                     <span
                       key={t}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-[rgba(245,241,232,0.18)] rounded text-[9px] font-medium tracking-[0.16em] uppercase text-[rgba(245,241,232,0.7)] bg-[rgba(245,241,232,0.03)]"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-[rgba(16,36,58,0.12)] rounded text-[9px] font-medium tracking-[0.16em] uppercase text-[rgba(16,36,58,0.7)] bg-[rgba(16,36,58,0.03)]"
                     >
                       {t}
                     </span>
@@ -227,24 +227,24 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
 
       {/* Prev / Next nav */}
       <section className="px-6 md:px-10 lg:px-12 pb-16 md:pb-20">
-        <div className="max-w-[1400px] mx-auto border-t border-[rgba(245,241,232,0.18)]">
+        <div className="max-w-[1400px] mx-auto border-t border-[rgba(16,36,58,0.12)]">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {prev && (
               <button
                 onClick={() => onSelect(prev.num)}
-                className="group text-left pt-5 pb-5 md:pr-8 md:border-r border-[rgba(245,241,232,0.18)] md:border-b-0 border-b border-[rgba(245,241,232,0.18)]"
+                className="group text-left pt-5 pb-5 md:pr-8 md:border-r border-[rgba(16,36,58,0.12)] md:border-b-0 border-b border-[rgba(16,36,58,0.12)]"
               >
-                <div className="text-[9px] tracking-[0.32em] uppercase text-[rgba(245,241,232,0.55)] font-medium mb-2 flex items-center gap-2">
+                <div className="text-[9px] tracking-[0.32em] uppercase text-[rgba(16,36,58,0.55)] font-medium mb-2 flex items-center gap-2">
                   <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
                   Previous Role
                 </div>
-                <div className="font-serif text-[20px] md:text-[24px] text-[#F5F1E8] leading-[1.15] tracking-[-0.015em] group-hover:text-[#C86B45] transition-colors">
+                <div className="font-serif text-[20px] md:text-[24px] text-[#10243A] leading-[1.15] tracking-[-0.015em] group-hover:text-[#C86B45] transition-colors">
                   <span className="font-serif italic text-[#C86B45] mr-2 text-[16px] align-baseline">
                     {prev.num}
                   </span>
                   {prev.role}
                 </div>
-                <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(245,241,232,0.55)] font-medium mt-2">
+                <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.55)] font-medium mt-2">
                   {prev.company}
                 </div>
               </button>
@@ -252,19 +252,19 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
             {next && (
               <button
                 onClick={() => onSelect(next.num)}
-                className="group text-right pt-5 pb-5 md:pl-8 md:border-b-0 border-b border-[rgba(245,241,232,0.18)]"
+                className="group text-right pt-5 pb-5 md:pl-8 md:border-b-0 border-b border-[rgba(16,36,58,0.12)]"
               >
-                <div className="text-[9px] tracking-[0.32em] uppercase text-[rgba(245,241,232,0.55)] font-medium mb-2 flex items-center justify-end gap-2">
+                <div className="text-[9px] tracking-[0.32em] uppercase text-[rgba(16,36,58,0.55)] font-medium mb-2 flex items-center justify-end gap-2">
                   Next Role
                   <ArrowLeft className="w-3 h-3 rotate-180 group-hover:translate-x-1 transition-transform" />
                 </div>
-                <div className="font-serif text-[20px] md:text-[24px] text-[#F5F1E8] leading-[1.15] tracking-[-0.015em] group-hover:text-[#C86B45] transition-colors">
+                <div className="font-serif text-[20px] md:text-[24px] text-[#10243A] leading-[1.15] tracking-[-0.015em] group-hover:text-[#C86B45] transition-colors">
                   {next.role}
                   <span className="font-serif italic text-[#C86B45] ml-2 text-[16px] align-baseline">
                     {next.num}
                   </span>
                 </div>
-                <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(245,241,232,0.55)] font-medium mt-2">
+                <div className="text-[11px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.55)] font-medium mt-2">
                   {next.company}
                 </div>
               </button>
