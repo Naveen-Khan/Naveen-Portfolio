@@ -90,7 +90,7 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
                 style={{ color: "var(--color-ivory)", fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
               >
                 {restRole}{" "}
-                <em className="italic text-[#B99A5B]">{lastWord}</em>
+                <em className="italic text-[#5DD899]">{lastWord}</em>
               </h1>
             </Reveal>
             <Reveal delay={0.15}>
@@ -119,7 +119,7 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
               {/* Meta rows */}
               <div className="space-y-3 pt-5 border-t border-[rgba(245,241,232,0.18)]">
                 <div className="flex items-baseline gap-3 text-[12px]">
-                  <Calendar className="w-3.5 h-3.5 text-[#B99A5B] flex-shrink-0" />
+                  <Calendar className="w-3.5 h-3.5 text-[#5DD899] flex-shrink-0" />
                   <span className="text-[rgba(245,241,232,0.55)] text-[10px] tracking-[0.22em] uppercase font-medium">
                     Duration
                   </span>
@@ -128,7 +128,7 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
                   </span>
                 </div>
                 <div className="flex items-baseline gap-3 text-[12px]">
-                  <Building2 className="w-3.5 h-3.5 text-[#B99A5B] flex-shrink-0" />
+                  <Building2 className="w-3.5 h-3.5 text-[#5DD899] flex-shrink-0" />
                   <span className="text-[rgba(245,241,232,0.55)] text-[10px] tracking-[0.22em] uppercase font-medium">
                     Organization
                   </span>
@@ -137,7 +137,7 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
                   </span>
                 </div>
                 <div className="flex items-baseline gap-3 text-[12px]">
-                  <MapPin className="w-3.5 h-3.5 text-[#B99A5B] flex-shrink-0" />
+                  <MapPin className="w-3.5 h-3.5 text-[#5DD899] flex-shrink-0" />
                   <span className="text-[rgba(245,241,232,0.55)] text-[10px] tracking-[0.22em] uppercase font-medium">
                     Location
                   </span>
@@ -171,7 +171,7 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
                   >
                     <span
                       className={`w-[5px] h-[5px] rounded-full ${
-                        badge.color === "terracotta" ? "bg-[#C86B45]" : "bg-[#B99A5B]"
+                        badge.color === "terracotta" ? "bg-[#C86B45]" : "bg-[#5DD899]"
                       }`}
                     />
                     {badge.label}

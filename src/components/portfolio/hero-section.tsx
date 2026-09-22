@@ -134,7 +134,7 @@ export function HeroSection() {
             }}
           >
             <Image
-              src="/portfolio/portrait-v3.jpg"
+              src="/portfolio/portrait-v4.png"
               alt="Naveen Khan — AI Engineer portrait"
               fill
               className="object-cover"

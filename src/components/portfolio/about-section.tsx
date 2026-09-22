@@ -113,7 +113,7 @@ export function AboutSection() {
                 style={{ aspectRatio: "4 / 5" }}
               >
                 <Image
-                  src="/portfolio/portrait-v3.jpg"
+                  src="/portfolio/portrait-v4.png"
                   alt="Naveen Khan — portrait"
                   fill
                   className="object-cover"
@@ -144,7 +144,7 @@ export function AboutSection() {
                 <div className="font-serif text-[18px] text-[#F5F1E8] leading-[1.2] tracking-[-0.01em]">
                   Based in
                   <br />
-                  <em className="italic text-[#B99A5B]">Pakistan</em>
+                  <em className="italic text-[#5DD899]">Pakistan</em>
                 </div>
                 <hr className="border-0 border-t border-[rgba(245,241,232,0.18)] my-3" />
                 <div className="text-[9px] tracking-[0.32em] uppercase text-[rgba(245,241,232,0.55)] font-medium">

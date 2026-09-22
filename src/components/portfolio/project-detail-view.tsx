@@ -10,6 +10,7 @@ import { RadiomedVisual } from "./visuals/radiomed-visual";
 import { RevenueAiVisual } from "./visuals/revenue-ai-visual";
 import { OutreachVisual } from "./visuals/outreach-visual";
 import { GenericVisual } from "./visuals/generic-visual";
+import { WorkflowImage } from "./visuals/workflow-image";
 import { PROJECTS, type ProjectDetail } from "@/lib/portfolio";
 
 interface Props {
@@ -81,7 +82,7 @@ export function ProjectDetailView({ detail, onClose, onSelect }: Props) {
                 {detail.heroTitleLines.map((line, i) => (
                   <span key={i} className="block">
                     {line === detail.heroItalicPart ? (
-                      <em className="italic text-[#B99A5B]">{line}</em>
+                      <em className="italic text-[#5DD899]">{line}</em>
                     ) : (
                       line
                     )}
@@ -189,6 +190,35 @@ export function ProjectDetailView({ detail, onClose, onSelect }: Props) {
                 )}
               </div>
             )}
+
+            {/* AI workflow image (for projects with bespoke workflows) */}
+            {detail.slug === "mcdonalds-ai-agent" && (
+              <div className="mt-5">
+                <WorkflowImage
+                  src="/portfolio/workflow-mcdonalds.jpg"
+                  alt="McDonald's AI Agent — n8n workflow diagram (Google Gemini + Sheets + Webhook)"
+                  caption="Google Gemini · Sheets · Webhook"
+                />
+              </div>
+            )}
+            {detail.slug === "enterprise-rag-assistant" && (
+              <div className="mt-5">
+                <WorkflowImage
+                  src="/portfolio/workflow-rag.jpg"
+                  alt="Enterprise RAG Assistant — Knowledge base Creation + Chat Bot Integration (Google Drive + Pinecone + AI Agent)"
+                  caption="Knowledge Base · Pinecone · AI Agent"
+                />
+              </div>
+            )}
+            {detail.slug === "lead-generation-agent" && (
+              <div className="mt-5">
+                <WorkflowImage
+                  src="/portfolio/workflow-lead-gen.png"
+                  alt="Lead Generation Agent — Schedule Trigger + AI Email Writer + Send Emails automation pipeline"
+                  caption="Schedule · AI Email Writer · Gmail"
+                />
+              </div>
+            )}
           </Reveal>
         </div>
       </section>
@@ -214,7 +244,7 @@ export function ProjectDetailView({ detail, onClose, onSelect }: Props) {
                     </div>
                     <div className="font-serif text-[40px] md:text-[52px] leading-none tracking-[-0.025em] text-[#F5F1E8]">
                       {s.italic ? (
-                        <em className="italic text-[#B99A5B]">
+                        <em className="italic text-[#5DD899]">
                           {s.value.replace(/[a-zA-Z]+/, "")}
                         </em>
                       ) : (
