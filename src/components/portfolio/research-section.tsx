@@ -46,27 +46,6 @@ const ARCH_LAYERS = [
   },
 ];
 
-const OTHER_RS = [
-  {
-    roman: "i.",
-    title: "RAG Retrieval Bench",
-    titleItalic: "RAG",
-    tags: ["Vector Embeddings", "Semantic Search", "Evaluation"],
-  },
-  {
-    roman: "ii.",
-    title: "Text-to-SQL on Clinical Schema",
-    titleItalic: "Clinical",
-    tags: ["LLM", "SQL", "Healthcare"],
-  },
-  {
-    roman: "iii.",
-    title: "YOLO Data Augmentation Study",
-    titleItalic: "Augmentation",
-    tags: ["Computer Vision", "Augmentation", "Roboflow"],
-  },
-];
-
 export function ResearchSection() {
   return (
     <section id="research" className="relative py-12 md:py-16 px-6 md:px-10 lg:px-12 bg-[#F5F1E8]">
@@ -232,58 +211,6 @@ export function ResearchSection() {
             </div>
           </Reveal>
         </div>
-
-        {/* Other research */}
-        <Reveal>
-          <div className="border-t border-[rgba(16,36,58,0.12)] pt-9">
-            <div className="flex justify-between items-baseline mb-5">
-              <span className="text-[11px] tracking-[0.32em] uppercase text-[#10243A] font-semibold">
-                Other Experiments &amp; Side Projects
-              </span>
-              <span className="font-serif italic text-[14px] text-[#C86B45]">ii.</span>
-            </div>
-
-            {OTHER_RS.map((r) => (
-              <div
-                key={r.roman}
-                className="grid grid-cols-[40px_1fr_180px_60px] sm:grid-cols-[60px_1fr_220px_80px] gap-3 sm:gap-6 items-baseline py-4 md:py-4.5 border-t border-[rgba(16,36,58,0.12)]"
-              >
-                <span className="font-serif italic text-[18px] text-[#C86B45]">{r.roman}</span>
-                <span className="font-serif text-[18px] sm:text-[22px] text-[#10243A] tracking-[-0.01em]">
-                  {(() => {
-                    // Render title with the italic word in its proper place
-                    if (!r.titleItalic || !r.title.includes(r.titleItalic)) {
-                      return r.title;
-                    }
-                    const parts = r.title.split(r.titleItalic);
-                    return (
-                      <>
-                        {parts[0]}
-                        <em className="italic text-[#0F6654]">{r.titleItalic}</em>
-                        {parts[1]}
-                      </>
-                    );
-                  })()}
-                </span>
-                <div className="hidden sm:flex flex-wrap gap-1.5 items-center">
-                  {r.tags.map((t, ti) => (
-                    <span key={t} className="flex items-center">
-                      <span className="text-[9px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.6)] font-medium">
-                        {t}
-                      </span>
-                      {ti < r.tags.length - 1 && (
-                        <span className="w-1 h-1 rounded-full bg-[rgba(16,36,58,0.2)] mx-2.5" />
-                      )}
-                    </span>
-                  ))}
-                </div>
-                <span className="text-right text-[10px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium">
-                  Notebook →
-                </span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
       </div>
     </section>
   );

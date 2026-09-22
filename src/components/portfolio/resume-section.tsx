@@ -4,60 +4,61 @@ import { Reveal } from "./reveal";
 import { PROFILE } from "@/lib/portfolio";
 
 const EDUCATION = {
-  date: "2021 — 2025",
+  date: "11 / 2021 — 12 / 2025",
   period: "4 years",
-  name: "B.E. Computer Systems Engineering",
-  place: "Mehran University of Engineering & Technology",
+  name: "BE Computer Systems Engineering",
+  place: "Mehran University of Engineering & Technology, Pakistan",
   desc: "Undergraduate engineering degree spanning computer architecture, embedded systems, software engineering, machine learning foundations, and computational systems design.",
 };
 
 const EXPERIENCE_ROWS = [
   {
     date: "08 / 2026",
-    period: "Project-Based Learning",
-    name: "AI Hackathon Participant",
-    place: "Sofstica Solutions · Karachi",
-    desc: "Shipped end-to-end AI features (RAG, AI agents, document intelligence) as part of a project-based learning sprint.",
+    period: "Hackathon · Project-Based",
+    name: "Full Stack AI Engineer",
+    place: "AI Hackathon · Sofstica Solutions (Pvt.) Ltd · Karachi",
+    desc: "Built clinical research platform with Text-to-SQL across 912,284 patient records + data-quality engine with provenance tracking.",
   },
   {
     date: "01 — 04 / 2026",
     period: "4 months",
     name: "AI Engineer Intern",
     place: "ITSolera Pvt. Ltd. · Karachi",
-    desc: "LLM-powered client features, retrieval pipelines, AI agent deployment.",
+    desc: "Trained CNN + YOLO models on 10,000+ images across 3 domains, 93%+ accuracy, cut manual processing by 40%.",
   },
   {
     date: "07 — 08 / 2025",
     period: "2 months",
     name: "AI Engineer Intern",
-    place: "Civil Aviation Authority of Pakistan",
-    desc: "Internal data-driven tooling and prototype ML features for aviation operations.",
+    place: "Civil Aviation Authority of Pakistan (CAA) · Karachi",
+    desc: "Built enterprise LLM conversational system (60% query time reduction) + RAG framework across 100+ PDFs.",
   },
   {
     date: "11 / 2024 — 11 / 2025",
-    period: "12 months",
-    name: "AI Researcher · SAFELINK",
-    place: "Multimodal Wearable for Personal Safety",
-    desc: "Research lead on a CV + edge + IoT wearable for personal safety.",
+    period: "12 months · Mehran UET",
+    name: "AI Research · SAFELINK",
+    place: "Multimodal Smart Wearable for Personal Safety",
+    desc: "Built YOLO-based robbery detection wearable (95% accuracy, <5s response). 2nd Place IEEE CS Exhibition 2025.",
   },
 ];
 
 const PROJECT_ROWS = [
   { num: "01", cat: "Healthcare AI", name: "ClinData Explorer", desc: "AI-powered clinical cohort & data-quality explorer · Text-to-SQL · 912K records · Live on Azure." },
-  { num: "02", cat: "Customer AI", name: "McDonald's AI Agent", desc: "AI customer-support and order-management workflow · LLM · FastAPI." },
-  { num: "03", cat: "Clinical Decision Support", name: "CardioRisk AI", desc: "Heart-disease risk prediction · 97.6% accuracy (SVM) · 3,800+ patients · Next.js + Vercel." },
-  { num: "04", cat: "Document AI", name: "Enterprise RAG Assistant", desc: "Retrieval-augmented generation system for enterprise document intelligence." },
-  { num: "05", cat: "Clinical AI", name: "Radiomed", desc: "Automated medical image diagnosis assistant · CNN · 99.8% top accuracy." },
-  { num: "06", cat: "Wearable · CV", name: "SAFELINK", desc: "Multimodal smart wearable for personal safety · CV + Edge + IoT." },
-  { num: "07", cat: "Forecasting", name: "Revenue AI", desc: "Sales forecasting · Polynomial Regression · 95.3% R² · 0.903 MAE · Streamlit." },
-  { num: "08", cat: "AI Automation", name: "OutreachAI", desc: "AI-powered email outreach agent · n8n + LLM · 50+ emails/day · $0.02/email." },
+  { num: "02", cat: "Document AI", name: "Enterprise RAG Assistant", desc: "Retrieval-augmented generation system for enterprise document intelligence · 100+ PDFs." },
+  { num: "03", cat: "Customer AI", name: "McDonald's AI Agent", desc: "AI customer-support and order-management workflow · LLM · FastAPI." },
+  { num: "04", cat: "Clinical AI", name: "Radiomed", desc: "Automated medical image diagnosis assistant · CNN · 99.8% top accuracy." },
+  { num: "05", cat: "Forecasting", name: "Revenue AI", desc: "Sales forecasting · Polynomial Regression · 95.3% R² · 0.903 MAE · Streamlit." },
+  { num: "06", cat: "AI Automation", name: "OutreachAI", desc: "AI-powered email outreach agent · n8n + LLM · 50+ emails/day · $0.02/email." },
+  { num: "07", cat: "Wearable · CV", name: "SAFELINK", desc: "Multimodal smart wearable for personal safety · YOLOv8 + Raspberry Pi 4 + GPS/GSM." },
 ];
 
 const ACHIEVEMENTS = [
-  "Shipped end-to-end AI features (RAG + AI agents) at Sofstica hackathon.",
-  "Led 12-month SAFELINK research project to working prototype.",
-  "Completed 3 AI internships across industry & government.",
-  "B.E. Computer Systems Engineering, Mehran UET (2021–2025).",
+  "Built clinical research platform with Text-to-SQL across 912,284 patient records at Sofstica AI Hackathon.",
+  "Trained CNN + YOLO models on 10,000+ images with 93%+ accuracy at ITSolera.",
+  "Reduced enterprise query resolution time by 60% via LLM + RAG system at CAA.",
+  "Won 2nd Place at IEEE CS Exhibition 2025 (among 45+ projects) for SAFELINK research.",
+  "Published SAFELINK research paper globally in 2026.",
+  "BE Computer Systems Engineering, Mehran UET (11/2021 – 12/2025).",
 ];
 
 export function ResumeSection() {

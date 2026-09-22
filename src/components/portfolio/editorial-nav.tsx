@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/portfolio";
@@ -25,20 +26,21 @@ export function ScrollProgress() {
 }
 
 export function EditorialNav() {
-  const [active, setActive] = useState<string>("about");
+  const [active, setActive] = useState<string>("");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  // detect active section — default to About (since hero/home isn't in the nav menu)
+  // detect active section — default to null when home is in view
+  // (no nav item highlighted on the hero section)
   useEffect(() => {
     const sections = ["home", ...NAV_ITEMS.map((i) => i.href.replace("#", ""))];
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            // When home is in view, default to About as active (matches mockup)
+            // When home is in view, no nav item should be active
             if (e.target.id === "home") {
-              setActive("about");
+              setActive("");
             } else {
               setActive(e.target.id);
             }
@@ -72,14 +74,16 @@ export function EditorialNav() {
         {/* brand */}
         <a
           href="#home"
-          className="flex items-center gap-3 text-[#10243A] font-bold text-[14px] tracking-[0.18em] uppercase"
+          className="flex items-center gap-2.5 text-[#10243A] font-bold text-[14px] tracking-[0.18em] uppercase"
         >
-          <span
-            className="inline-flex items-center justify-center w-[28px] h-[28px] rounded-full border border-[#10243A] text-[11px] font-bold"
-            aria-hidden
-          >
-            NK
-          </span>
+          <Image
+            src="/portfolio/logo.png"
+            alt="Naveen Khan logo"
+            width={36}
+            height={36}
+            className="h-[32px] w-auto object-contain"
+            priority
+          />
           <span className="hidden sm:inline">Naveen&nbsp;Khan</span>
         </a>
 
@@ -132,9 +136,16 @@ export function EditorialNav() {
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between px-6 py-5 border-b border-[rgba(16,36,58,0.12)]">
-                  <span className="font-bold tracking-[0.18em] uppercase text-[14px] text-[#10243A]">
-                    Menu
-                  </span>
+                <a href="#home" className="flex items-center gap-2.5 text-[#10243A] font-bold text-[14px] tracking-[0.18em] uppercase">
+                  <Image
+                    src="/portfolio/logo.png"
+                    alt="Naveen Khan logo"
+                    width={32}
+                    height={32}
+                    className="h-[28px] w-auto object-contain"
+                  />
+                  <span>Menu</span>
+                </a>
                   <SheetClose asChild>
                     <Button
                       variant="ghost"

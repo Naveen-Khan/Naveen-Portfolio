@@ -16,7 +16,11 @@ const statusBadge = (status: ExperienceItem["status"]) => {
   }
 };
 
-export function ExperienceSection() {
+interface Props {
+  onSelectExperience?: (num: string) => void;
+}
+
+export function ExperienceSection({ onSelectExperience }: Props) {
   return (
     <section
       id="experience"
@@ -65,9 +69,20 @@ export function ExperienceSection() {
 
           {EXPERIENCE.map((exp, i) => {
             const badge = statusBadge(exp.status);
+            const Wrapper = onSelectExperience ? "button" : "div";
+            const wrapperProps = onSelectExperience
+              ? {
+                  onClick: () => onSelectExperience!(exp.num),
+                  className:
+                    "group w-full text-left grid grid-cols-1 md:grid-cols-[0.2fr_0.6fr_0.2fr] gap-4 md:gap-8 py-7 md:py-8 border-b border-[rgba(245,241,232,0.18)] relative cursor-pointer hover:bg-[rgba(245,241,232,0.03)] transition-colors",
+                }
+              : {
+                  className:
+                    "grid grid-cols-1 md:grid-cols-[0.2fr_0.6fr_0.2fr] gap-4 md:gap-8 py-7 md:py-8 border-b border-[rgba(245,241,232,0.18)] relative",
+                };
             return (
               <Reveal key={exp.num} delay={i * 0.08}>
-                <div className="grid grid-cols-1 md:grid-cols-[0.2fr_0.6fr_0.2fr] gap-4 md:gap-8 py-7 md:py-8 border-b border-[rgba(245,241,232,0.18)] relative">
+                <Wrapper {...wrapperProps}>
                   {/* node dot */}
                   <span
                     className={`absolute -left-[18px] md:-left-[50px] top-[34px] w-[11px] h-[11px] rounded-full z-[2] border ${
@@ -94,9 +109,9 @@ export function ExperienceSection() {
                     </div>
                   </div>
 
-                  {/* role + company + desc */}
+                  {/* role + company (description + tags moved to detail view only) */}
                   <div>
-                    <div className="font-serif text-[22px] md:text-[28px] text-[#F5F1E8] tracking-[-0.015em] leading-[1.1] mb-1.5">
+                    <div className="font-serif text-[22px] md:text-[28px] text-[#F5F1E8] tracking-[-0.015em] leading-[1.1] mb-1.5 group-hover:text-[#B99A5B] transition-colors">
                       {exp.role.replace(exp.role.split(" ").slice(-1)[0], "")}
                       <em className="italic text-[#B99A5B]">
                         {" "}
@@ -106,39 +121,12 @@ export function ExperienceSection() {
                     <div className="text-[12px] tracking-[0.22em] uppercase text-[rgba(245,241,232,0.55)] font-medium mb-3.5">
                       {exp.company}
                     </div>
-                    <p className="text-[13.5px] text-[rgba(245,241,232,0.72)] leading-[1.65] max-w-[580px]">
-                      {exp.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 mt-3.5">
-                      {exp.tags.map((t) => (
-                        <span
-                          key={t}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[rgba(245,241,232,0.22)] rounded-full text-[10px] font-medium tracking-[0.16em] uppercase text-[rgba(245,241,232,0.8)]"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
 
-                    {/* Inline experience details — bullet list */}
-                    {exp.details && exp.details.length > 0 && (
-                      <div className="mt-4 pt-3.5 border-t border-dashed border-[rgba(245,241,232,0.15)]">
-                        <div className="text-[9px] tracking-[0.32em] uppercase text-[rgba(245,241,232,0.55)] font-medium mb-2.5">
-                          Experience Details
-                        </div>
-                        <ul className="space-y-1.5">
-                          {exp.details.map((d, di) => (
-                            <li
-                              key={di}
-                              className="flex items-baseline gap-2.5 text-[12.5px] text-[rgba(245,241,232,0.72)] leading-[1.5]"
-                            >
-                              <span className="font-serif italic text-[10px] text-[#C86B45] flex-shrink-0 w-4">
-                                {String.fromCharCode(97 + di)}.
-                              </span>
-                              <span>{d}</span>
-                            </li>
-                          ))}
-                        </ul>
+                    {/* Click hint — full details on the dedicated detail page */}
+                    {onSelectExperience && (
+                      <div className="mt-4 inline-flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-[#C86B45] font-semibold group-hover:translate-x-1 transition-transform">
+                        View Details
+                        <span aria-hidden>→</span>
                       </div>
                     )}
                   </div>
@@ -163,7 +151,7 @@ export function ExperienceSection() {
                       {exp.city}
                     </div>
                   </div>
-                </div>
+                </Wrapper>
               </Reveal>
             );
           })}

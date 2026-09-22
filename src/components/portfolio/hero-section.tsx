@@ -18,19 +18,6 @@ export function HeroSection() {
       id="home"
       className="relative pt-20 md:pt-24 pb-12 md:pb-16 px-6 md:px-10 lg:px-12 overflow-hidden"
     >
-      {/* Vertical side label — pinned to left edge, vertically centered with hero content (lg+ only) */}
-      <div
-        className="hidden lg:flex absolute left-3 top-1/2 -translate-y-1/2 items-center pointer-events-none"
-        aria-hidden
-      >
-        <span
-          className="font-sans text-[10px] font-medium tracking-[0.32em] uppercase text-[rgba(16,36,58,0.55)]"
-          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", whiteSpace: "nowrap" }}
-        >
-          PORTFOLIO &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; KARACHI
-        </span>
-      </div>
-
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_0.95fr] gap-10 lg:gap-12 items-center pt-4 lg:pt-6">
         {/* LEFT */}
         <div>
@@ -50,7 +37,7 @@ export function HeroSection() {
             initial="hidden"
             animate="show"
             custom={1}
-            className="editorial-serif text-[40px] sm:text-[56px] md:text-[68px] lg:text-[78px] leading-[0.96] tracking-[-0.025em] mb-7 md:mb-8"
+            className="editorial-serif text-[40px] sm:text-[52px] md:text-[62px] lg:text-[72px] leading-[0.96] tracking-[-0.025em] mb-6 md:mb-7"
             style={{ fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
           >
             <span className="block">Building</span>
@@ -136,13 +123,7 @@ export function HeroSection() {
               borderRadius: "190px 190px 20px 20px",
               opacity: 0.92,
             }}
-          >
-            {/* small decorative ring on top-left of arch (outside) */}
-            <div
-              className="absolute -top-6 -left-9 w-[90px] h-[90px] rounded-full border border-[rgba(16,36,58,0.2)]"
-              aria-hidden
-            />
-          </div>
+          />
 
           {/* PORTRAIT FRAME — on top of arch, inset 50px from top, narrower than arch so arch peeks out on top + sides */}
           <div
@@ -153,7 +134,7 @@ export function HeroSection() {
             }}
           >
             <Image
-              src="/portfolio/portrait-v2.png"
+              src="/portfolio/portrait-v3.jpg"
               alt="Naveen Khan — AI Engineer portrait"
               fill
               className="object-cover"
@@ -161,20 +142,6 @@ export function HeroSection() {
               priority
               sizes="(max-width: 768px) 280px, 360px"
             />
-          </div>
-
-          {/* DOT CLUSTER — inside the arch, top-right area (next to portrait's right edge, but inside arch) */}
-          <div
-            className="absolute top-[90px] right-2 hidden md:grid z-[5]"
-            style={{ gridTemplateColumns: "repeat(4, 1fr)", gap: "14px" }}
-            aria-hidden
-          >
-            {Array.from({ length: 12 }).map((_, i) => (
-              <span
-                key={i}
-                className="w-[4px] h-[4px] rounded-full bg-[rgba(16,36,58,0.4)]"
-              />
-            ))}
           </div>
 
           {/* FLOATING CARD — TOP-LEFT (outside the arch on the left, near top) */}
@@ -203,9 +170,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* FLOATING CARD — BOTTOM-RIGHT (outside the arch on the right, mid-bottom) */}
+          {/* FLOATING CARD — BOTTOM-RIGHT (anchored to bottom-right, aligned with bottom-left card) */}
           <div
-            className="absolute bottom-[50px] right-[-12px] sm:right-[-36px] bg-[#F5F1E8] border border-[rgba(16,36,58,0.12)] px-[18px] py-[14px] rounded-[4px] z-[10]"
+            className="absolute bottom-[20px] right-[-8px] sm:right-[-24px] bg-[#F5F1E8] border border-[rgba(16,36,58,0.12)] px-[18px] py-[14px] rounded-[4px] z-[10]"
             style={{ boxShadow: "0 10px 30px -15px rgba(16,36,58,0.18)" }}
           >
             <div className="text-[9px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium mb-1">
@@ -213,32 +180,7 @@ export function HeroSection() {
             </div>
             <div className="font-serif text-[18px] text-[#10243A]">06 Months</div>
           </div>
-
-          {/* Vertical "art directed" italic label — right edge of right column */}
-          <div
-            className="absolute top-[280px] right-[-10px] hidden lg:block font-serif italic text-[14px] text-[rgba(16,36,58,0.6)]"
-            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", transformOrigin: "left center" }}
-            aria-hidden
-          >
-            — art directed
-          </div>
-
-          {/* Corner signature */}
-          <div className="absolute bottom-5 right-3 md:right-7 font-serif italic text-[14px] text-[rgba(16,36,58,0.6)]">
-            — NK, &apos;26
-          </div>
         </motion.div>
-      </div>
-
-      {/* Scroll indicator at bottom */}
-      <div className="mt-10 md:mt-14 max-w-[1400px] mx-auto flex items-center justify-between text-[10px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium">
-        <span>01 — Home</span>
-        <div className="flex-1 h-[1px] mx-6 bg-[rgba(16,36,58,0.12)] relative">
-          <div className="absolute left-0 top-0 h-[1px] w-[38%] bg-[#10243A]" />
-          <div className="absolute left-[38%] top-[-3px] w-[7px] h-[7px] rounded-full bg-[#C86B45]" />
-        </div>
-        <span className="hidden sm:inline">Scroll ↓</span>
-        <span className="sm:hidden">↓</span>
       </div>
     </section>
   );

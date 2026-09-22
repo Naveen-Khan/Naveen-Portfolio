@@ -80,7 +80,7 @@ export const PROFILE = {
   experience: "06 Months · AI Engineering",
   education: "B.E. Computer Systems Engineering",
   school: "Mehran University of Engineering & Technology",
-  educationPeriod: "2021 – 2025",
+  educationPeriod: "11 / 2021 – 12 / 2025",
 };
 
 export const PROJECTS: Project[] = [
@@ -95,24 +95,6 @@ export const PROJECTS: Project[] = [
   },
   {
     num: "02",
-    slug: "mcdonalds-ai-agent",
-    name: "McDonald's AI Agent",
-    category: "Customer Support · Order Mgmt",
-    description:
-      "AI customer-support and order-management workflow for retail F&B.",
-    tags: ["LLM", "AI Agents", "FastAPI"],
-  },
-  {
-    num: "03",
-    slug: "cardiorisk-ai",
-    name: "CardioRisk AI",
-    category: "Clinical Decision Support",
-    description:
-      "Heart-disease risk prediction prototype for clinical decision support.",
-    tags: ["Classification", "Healthcare", "ML"],
-  },
-  {
-    num: "04",
     slug: "enterprise-rag-assistant",
     name: "Enterprise RAG Assistant",
     category: "Document Intelligence",
@@ -121,7 +103,16 @@ export const PROJECTS: Project[] = [
     tags: ["RAG", "Vector Embeddings", "Semantic Search"],
   },
   {
-    num: "05",
+    num: "03",
+    slug: "mcdonalds-ai-agent",
+    name: "McDonald's AI Agent",
+    category: "Customer Support · Order Mgmt",
+    description:
+      "AI customer-support and order-management workflow for retail F&B.",
+    tags: ["LLM", "AI Agents", "FastAPI"],
+  },
+  {
+    num: "04",
     slug: "radiomed",
     name: "Radiomed",
     category: "Automated Medical Image Diagnosis Assistant",
@@ -130,15 +121,7 @@ export const PROJECTS: Project[] = [
     tags: ["CNN", "Computer Vision", "Healthcare"],
   },
   {
-    num: "06",
-    slug: "safelink",
-    name: "SAFELINK",
-    category: "Multimodal Wearable · Research",
-    description: "Multimodal smart wearable system for personal safety.",
-    tags: ["Computer Vision", "Edge AI", "IoT"],
-  },
-  {
-    num: "07",
+    num: "05",
     slug: "revenue-ai",
     name: "Revenue AI",
     category: "Sales Prediction · Forecasting",
@@ -146,12 +129,20 @@ export const PROJECTS: Project[] = [
     tags: ["Regression", "Forecasting", "Dashboard"],
   },
   {
-    num: "08",
-    slug: "outreach-ai",
-    name: "OutreachAI",
-    category: "AI Automation · Email Outreach",
-    description: "AI-powered email outreach agent that sends 50+ personalized emails daily.",
+    num: "06",
+    slug: "lead-generation-agent",
+    name: "Lead Generation Agent",
+    category: "AI Automation · Lead Generation",
+    description: "AI-powered lead generation agent that sends 50+ personalized emails daily.",
     tags: ["n8n", "LLM", "AI Agents"],
+  },
+  {
+    num: "07",
+    slug: "safelink",
+    name: "SAFELINK",
+    category: "Multimodal Smart Wearable · Research",
+    description: "Multimodal smart wearable for personal safety with YOLO-based threat detection.",
+    tags: ["Computer Vision", "Edge AI", "IoT"],
   },
 ];
 
@@ -186,7 +177,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     },
   },
   "mcdonalds-ai-agent": {
-    ...PROJECTS[1],
+    ...PROJECTS[2],
     tagline:
       "An AI customer-support and order-management agent for a retail F&B operator.",
     longDescription:
@@ -207,31 +198,8 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       github: "https://github.com/Naveen-Khan/Machdonals-ai-agent",
     },
   },
-  "cardiorisk-ai": {
-    ...PROJECTS[2],
-    tagline:
-      "An intelligent web application that predicts heart-disease risk using 13 clinical variables with 97.6% accuracy.",
-    longDescription:
-      "An intelligent web application that predicts heart disease risk using 13 clinical variables with 97.6% accuracy. Powered by Support Vector Machine (SVM) and validated on 3,800+ patient records, the platform delivers real-time risk stratification and multi-format medical reports (PDF, CSV, Excel). A Logistic Regression baseline (80.5% accuracy) is included for clinical comparison. Deployed globally via Vercel.",
-    heroTitleLines: ["Cardio", "Risk", "AI"],
-    heroItalicPart: "Risk",
-    visualType: "cardio",
-    stats: [
-      { roman: "i", label: "Accuracy", value: "97.6%", desc: "SVM classifier" },
-      { roman: "ii", label: "Patients", value: "3,800+", desc: "Validated records" },
-      { roman: "iii", label: "Variables", value: "13", desc: "Clinical features" },
-      { roman: "iv", label: "Baseline", value: "80.5%", desc: "Logistic Regression", italic: true },
-    ],
-    scope: "Clinical Decision Support",
-    stack: "Python · Next.js · SQLite · Tailwind · Vercel",
-    year: "2025",
-    links: {
-      github: "https://github.com/Naveen-Khan",
-      live: "https://web-un87u2afa-naveenkhan0111-4662s-projects.vercel.app/",
-    },
-  },
   "enterprise-rag-assistant": {
-    ...PROJECTS[3],
+    ...PROJECTS[1],
     tagline:
       "Retrieval-augmented generation system for enterprise document intelligence.",
     longDescription:
@@ -253,7 +221,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     },
   },
   radiomed: {
-    ...PROJECTS[4],
+    ...PROJECTS[3],
     tagline:
       "Automated medical image diagnosis assistant for clinical decision support.",
     longDescription:
@@ -275,7 +243,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     },
   },
   safelink: {
-    ...PROJECTS[5],
+    ...PROJECTS[6],
     tagline: "A multimodal smart wearable for personal safety.",
     longDescription:
       "A 12-month research project exploring how computer vision, on-device inference and IoT sensors can be fused into a discreet wearable that detects threat contexts in real time and routes live location + audio to trusted contacts through an SOS escalation path.",
@@ -301,7 +269,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     },
   },
   "revenue-ai": {
-    ...PROJECTS[6],
+    ...PROJECTS[4],
     tagline:
       "An intelligent sales forecasting platform powered by Polynomial Regression.",
     longDescription:
@@ -322,14 +290,14 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       github: "https://github.com/Naveen-Khan/RevenueAi",
     },
   },
-  "outreach-ai": {
-    ...PROJECTS[7],
+  "lead-generation-agent": {
+    ...PROJECTS[5],
     tagline:
-      "An AI-powered email outreach agent that sends 50+ personalized emails daily.",
+      "An AI-powered lead generation agent that sends 50+ personalized emails daily.",
     longDescription:
-      "OutreachAI is an AI-powered email automation agent built with n8n that sends 50+ personalized sales emails daily to potential clients. The system automatically reads company data from Google Sheets, generates tailored outreach emails using LLMs (via OpenRouter), sends them without manual intervention, and logs all email content back to the sheet. Reduced manual effort by 90% while maintaining a cost of approximately $0.02 per email.",
-    heroTitleLines: ["Outreach", "AI"],
-    heroItalicPart: "AI",
+      "Lead Generation Agent is an AI-powered email automation agent built with n8n that sends 50+ personalized sales emails daily to potential clients. The system automatically reads company data from Google Sheets, generates tailored outreach emails using LLMs (via OpenRouter), sends them without manual intervention, and logs all email content back to the sheet. Reduced manual effort by 90% while maintaining a cost of approximately $0.02 per email.",
+    heroTitleLines: ["Lead", "Generation", "Agent"],
+    heroItalicPart: "Agent",
     visualType: "outreach",
     stats: [
       { roman: "i", label: "Throughput", value: "50+/day", desc: "Personalized emails" },
@@ -337,7 +305,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { roman: "iii", label: "Effort Saved", value: "90%", desc: "Manual reduction" },
       { roman: "iv", label: "Automation", value: "n8n + LLM", desc: "End-to-end pipeline", italic: true },
     ],
-    scope: "AI Automation · Email Outreach",
+    scope: "AI Automation · Lead Generation",
     stack: "n8n · OpenRouter LLM · Google Sheets · Gmail API · JS · GCP",
     year: "2026",
     links: {
@@ -349,20 +317,20 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
 export const EXPERIENCE: ExperienceItem[] = [
   {
     num: "01",
-    role: "AI Hackathon Participant",
-    company: "Sofstica Solutions",
+    role: "Full Stack AI Engineer",
+    company: "AI Hackathon · Sofstica Solutions (Pvt.) Ltd",
     date: "08 / 2026",
-    period: "Project-Based Learning",
+    period: "Hackathon · Project-Based",
     description:
-      "Participated in an intensive AI hackathon hosted by Sofstica Solutions — built and shipped end-to-end AI features across the full stack as part of a project-based learning sprint. Delivered RAG assistants, AI agents, document-intelligence pipelines, and FastAPI services backing customer-facing prototypes.",
-    tags: ["Generative AI", "RAG", "FastAPI", "Full-Stack"],
+      "Built a clinical research platform with Text-to-SQL capabilities and engineered an end-to-end data-quality engine from scratch across 912,284 patient records with full provenance tracking. Integrated a FastAPI + Next.js app featuring LLM-powered natural language interfaces for real-time cohort exploration, analysis, and AI-generated summaries.",
+    tags: ["Python", "FastAPI", "Next.js", "LLM", "LangChain", "Docker", "Azure"],
     status: "project",
     city: "Karachi",
     details: [
-      "Designed and shipped production RAG assistant prototype end-to-end.",
-      "Built AI agents wired into real customer workflows through FastAPI.",
-      "Implemented document-intelligence pipeline for unstructured data extraction.",
-      "Worked in a sprint-based format with code reviews and live demos.",
+      "Built clinical research platform with Text-to-SQL across 912,284 patient records.",
+      "Engineered end-to-end data-quality engine from scratch with full provenance tracking.",
+      "Integrated FastAPI + Next.js app with LLM-powered natural language interfaces.",
+      "Enabled real-time cohort exploration, analysis, and AI-generated summaries.",
     ],
   },
   {
@@ -372,51 +340,51 @@ export const EXPERIENCE: ExperienceItem[] = [
     date: "01 / 2026 – 04 / 2026",
     period: "4 months",
     description:
-      "Built LLM-powered features for client products, prototyped retrieval pipelines, and contributed to the deployment of AI agents wired into real customer workflows.",
-    tags: ["LLM", "AI Agents", "Python"],
+      "Trained CNN and YOLO-based computer vision models on 10,000+ images spanning three domains: medical image classification, damaged road detection, and theft detection. Fine-tuned models to 93%+ accuracy through systematic hyperparameter optimization. Automated repetitive data workflows, cutting manual processing time by approximately 40%.",
+    tags: ["Python", "Deep Learning", "FastAPI", "Streamlit", "Roboflow", "Computer Vision"],
     status: "internship",
     city: "Karachi",
     details: [
-      "Engineered LLM-powered client features with retrieval pipelines.",
-      "Deployed AI agents wired into customer-facing workflows.",
-      "Built Python prototypes for internal data tooling.",
-      "Collaborated with senior engineers on production rollouts.",
+      "Trained CNN + YOLO models on 10,000+ images across 3 domains (medical, road damage, theft).",
+      "Fine-tuned models to 93%+ accuracy via systematic hyperparameter optimization.",
+      "Automated repetitive data workflows, cutting manual processing by ~40%.",
+      "Delivered multiple concurrent CV projects end-to-end.",
     ],
   },
   {
     num: "03",
     role: "AI Engineer Intern",
-    company: "Civil Aviation Authority of Pakistan",
+    company: "Civil Aviation Authority of Pakistan (CAA)",
     date: "07 / 2025 – 08 / 2025",
     period: "2 months",
     description:
-      "Worked on internal data-driven tooling and prototype ML features supporting aviation operations — including exploratory analytics and prediction workflows on operational data.",
-    tags: ["ML", "EDA", "Python"],
+      "Engineered an enterprise-level conversational system using LLMs that reduced internal query resolution time by 60%. Architected a semantic retrieval framework leveraging Retrieval-Augmented Generation (RAG) and embedding-based document indexing across 100+ organizational PDFs.",
+    tags: ["Python", "FastAPI", "LangChain", "RAG", "NLP", "LLMs", "Hugging Face", ".NET"],
     status: "internship",
     city: "Karachi",
     details: [
-      "Built exploratory analytics dashboards on operational aviation data.",
-      "Prototyped ML prediction workflows for internal use.",
-      "Wrote Python data-cleaning + feature-engineering pipelines.",
-      "Presented findings to internal stakeholders.",
+      "Built enterprise conversational system with LLMs, cut query resolution time by 60%.",
+      "Architected semantic retrieval framework with RAG across 100+ organizational PDFs.",
+      "Implemented embedding-based document indexing for fast retrieval.",
+      "Collaborated with technical teams on AI workflows and model integration.",
     ],
   },
   {
     num: "04",
-    role: "AI Researcher",
-    company: "SAFELINK — Multimodal Wearable",
+    role: "AI Research",
+    company: "Multimodal Smart Wearable for Personal Safety",
     date: "11 / 2024 – 11 / 2025",
-    period: "12 months",
+    period: "12 months · Mehran UET",
     description:
-      "Led research on a multimodal smart wearable for personal safety — fusing computer vision, edge inference and IoT sensors into a working prototype with an SOS escalation path that routes live location + audio to trusted contacts.",
-    tags: ["Computer Vision", "Edge AI", "IoT"],
+      "Developed an AI-powered wearable with YOLO-based robbery detection, multilingual speech recognition, evidence capturing, and GPS/GSM emergency response. Achieved 95% accuracy in real-time threat detection with alert response time under 5 seconds. Won 2nd Place at IEEE CS Exhibition 2025 (among 45+ projects) and published a research paper globally in 2026.",
+    tags: ["Python", "PyTorch", "YOLOv8", "Raspberry Pi 4", "ESP32", "IoT", "GPS/GSM", "Computer Vision"],
     status: "research",
     city: "Mehran UET",
     details: [
-      "Fused computer vision + IMU + audio anomaly detection on-device.",
-      "Implemented YOLO-based threat-context detector running on edge hardware.",
-      "Built SOS escalation pipeline routing live location + audio to contacts.",
-      "Delivered SAFELINK v1 working prototype at Mehran UET.",
+      "Built YOLO-based robbery detection with 95% accuracy and <5s alert response.",
+      "Implemented multilingual speech recognition + evidence capturing on-device.",
+      "Engineered GPS/GSM emergency response pipeline on Raspberry Pi 4 + ESP32.",
+      "Won 2nd Place at IEEE CS Exhibition 2025 (45+ projects); published paper in 2026.",
     ],
   },
 ];
@@ -429,12 +397,11 @@ export const SKILL_CLUSTERS: SkillCluster[] = [
     featured: true,
     skills: [
       { name: "RAG", level: 3 },
-      { name: "LLM APIs", level: 3 },
+      { name: "LLMs", level: 3 },
+      { name: "LangChain", level: 3 },
       { name: "Prompt Engineering", level: 3 },
-      { name: "Semantic Search", level: 2 },
-      { name: "Vector Embeddings", level: 3 },
-      { name: "Vector DBs (Faiss, Pinecone)", level: 3 },
-      { name: "Context Engineering", level: 2 },
+      { name: "AI Agents", level: 3 },
+      { name: "Vector DBs (Pinecone, FAISS)", level: 3 },
     ],
   },
   {
@@ -467,15 +434,10 @@ export const SKILL_CLUSTERS: SkillCluster[] = [
     romanNum: "iv.",
     skills: [
       { name: "Python", level: 3 },
-      { name: "C++", level: 2 },
       { name: "FastAPI", level: 3 },
-      { name: "REST APIs", level: 3 },
-      { name: "SQL", level: 3 },
-      { name: "PostgreSQL", level: 2 },
-      { name: "HTML", level: 3 },
-      { name: "CSS", level: 3 },
-      { name: "JavaScript", level: 3 },
-      { name: "PHP", level: 2 },
+      { name: "Streamlit", level: 3 },
+      { name: "MySQL / PostgreSQL", level: 2 },
+      { name: "HTML / CSS / JS", level: 3 },
       { name: "Git / GitHub", level: 3 },
     ],
   },
@@ -487,8 +449,9 @@ export const SKILL_CLUSTERS: SkillCluster[] = [
       { name: "n8n", level: 3 },
       { name: "AI Agents", level: 3 },
       { name: "Webhooks", level: 2 },
-      { name: "API Integration", level: 3 },
-      { name: "Workflow Automation", level: 2 },
+      { name: "LLM API Integration", level: 3 },
+      { name: "Workflow Automation", level: 3 },
+      { name: "JSON Handling", level: 3 },
     ],
   },
   {
@@ -500,9 +463,6 @@ export const SKILL_CLUSTERS: SkillCluster[] = [
       { name: "Vercel", level: 2 },
       { name: "Azure", level: 1 },
       { name: "GCP", level: 2 },
-      { name: "Streamlit", level: 3 },
-      { name: "Jupyter", level: 3 },
-      { name: "Google Colab", level: 3 },
     ],
   },
 ];
@@ -512,6 +472,5 @@ export const NAV_ITEMS = [
   { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
   { label: "Research", href: "#research" },
-  { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },
 ];

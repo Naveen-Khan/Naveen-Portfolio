@@ -123,7 +123,7 @@ export function AboutSection() {
                 style={{ aspectRatio: "4 / 5" }}
               >
                 <Image
-                  src="/portfolio/portrait-v2.png"
+                  src="/portfolio/portrait-v3.jpg"
                   alt="Naveen Khan — portrait"
                   fill
                   className="object-cover"
@@ -164,15 +164,6 @@ export function AboutSection() {
                   B.E. Computer Systems
                   <br />
                   Mehran UET · 2021–25
-                </div>
-                <hr className="border-0 border-t border-[rgba(245,241,232,0.18)] my-3" />
-                <div className="text-[9px] tracking-[0.32em] uppercase text-[rgba(245,241,232,0.55)] font-medium">
-                  Currently
-                </div>
-                <div className="text-[10px] text-[rgba(245,241,232,0.75)] leading-[1.8] mt-1">
-                  Full-Stack AI Engineer
-                  <br />
-                  Sofstica Solutions
                 </div>
               </div>
             </Reveal>
