@@ -24,6 +24,7 @@ export interface ProjectDetail extends Project {
     | "rag"
     | "radiomed"
     | "revenue-ai"
+    | "cardiorisk"
     | "n8n-workflows";
   stats?: Array<{
     roman: string;
@@ -132,6 +133,15 @@ export const PROJECTS: Project[] = [
   },
   {
     num: "06",
+    slug: "cardiorisk-ai",
+    name: "CardioRisk AI",
+    category: "AI · Healthcare · Clinical Decision Support",
+    description:
+      "An intelligent web application that predicts heart disease risk using 13 clinical variables with 97.6% accuracy.",
+    tags: ["Machine Learning", "Next.js", "Python", "SQLite", "Tailwind CSS", "Vercel"],
+  },
+  {
+    num: "07",
     slug: "safelink",
     name: "SAFELINK",
     category: "Multimodal Smart Wearable · Research",
@@ -139,7 +149,7 @@ export const PROJECTS: Project[] = [
     tags: ["Computer Vision", "Edge AI", "IoT"],
   },
   {
-    num: "07",
+    num: "08",
     slug: "ai-automation-n8n",
     name: "AI Automation n8n",
     category: "n8n Workflows · AI Automation",
@@ -244,7 +254,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     },
   },
   safelink: {
-    ...PROJECTS[5],
+    ...PROJECTS[6],
     tagline: "A multimodal smart wearable for personal safety.",
     longDescription:
       "A 12-month research project exploring how computer vision, on-device inference and IoT sensors can be fused into a discreet wearable that detects threat contexts in real time and routes live location + audio to trusted contacts through an SOS escalation path.",
@@ -291,8 +301,31 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       github: "https://github.com/Naveen-Khan/RevenueAi",
     },
   },
+  "cardiorisk-ai": {
+    ...PROJECTS[5],
+    tagline:
+      "An intelligent web application that predicts heart disease risk using 13 clinical variables with 97.6% accuracy.",
+    longDescription:
+      "An intelligent web application that predicts heart disease risk using 13 clinical variables with 97.6% accuracy. Powered by Support Vector Machine (SVM) and validated on 3,800+ patient records, the platform delivers real-time risk stratification, and multi-format medical reports (PDF, CSV, Excel). Logistic Regression baseline (80.5% accuracy) included for clinical comparison. Deployed globally via Vercel.",
+    heroTitleLines: ["Cardio", "Risk", "AI"],
+    heroItalicPart: "Risk",
+    visualType: "cardiorisk",
+    stats: [
+      { roman: "i", label: "Accuracy", value: "97.6%", desc: "SVM classifier" },
+      { roman: "ii", label: "Patients", value: "3,800+", desc: "Validated records" },
+      { roman: "iii", label: "Variables", value: "13", desc: "Clinical features" },
+      { roman: "iv", label: "Baseline", value: "80.5%", desc: "Logistic Regression", italic: true },
+    ],
+    scope: "AI · Healthcare · Clinical Decision Support",
+    stack: "Machine Learning · Next.js · Python · SQLite · Tailwind CSS · Vercel",
+    year: "2025",
+    links: {
+      github: "https://github.com/Naveen-Khan",
+      live: "https://web-un87u2afa-naveenkhan0111-4662s-projects.vercel.app/",
+    },
+  },
   "ai-automation-n8n": {
-    ...PROJECTS[6],
+    ...PROJECTS[7],
     tagline:
       "A collection of n8n automation workflows powering AI agents, RAG pipelines, and email outreach.",
     longDescription:

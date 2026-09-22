@@ -8,6 +8,7 @@ import { McdonaldsVisual } from "./visuals/mcdonalds-visual";
 import { SafelinkVisual } from "./visuals/safelink-visual";
 import { RadiomedVisual } from "./visuals/radiomed-visual";
 import { RevenueAiVisual } from "./visuals/revenue-ai-visual";
+import { CardioriskVisual } from "./visuals/cardiorisk-visual";
 import { GenericVisual } from "./visuals/generic-visual";
 import { N8nWorkflowsVisual } from "./visuals/n8n-workflows-visual";
 import { PROJECTS, type ProjectDetail } from "@/lib/portfolio";
@@ -152,6 +153,7 @@ export function ProjectDetailView({ detail, onClose, onSelect }: Props) {
               {detail.visualType === "safelink" && <SafelinkVisual />}
               {detail.visualType === "radiomed" && <RadiomedVisual />}
               {detail.visualType === "revenue-ai" && <RevenueAiVisual />}
+              {detail.visualType === "cardiorisk" && <CardioriskVisual />}
               {detail.visualType === "n8n-workflows" && <N8nWorkflowsVisual />}
               {(detail.visualType === "cardio" ||
                 detail.visualType === "rag" ||

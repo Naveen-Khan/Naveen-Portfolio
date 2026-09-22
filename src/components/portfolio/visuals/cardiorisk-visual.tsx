@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 
-// SAFELINK — bespoke visual embedding the actual hardware photo of the wearable.
-// Editorial browser-frame mockup with caption strip.
+// CardioRisk AI — bespoke visual embedding the actual CardioPredict web app screenshot
+// in the consistent editorial browser-frame mockup.
 
-export function SafelinkVisual() {
+export function CardioriskVisual() {
   return (
     <div
       className="bg-[#EFE9DC] border border-[rgba(16,36,58,0.12)] rounded-lg p-4 md:p-[18px]"
@@ -19,24 +19,24 @@ export function SafelinkVisual() {
             <span className="w-2 h-2 rounded-full bg-[rgba(16,36,58,0.12)]" />
             <span className="w-2 h-2 rounded-full bg-[rgba(16,36,58,0.12)]" />
           </span>
-          <span className="hidden sm:inline">SAFELINK · Multimodal Wearable</span>
-          <span className="sm:hidden">SAFELINK</span>
+          <span className="hidden sm:inline">CardioPredict · Clinical Decision Support</span>
+          <span className="sm:hidden">CardioPredict</span>
         </div>
         <div className="text-[10px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.6)] hidden md:block">
-          v1 · Prototype
+          Live · Vercel
         </div>
       </div>
 
-      {/* hardware photo — preserves original aspect ratio (896x1196, portrait) */}
+      {/* screenshot — preserve original aspect ratio */}
       <div
-        className="relative w-full overflow-hidden rounded-md border border-[rgba(16,36,58,0.12)] bg-[#F5F1E8] max-h-[360px] md:max-h-[440px]"
-        style={{ aspectRatio: "896 / 1196" }}
+        className="relative w-full overflow-hidden rounded-md border border-[rgba(16,36,58,0.12)] bg-[#F5F1E8]"
+        style={{ aspectRatio: "16 / 9" }}
       >
         <Image
-          src="/portfolio/safelink-hardware.png"
-          alt="SAFELINK — multimodal smart wearable device hardware photo"
+          src="/portfolio/cardiorisk.png"
+          alt="CardioPredict — Clinical Decision Support web application UI"
           fill
-          className="object-cover object-top"
+          className="object-contain object-top"
           sizes="(max-width: 768px) 100vw, 760px"
           priority
         />
@@ -45,10 +45,10 @@ export function SafelinkVisual() {
       {/* caption strip */}
       <div className="flex justify-between items-baseline mt-3 pt-3 border-t border-[rgba(16,36,58,0.12)]">
         <span className="text-[10px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.6)] font-medium">
-          YOLOv8 · Raspberry Pi 4 · ESP32 · GPS/GSM
+          SVM · 13 clinical variables · 3,800+ patients
         </span>
         <span className="font-serif italic text-[12px] text-[#C86B45]">
-          95% accuracy · &lt;5s response
+          97.6% accuracy
         </span>
       </div>
     </div>
