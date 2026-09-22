@@ -24,7 +24,8 @@ export interface ProjectDetail extends Project {
     | "rag"
     | "radiomed"
     | "revenue-ai"
-    | "outreach";
+    | "outreach"
+    | "n8n-workflows";
   stats?: Array<{
     roman: string;
     label: string;
@@ -145,6 +146,14 @@ export const PROJECTS: Project[] = [
     category: "Multimodal Smart Wearable · Research",
     description: "Multimodal smart wearable for personal safety with YOLO-based threat detection.",
     tags: ["Computer Vision", "Edge AI", "IoT"],
+  },
+  {
+    num: "08",
+    slug: "ai-automation-n8n",
+    name: "AI Automation n8n",
+    category: "n8n Workflows · AI Automation",
+    description: "Collection of n8n automation workflows powering AI agents, RAG pipelines, and email outreach.",
+    tags: ["n8n", "AI Agents", "Automation"],
   },
 ];
 
@@ -312,6 +321,25 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     links: {
       github: "https://github.com/Naveen-Khan/Smart-Email-Outreach-Agent",
     },
+  },
+  "ai-automation-n8n": {
+    ...PROJECTS[7],
+    tagline:
+      "A collection of n8n automation workflows powering AI agents, RAG pipelines, and email outreach.",
+    longDescription:
+      "A curated collection of n8n automation workflows that power the AI systems across my portfolio — from AI customer support agents and RAG-based chatbots to lead generation pipelines and email automation. Each workflow is a production-ready automation graph connecting LLMs, vector databases, APIs, and scheduling triggers into end-to-end pipelines.",
+    heroTitleLines: ["AI", "Automation"],
+    heroItalicPart: "Automation",
+    visualType: "n8n-workflows",
+    stats: [
+      { roman: "i", label: "Workflows", value: "4+", desc: "Production pipelines" },
+      { roman: "ii", label: "Integrations", value: "10+", desc: "APIs · LLMs · DBs" },
+      { roman: "iii", label: "Automation", value: "End-to-end", desc: "Trigger → action" },
+      { roman: "iv", label: "Platform", value: "n8n", desc: "Visual workflow builder", italic: true },
+    ],
+    scope: "AI Automation · n8n Workflows",
+    stack: "n8n · OpenRouter LLM · Google Sheets · Gmail API · Pinecone · Google Drive",
+    year: "2026",
   },
 };
 
