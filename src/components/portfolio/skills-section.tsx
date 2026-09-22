@@ -21,11 +21,13 @@ function LevelDots({ level }: { level: number }) {
 function SkillRow({ skill, index }: { skill: Skill; index: number }) {
   const letter = String.fromCharCode(97 + index); // a, b, c...
   return (
-    <li className="flex items-baseline gap-3 py-1.5 border-b border-dashed border-[rgba(245,241,232,0.08)]">
+    <li className="flex items-baseline gap-3 py-1.5 border-b border-dashed border-[rgba(245,241,232,0.08)] overflow-hidden">
       <span className="font-serif italic text-[11px] text-[#C86B45] flex-shrink-0 w-4">
         {letter}.
       </span>
-      <span className="text-[13.5px] text-[#F5F1E8] font-medium">{skill.name}</span>
+      <span className="text-[13.5px] text-[#F5F1E8] font-medium break-words min-w-0">
+        {skill.name}
+      </span>
       <span className="ml-auto">
         <LevelDots level={skill.level} />
       </span>
@@ -80,7 +82,7 @@ export function SkillsSection() {
           {SKILL_CLUSTERS.map((cluster, ci) => (
             <Reveal key={cluster.title} delay={ci * 0.06}>
               <div
-                className={`p-6 md:p-7 relative rounded-md border min-h-[260px] ${
+                className={`p-6 md:p-7 relative rounded-md border min-h-[260px] overflow-hidden min-w-0 ${
                   cluster.featured
                     ? "border-[#B99A5B] bg-[rgba(185,154,91,0.08)]"
                     : "border-[rgba(245,241,232,0.15)] bg-[rgba(245,241,232,0.03)]"

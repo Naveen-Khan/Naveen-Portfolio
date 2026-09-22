@@ -106,7 +106,7 @@ export function AboutSection() {
           </div>
 
           {/* RIGHT */}
-          <div className="relative pt-0">
+          <div className="relative pt-0 overflow-visible">
             <Reveal y={40}>
               <div
                 className="relative w-full overflow-hidden bg-[#E6DECC] rounded-md"
@@ -133,9 +133,9 @@ export function AboutSection() {
               </div>
             </Reveal>
 
-            {/* side card */}
+            {/* side card — absolute on desktop, normal flow on mobile to prevent clipping */}
             <Reveal delay={0.2} y={30}>
-              <div className="absolute -right-2 sm:right-[-36px] top-9 bg-[#10243A] text-[#F5F1E8] p-4 md:p-[18px] rounded-[4px] w-[180px]"
+              <div className="static lg:absolute lg:-right-2 lg:top-9 mt-4 lg:mt-0 lg:right-[-36px] bg-[#10243A] text-[#F5F1E8] p-4 md:p-[18px] rounded-[4px] w-full lg:w-[180px] z-20"
                 style={{ boxShadow: "0 20px 40px -25px rgba(16,36,58,0.4)" }}
               >
                 <div className="text-[9px] tracking-[0.32em] uppercase text-[rgba(245,241,232,0.55)] font-medium mb-2">
