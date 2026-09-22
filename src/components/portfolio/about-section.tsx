@@ -155,6 +155,15 @@ export function AboutSection() {
                   <br />
                   Mehran UET · 2021–25
                 </div>
+                <hr className="border-0 border-t border-[rgba(245,241,232,0.18)] my-3" />
+                <div className="text-[9px] tracking-[0.32em] uppercase text-[rgba(245,241,232,0.55)] font-medium">
+                  Experience
+                </div>
+                <div className="text-[10px] text-[rgba(245,241,232,0.75)] leading-[1.8] mt-1">
+                  06 Months
+                  <br />
+                  AI Engineering
+                </div>
               </div>
             </Reveal>
           </div>

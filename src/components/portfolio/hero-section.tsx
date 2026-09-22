@@ -82,15 +82,6 @@ export function HeroSection() {
                 Karachi · Pakistan
               </span>
             </div>
-            <div className="w-[1px] h-7 bg-[rgba(16,36,58,0.2)]" />
-            <div className="flex flex-col gap-1">
-              <span className="text-[10px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium">
-                Experience
-              </span>
-              <span className="text-[13px] text-[#10243A] font-semibold tracking-[0.06em]">
-                6 Months · AI Engineering
-              </span>
-            </div>
           </motion.div>
 
           <motion.div
@@ -171,16 +162,6 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* FLOATING CARD — BOTTOM-RIGHT (anchored to bottom-right, aligned with bottom-left card) */}
-          <div
-            className="absolute bottom-[20px] right-[-8px] sm:right-[-24px] bg-[#F5F1E8] border border-[rgba(16,36,58,0.12)] px-[18px] py-[14px] rounded-[4px] z-[10]"
-            style={{ boxShadow: "0 10px 30px -15px rgba(16,36,58,0.18)" }}
-          >
-            <div className="text-[9px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium mb-1">
-              Experience
-            </div>
-            <div className="font-serif text-[18px] text-[#10243A]">06 Months</div>
-          </div>
         </motion.div>
       </div>
     </section>
