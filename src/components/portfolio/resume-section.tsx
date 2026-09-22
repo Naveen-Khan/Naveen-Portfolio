@@ -45,11 +45,11 @@ const EXPERIENCE_ROWS = [
 const PROJECT_ROWS = [
   { num: "01", cat: "Healthcare AI", name: "ClinData Explorer", desc: "AI-powered clinical cohort & data-quality explorer · Text-to-SQL · 912K records · Live on Azure." },
   { num: "02", cat: "Document AI", name: "Enterprise RAG Assistant", desc: "Retrieval-augmented generation system for enterprise document intelligence · 100+ PDFs." },
-  { num: "03", cat: "Customer AI", name: "McDonald's AI Agent", desc: "AI customer-support and order-management workflow · LLM · FastAPI." },
-  { num: "04", cat: "Clinical AI", name: "Radiomed", desc: "Automated medical image diagnosis assistant · CNN · 99.8% top accuracy." },
+  { num: "03", cat: "Customer AI", name: "McDonald's AI Customer Support Agent", desc: "AI customer-support and order-management workflow · LLM · FastAPI." },
+  { num: "04", cat: "Clinical AI", name: "Radiomed", desc: "Automated medical image diagnosis assistant · CNN + Densenet · 99.8% top accuracy." },
   { num: "05", cat: "Forecasting", name: "Revenue AI", desc: "Sales forecasting · Polynomial Regression · 95.3% R² · 0.903 MAE · Streamlit." },
-  { num: "06", cat: "AI Automation", name: "OutreachAI", desc: "AI-powered email outreach agent · n8n + LLM · 50+ emails/day · $0.02/email." },
-  { num: "07", cat: "Wearable · CV", name: "SAFELINK", desc: "Multimodal smart wearable for personal safety · YOLOv8 + Raspberry Pi 4 + GPS/GSM." },
+  { num: "06", cat: "Wearable · CV", name: "SAFELINK", desc: "Multimodal smart wearable for personal safety · YOLOv8 + Raspberry Pi 4 + GPS/GSM." },
+  { num: "07", cat: "AI Automation", name: "AI Automation n8n", desc: "Collection of n8n automation workflows · AI agents · RAG pipelines · email outreach." },
 ];
 
 const ACHIEVEMENTS = [

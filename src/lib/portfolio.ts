@@ -24,7 +24,6 @@ export interface ProjectDetail extends Project {
     | "rag"
     | "radiomed"
     | "revenue-ai"
-    | "outreach"
     | "n8n-workflows";
   stats?: Array<{
     roman: string;
@@ -108,7 +107,7 @@ export const PROJECTS: Project[] = [
   {
     num: "03",
     slug: "mcdonalds-ai-agent",
-    name: "McDonald's AI Agent",
+    name: "McDonald's AI Customer Support Agent",
     category: "Customer Support · Order Mgmt",
     description:
       "AI customer-support and order-management workflow for retail F&B.",
@@ -133,14 +132,6 @@ export const PROJECTS: Project[] = [
   },
   {
     num: "06",
-    slug: "lead-generation-agent",
-    name: "Lead Generation Agent",
-    category: "AI Automation · Lead Generation",
-    description: "AI-powered lead generation agent that sends 50+ personalized emails daily.",
-    tags: ["n8n", "LLM", "AI Agents"],
-  },
-  {
-    num: "07",
     slug: "safelink",
     name: "SAFELINK",
     category: "Multimodal Smart Wearable · Research",
@@ -148,7 +139,7 @@ export const PROJECTS: Project[] = [
     tags: ["Computer Vision", "Edge AI", "IoT"],
   },
   {
-    num: "08",
+    num: "07",
     slug: "ai-automation-n8n",
     name: "AI Automation n8n",
     category: "n8n Workflows · AI Automation",
@@ -253,7 +244,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     },
   },
   safelink: {
-    ...PROJECTS[6],
+    ...PROJECTS[5],
     tagline: "A multimodal smart wearable for personal safety.",
     longDescription:
       "A 12-month research project exploring how computer vision, on-device inference and IoT sensors can be fused into a discreet wearable that detects threat contexts in real time and routes live location + audio to trusted contacts through an SOS escalation path.",
@@ -300,30 +291,8 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       github: "https://github.com/Naveen-Khan/RevenueAi",
     },
   },
-  "lead-generation-agent": {
-    ...PROJECTS[5],
-    tagline:
-      "An AI-powered lead generation agent that sends 50+ personalized emails daily.",
-    longDescription:
-      "Lead Generation Agent is an AI-powered email automation agent built with n8n that sends 50+ personalized sales emails daily to potential clients. The system automatically reads company data from Google Sheets, generates tailored outreach emails using LLMs (via OpenRouter), sends them without manual intervention, and logs all email content back to the sheet. Reduced manual effort by 90% while maintaining a cost of approximately $0.02 per email.",
-    heroTitleLines: ["Lead", "Generation", "Agent"],
-    heroItalicPart: "Agent",
-    visualType: "outreach",
-    stats: [
-      { roman: "i", label: "Throughput", value: "50+/day", desc: "Personalized emails" },
-      { roman: "ii", label: "Cost / Email", value: "$0.02", desc: "LLM-driven generation" },
-      { roman: "iii", label: "Effort Saved", value: "90%", desc: "Manual reduction" },
-      { roman: "iv", label: "Automation", value: "n8n + LLM", desc: "End-to-end pipeline", italic: true },
-    ],
-    scope: "AI Automation · Lead Generation",
-    stack: "n8n · OpenRouter LLM · Google Sheets · Gmail API · JS · GCP",
-    year: "2026",
-    links: {
-      github: "https://github.com/Naveen-Khan/Smart-Email-Outreach-Agent",
-    },
-  },
   "ai-automation-n8n": {
-    ...PROJECTS[7],
+    ...PROJECTS[6],
     tagline:
       "A collection of n8n automation workflows powering AI agents, RAG pipelines, and email outreach.",
     longDescription:
