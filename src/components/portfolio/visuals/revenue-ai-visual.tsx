@@ -36,7 +36,7 @@ export function RevenueAiVisual() {
           src="/portfolio/revenue-ai.png"
           alt="Revenue AI — sales prediction dashboard with budget sliders and predicted sales"
           fill
-          className="object-cover object-top"
+          className="object-contain object-top"
           sizes="(max-width: 768px) 100vw, 760px"
           priority
         />

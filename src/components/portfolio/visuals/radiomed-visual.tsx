@@ -30,13 +30,13 @@ export function RadiomedVisual() {
       {/* screenshot */}
       <div
         className="relative w-full overflow-hidden rounded-md border border-[rgba(16,36,58,0.12)] bg-[#F5F1E8]"
-        style={{ aspectRatio: "1344 / 602" }}
+        style={{ aspectRatio: "1333 / 603" }}
       >
         <Image
           src="/portfolio/radiomed.png"
           alt="Radiomed — Automated Medical Image Diagnosis Assistant dashboard"
           fill
-          className="object-cover object-top"
+          className="object-contain object-top bg-[#F5F1E8]"
           sizes="(max-width: 768px) 100vw, 760px"
           priority
         />

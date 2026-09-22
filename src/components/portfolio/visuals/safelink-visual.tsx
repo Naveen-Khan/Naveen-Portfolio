@@ -27,16 +27,16 @@ export function SafelinkVisual() {
         </div>
       </div>
 
-      {/* hardware photo — preserves original aspect ratio (896x1196, portrait) */}
+      {/* hardware photo — card matches image size, object-contain shows full image */}
       <div
-        className="relative w-full overflow-hidden rounded-md border border-[rgba(16,36,58,0.12)] bg-[#F5F1E8] max-h-[360px] md:max-h-[440px]"
-        style={{ aspectRatio: "896 / 1196" }}
+        className="relative w-full overflow-hidden rounded-md border border-[rgba(16,36,58,0.12)] bg-[#F5F1E8] mx-auto"
+        style={{ maxWidth: "320px", aspectRatio: "896 / 1196" }}
       >
         <Image
           src="/portfolio/safelink-hardware.png"
           alt="SAFELINK — multimodal smart wearable device hardware photo"
           fill
-          className="object-cover object-top"
+          className="object-contain object-top"
           sizes="(max-width: 768px) 100vw, 760px"
           priority
         />

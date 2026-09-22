@@ -30,13 +30,13 @@ export function CardioriskVisual() {
       {/* screenshot — preserve original aspect ratio */}
       <div
         className="relative w-full overflow-hidden rounded-md border border-[rgba(16,36,58,0.12)] bg-[#F5F1E8]"
-        style={{ aspectRatio: "16 / 9" }}
+        style={{ aspectRatio: "1145 / 473" }}
       >
         <Image
           src="/portfolio/cardiorisk.png"
           alt="CardioPredict — Clinical Decision Support web application UI"
           fill
-          className="object-contain object-top"
+          className="object-contain object-top bg-[#F5F1E8]"
           sizes="(max-width: 768px) 100vw, 760px"
           priority
         />
