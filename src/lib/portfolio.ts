@@ -77,6 +77,8 @@ export const PROFILE = {
   email: "naveenkhan0059@gmail.com",
   github: "github.com/Naveen-Khan",
   githubHref: "https://github.com/Naveen-Khan",
+  linkedin: "linkedin.com/in/naveen-khan-ai-engineer",
+  linkedinHref: "https://www.linkedin.com/in/naveen-khan-ai-engineer/",
   experience: "06 Months · AI Engineering",
   education: "B.E. Computer Systems Engineering",
   school: "Mehran University of Engineering & Technology",
@@ -236,7 +238,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { roman: "iv", label: "Access", value: "Accounts", desc: "Clinician workspace", italic: true },
     ],
     scope: "Clinical Decision Support",
-    stack: "Python · CNN · Streamlit · FastAPI",
+    stack: "Python · CNN · Densenet · Flask · SQL · HTML · CSS · JS",
     year: "2025",
     links: {
       github: "https://github.com/Naveen-Khan",
@@ -288,6 +290,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     year: "2025",
     links: {
       github: "https://github.com/Naveen-Khan/RevenueAi",
+      live: "https://forcasting-ai.vercel.app/",
     },
   },
   "lead-generation-agent": {
@@ -320,17 +323,17 @@ export const EXPERIENCE: ExperienceItem[] = [
     role: "Full Stack AI Engineer",
     company: "AI Hackathon · Sofstica Solutions (Pvt.) Ltd",
     date: "08 / 2026",
-    period: "Hackathon · Project-Based",
+    period: "48-Hour Solo Hackathon Project",
     description:
-      "Built a clinical research platform with Text-to-SQL capabilities and engineered an end-to-end data-quality engine from scratch across 912,284 patient records with full provenance tracking. Integrated a FastAPI + Next.js app featuring LLM-powered natural language interfaces for real-time cohort exploration, analysis, and AI-generated summaries.",
+      "Built a clinical research platform with Text-to-SQL capabilities and engineered an end-to-end data-quality engine from scratch across 912,284 patient records with full provenance tracking — entirely solo within a 48-hour hackathon sprint. Integrated a FastAPI + Next.js app featuring LLM-powered natural language interfaces for real-time cohort exploration, analysis, and AI-generated summaries.",
     tags: ["Python", "FastAPI", "Next.js", "LLM", "LangChain", "Docker", "Azure"],
     status: "project",
     city: "Karachi",
     details: [
-      "Built clinical research platform with Text-to-SQL across 912,284 patient records.",
-      "Engineered end-to-end data-quality engine from scratch with full provenance tracking.",
+      "Solo-built clinical research platform within a 48-hour hackathon sprint.",
+      "Built Text-to-SQL across 912,284 patient records with full provenance tracking.",
+      "Engineered end-to-end data-quality engine from scratch.",
       "Integrated FastAPI + Next.js app with LLM-powered natural language interfaces.",
-      "Enabled real-time cohort exploration, analysis, and AI-generated summaries.",
     ],
   },
   {

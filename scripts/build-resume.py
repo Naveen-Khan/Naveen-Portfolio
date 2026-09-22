@@ -84,7 +84,7 @@ def build():
     # HEADER
     s.append(Paragraph("Naveen Khan", name_style))
     s.append(Paragraph("AI Engineer · Machine Learning · Generative AI · Full-Stack AI", role_style))
-    s.append(Paragraph("Karachi, Pakistan · naveenkhan0059@gmail.com · github.com/Naveen-Khan", contact_style))
+    s.append(Paragraph("Karachi, Pakistan · naveenkhan0059@gmail.com · github.com/Naveen-Khan · linkedin.com/in/naveen-khan-ai-engineer", contact_style))
     s.append(Paragraph("B.E. Computer Systems Engineering · Mehran UET (11/2021 – 12/2025)", contact_style))
     s.append(Spacer(1, 4))
     s.append(HRFlowable(width="100%", thickness=1, color=LIGHT_GRAY))
@@ -104,9 +104,10 @@ def build():
     # EXPERIENCE
     s.append(Paragraph("EXPERIENCE", section_style))
     exp_data = [
-        ("Full Stack AI Engineer", "AI Hackathon · Sofstica Solutions (Pvt.) Ltd · Karachi", "08 / 2026 · Hackathon · Project-Based",
-         "Built a clinical research platform with Text-to-SQL capabilities across 912,284 patient records.",
-         ["Engineered end-to-end data-quality engine from scratch with full provenance tracking.",
+        ("Full Stack AI Engineer", "AI Hackathon · Sofstica Solutions (Pvt.) Ltd · Karachi", "08 / 2026 · 48-Hour Solo Hackathon Project",
+         "Built a clinical research platform with Text-to-SQL capabilities across 912,284 patient records — entirely solo within a 48-hour hackathon sprint.",
+         ["Solo-built clinical research platform within a 48-hour hackathon sprint.",
+          "Engineered end-to-end data-quality engine from scratch with full provenance tracking.",
           "Integrated FastAPI + Next.js app with LLM-powered natural language interfaces.",
           "Enabled real-time cohort exploration, analysis, and AI-generated summaries.",
           "Tools: Python, FastAPI, Next.js, SQLite, LLM, LangChain, Docker, Azure."]),
@@ -151,11 +152,11 @@ def build():
         ("04 · Enterprise RAG Assistant", "Document Intelligence",
          "Retrieval-augmented generation system for enterprise document intelligence · Vector DB · LLM."),
         ("05 · Radiomed", "Clinical AI",
-         "Automated medical image diagnosis assistant · CNN · 99.8% top accuracy · Brain MRI / Chest X-ray / Lung CT."),
+         "Automated medical image diagnosis assistant · CNN + Densenet · 99.8% top accuracy · Brain MRI / Chest X-ray / Lung CT · Flask + SQL + HTML/CSS/JS."),
         ("06 · SAFELINK", "Multimodal Wearable",
          "Multimodal smart wearable for personal safety · Computer Vision + Edge AI + IoT."),
         ("07 · Revenue AI", "Sales Forecasting",
-         "Sales forecasting platform · Polynomial Regression · 95.3% R² · 0.903 MAE · Streamlit."),
+         "Sales forecasting platform · Polynomial Regression · 95.3% R² · 0.903 MAE · Streamlit · Live on Vercel."),
         ("08 · Lead Generation Agent", "AI Automation",
          "AI-powered lead generation agent · n8n + OpenRouter LLM · 50+ personalized emails/day · $0.02/email."),
     ]

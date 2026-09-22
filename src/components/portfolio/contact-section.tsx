@@ -19,6 +19,13 @@ const CHANNELS = [
     meta: "Code · Notebooks · Open source",
   },
   {
+    label: "LinkedIn",
+    val: "linkedin.com/in/naveen-khan-ai-engineer",
+    valHref: PROFILE.linkedinHref,
+    valEm: "naveen-khan-ai-engineer",
+    meta: "Professional network · Updates",
+  },
+  {
     label: "Location",
     val: "Karachi · Pakistan",
     valHref: null,
