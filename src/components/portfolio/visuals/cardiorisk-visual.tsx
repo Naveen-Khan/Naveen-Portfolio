@@ -29,7 +29,7 @@ export function CardioriskVisual() {
 
       {/* screenshot — preserve original aspect ratio */}
       <div
-        className="relative w-full overflow-hidden rounded-md border border-[rgba(16,36,58,0.12)] bg-[#F5F1E8]"
+        className="relative w-full overflow-hidden rounded-md border border-[rgba(16,36,58,0.12)] bg-[#F5F1E8] min-h-[280px] md:min-h-0"
         style={{ aspectRatio: "1145 / 473" }}
       >
         <Image

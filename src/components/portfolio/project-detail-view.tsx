@@ -214,7 +214,7 @@ export function ProjectDetailView({ detail, onClose, onSelect }: Props) {
                       </span>
                       {s.label}
                     </div>
-                    <div className="font-serif text-[40px] md:text-[52px] leading-none tracking-[-0.025em] text-[#10243A]">
+                    <div className="font-serif text-[26px] md:text-[44px] leading-[1.1] tracking-[-0.025em] text-[#10243A] break-words">
                       {s.italic ? (
                         <em className="italic text-[#0F6654]">
                           {s.value.replace(/[a-zA-Z]+/, "")}
