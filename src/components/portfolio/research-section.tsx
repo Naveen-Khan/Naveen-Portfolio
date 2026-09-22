@@ -91,7 +91,7 @@ export function ResearchSection() {
               </div>
             </Reveal>
             <Reveal delay={0.05}>
-              <h3 className="font-serif text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] font-normal leading-[1] tracking-[-0.025em] text-[#10243A] mb-4">
+              <h3 className="font-serif text-[26px] sm:text-[32px] md:text-[38px] lg:text-[42px] font-normal leading-[1.05] tracking-[-0.025em] text-[#10243A] mb-4">
                 SAFELINK:
                 <br />
                 A Multimodal

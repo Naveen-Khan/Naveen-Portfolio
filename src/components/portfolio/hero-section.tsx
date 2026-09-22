@@ -136,9 +136,9 @@ export function HeroSection() {
             />
           </div>
 
-          {/* FLOATING CARD — TOP-LEFT (outside the arch on the left, near top) */}
+          {/* FLOATING CARD — TOP-LEFT (positioned to the left of the arch, at the top) */}
           <div
-            className="absolute top-[32px] left-[-8px] sm:left-[-24px] bg-[#F5F1E8] border border-[rgba(16,36,58,0.12)] px-[18px] py-[14px] rounded-[4px] z-[10]"
+            className="absolute top-[24px] left-[-8px] sm:left-[-28px] bg-[#F5F1E8] border border-[rgba(16,36,58,0.12)] px-[16px] py-[12px] rounded-[4px] z-[10]"
             style={{ boxShadow: "0 10px 30px -15px rgba(16,36,58,0.18)" }}
           >
             <div className="text-[9px] tracking-[0.22em] uppercase text-[rgba(16,36,58,0.6)] font-medium mb-1">
@@ -149,9 +149,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* FLOATING CARD — BOTTOM-LEFT (dark navy, outside the arch on the left, near bottom) */}
+          {/* FLOATING CARD — DIRECTLY BELOW the AI Engineer card (display together as a pair) */}
           <div
-            className="absolute bottom-[20px] left-[-12px] sm:left-[-50px] bg-[#10243A] text-[#F5F1E8] px-[18px] py-[14px] rounded-[4px] border border-[#10243A] z-[10]"
+            className="absolute top-[88px] left-[-8px] sm:left-[-28px] bg-[#10243A] text-[#F5F1E8] px-[16px] py-[12px] rounded-[4px] border border-[#10243A] z-[10]"
             style={{ boxShadow: "0 10px 30px -15px rgba(16,36,58,0.4)" }}
           >
             <div className="text-[9px] tracking-[0.22em] uppercase text-[rgba(245,241,232,0.55)] font-medium mb-1">
