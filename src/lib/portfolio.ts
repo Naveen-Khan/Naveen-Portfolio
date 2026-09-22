@@ -193,8 +193,8 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       "An AI customer-support and order-management agent for a retail F&B operator.",
     longDescription:
       "Answering natural-language order queries, modifying live orders, handling refunds, and routing edge cases to the right human queue. The agent reads order state from the F&B backend, applies LLM-orchestrated actions through FastAPI endpoints, and surfaces confirmation cards so customers stay in control.",
-    heroTitleLines: ["Customer", "support,", "reimagined"],
-    heroItalicPart: "reimagined",
+    heroTitleLines: ["McDonald's AI", "Customer Support", "Agent"],
+    heroItalicPart: "Agent",
     visualType: "mcdonalds",
     stats: [
       { roman: "i", label: "Channels", value: "Chat · API", desc: "Multi-channel intake" },

@@ -112,9 +112,8 @@ export function ExperienceSection({ onSelectExperience }: Props) {
                   {/* role + company (description + tags moved to detail view only) */}
                   <div>
                     <div className="font-serif text-[22px] md:text-[28px] text-[#F5F1E8] tracking-[-0.015em] leading-[1.1] mb-1.5 group-hover:text-[#B99A5B] transition-colors">
-                      {exp.role.replace(exp.role.split(" ").slice(-1)[0], "")}
+                      {exp.role.split(" ").slice(0, -1).join(" ")}{" "}
                       <em className="italic text-[#B99A5B]">
-                        {" "}
                         {exp.role.split(" ").slice(-1)[0]}
                       </em>
                     </div>
