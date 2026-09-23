@@ -30,6 +30,27 @@ export function EditorialNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+  // Handle nav click — if on a detail page, close it first then scroll to section
+  const handleNavClick = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    const hash = window.location.hash;
+    // If currently on a detail page, clear it first
+    if (hash.startsWith("#project/") || hash.startsWith("#experience/")) {
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+      window.dispatchEvent(new Event("hashchange"));
+      // Wait for landing page to render, then scroll
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    } else {
+      // Already on landing page — just scroll
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setOpen(false); // Close mobile menu if open
+  };
+
   // detect active section — default to null when home is in view
   // (no nav item highlighted on the hero section)
   useEffect(() => {
@@ -93,6 +114,7 @@ export function EditorialNav() {
             <a
               key={item.href}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
               className={`relative text-[12px] font-medium tracking-[0.16em] uppercase pb-1 transition-colors ${
                 active === item.href.slice(1)
                   ? "text-[#10243A]"
@@ -113,6 +135,7 @@ export function EditorialNav() {
         <div className="flex items-center gap-2">
           <a
             href="#contact"
+            onClick={(e) => handleNavClick(e, "#contact")}
             className="hidden md:inline-flex items-center gap-2 px-4 py-[9px] rounded-full border border-[#10243A] text-[11px] font-semibold tracking-[0.16em] uppercase text-[#10243A] hover:bg-[#10243A] hover:text-[#F5F1E8] transition-colors"
           >
             Let&apos;s Talk <span aria-hidden>→</span>
@@ -163,6 +186,7 @@ export function EditorialNav() {
                     <SheetClose asChild key={item.href}>
                       <a
                         href={item.href}
+                        onClick={(e) => handleNavClick(e, item.href)}
                         className="group flex items-baseline justify-between py-3 border-b border-[rgba(16,36,58,0.08)]"
                       >
                         <span className="font-serif text-[28px] text-[#10243A] leading-none">
@@ -180,6 +204,7 @@ export function EditorialNav() {
                   <SheetClose asChild>
                     <a
                       href="#contact"
+                      onClick={(e) => handleNavClick(e, "#contact")}
                       className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#10243A] text-[#F5F1E8] text-[11px] font-semibold tracking-[0.22em] uppercase"
                     >
                       Let&apos;s Talk <span aria-hidden>→</span>

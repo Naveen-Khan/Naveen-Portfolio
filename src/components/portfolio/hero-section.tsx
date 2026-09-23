@@ -149,9 +149,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* FLOATING CARD — DIRECTLY BELOW the AI Engineer card (display together as a pair) */}
+          {/* FLOATING CARD — BOTTOM-RIGHT (dark navy, positioned at bottom-right of portrait) */}
           <div
-            className="absolute top-[88px] left-[-8px] sm:left-[-28px] bg-[#10243A] text-[#F5F1E8] px-[16px] py-[12px] rounded-[4px] border border-[#10243A] z-[10]"
+            className="absolute bottom-[20px] right-[-8px] sm:right-[-24px] bg-[#10243A] text-[#F5F1E8] px-[16px] py-[12px] rounded-[4px] border border-[#10243A] z-[10]"
             style={{ boxShadow: "0 10px 30px -15px rgba(16,36,58,0.4)" }}
           >
             <div className="text-[9px] tracking-[0.22em] uppercase text-[rgba(245,241,232,0.55)] font-medium mb-1">
