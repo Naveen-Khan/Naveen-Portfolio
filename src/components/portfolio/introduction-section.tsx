@@ -42,20 +42,15 @@ export function IntroductionSection() {
           </h2>
         </Reveal>
 
-        {/* domains row */}
+        {/* domains row — no pipe separators */}
         <Reveal delay={0.15}>
-          <div className="flex flex-wrap gap-y-4 mt-12 pt-9 border-t border-[rgba(245,241,232,0.18)]">
-            {DOMAINS.map((d, i) => (
-              <div key={d.label} className="flex items-baseline">
-                <div className="flex items-baseline gap-[10px] mr-3">
-                  <span className="font-serif italic text-[12px] text-[#C86B45]">{d.roman}</span>
-                  <span className="text-[13px] text-[#F5F1E8] font-medium tracking-[0.04em]">
-                    {d.label}
-                  </span>
-                </div>
-                {i < DOMAINS.length - 1 && (
-                  <span className="w-[1px] h-3 bg-[rgba(245,241,232,0.25)] mx-3 sm:mx-4 self-center" />
-                )}
+          <div className="flex flex-wrap gap-y-4 gap-x-6 mt-12 pt-9 border-t border-[rgba(245,241,232,0.18)]">
+            {DOMAINS.map((d) => (
+              <div key={d.label} className="flex items-baseline gap-[10px]">
+                <span className="font-serif italic text-[12px] text-[#C86B45]">{d.roman}</span>
+                <span className="text-[13px] text-[#F5F1E8] font-medium tracking-[0.04em]">
+                  {d.label}
+                </span>
               </div>
             ))}
           </div>
