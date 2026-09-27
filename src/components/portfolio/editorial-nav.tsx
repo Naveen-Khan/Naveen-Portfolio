@@ -131,12 +131,23 @@ export function EditorialNav() {
           ))}
         </div>
 
-        {/* right pill + mobile menu */}
+        {/* right: Download CV + Let's Talk + mobile menu */}
         <div className="flex items-center gap-2">
+          {/* Download CV button — desktop */}
+          <a
+            href="/Naveen-Khan-Resume.pdf"
+            download="Naveen-Khan-Resume.pdf"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-[9px] rounded-full bg-[#10243A] text-[#F5F1E8] text-[11px] font-semibold tracking-[0.16em] uppercase hover:bg-[#0F6654] transition-colors whitespace-nowrap"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            Download CV
+          </a>
+
+          {/* Let's Talk — desktop */}
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, "#contact")}
-            className="hidden md:inline-flex items-center gap-2 px-4 py-[9px] rounded-full border border-[#10243A] text-[11px] font-semibold tracking-[0.16em] uppercase text-[#10243A] hover:bg-[#10243A] hover:text-[#F5F1E8] transition-colors"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-[9px] rounded-full border border-[#10243A] text-[11px] font-semibold tracking-[0.16em] uppercase text-[#10243A] hover:bg-[#10243A] hover:text-[#F5F1E8] transition-colors whitespace-nowrap"
           >
             Let&apos;s Talk <span aria-hidden>→</span>
           </a>
@@ -200,17 +211,29 @@ export function EditorialNav() {
                   ))}
                 </nav>
 
-                <div className="mt-auto px-6 py-6 border-t border-[rgba(16,36,58,0.12)]">
+                <div className="mt-auto px-6 py-6 border-t border-[rgba(16,36,58,0.12)] space-y-3">
+                  {/* Download CV — mobile */}
+                  <SheetClose asChild>
+                    <a
+                      href="/Naveen-Khan-Resume.pdf"
+                      download="Naveen-Khan-Resume.pdf"
+                      className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#10243A] text-[#F5F1E8] text-[11px] font-semibold tracking-[0.22em] uppercase"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                      Download CV
+                    </a>
+                  </SheetClose>
+                  {/* Let's Talk — mobile */}
                   <SheetClose asChild>
                     <a
                       href="#contact"
                       onClick={(e) => handleNavClick(e, "#contact")}
-                      className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#10243A] text-[#F5F1E8] text-[11px] font-semibold tracking-[0.22em] uppercase"
+                      className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-full border border-[#10243A] text-[#10243A] text-[11px] font-semibold tracking-[0.22em] uppercase"
                     >
                       Let&apos;s Talk <span aria-hidden>→</span>
                     </a>
                   </SheetClose>
-                  <p className="mt-4 text-[10px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.55)] text-center">
+                  <p className="text-[10px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.55)] text-center">
                     Karachi · Pakistan
                   </p>
                 </div>

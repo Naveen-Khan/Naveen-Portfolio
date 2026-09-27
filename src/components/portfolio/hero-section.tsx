@@ -37,7 +37,7 @@ export function HeroSection() {
             initial="hidden"
             animate="show"
             custom={1}
-            className="editorial-serif text-[40px] sm:text-[52px] md:text-[62px] lg:text-[72px] leading-[0.96] tracking-[-0.025em] mb-6 md:mb-7"
+            className="editorial-serif text-[40px] overflow-wrap-break-word sm:text-[52px] md:text-[62px] lg:text-[72px] leading-[0.96] tracking-[-0.025em] mb-6 md:mb-7"
             style={{ fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
           >
             <span className="block">Building</span>
