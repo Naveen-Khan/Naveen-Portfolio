@@ -78,7 +78,7 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
             <Reveal>
               <div
                 className="font-serif text-[90px] sm:text-[120px] md:text-[160px] leading-[0.82] tracking-[-0.04em] mb-3"
-                style={{ color: "var(--color-ivory)", fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
+                style={{ color: "var(--color-navy)", fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
               >
                 {item.num}
                 <span className="text-[#C86B45] italic">.</span>
@@ -87,7 +87,7 @@ export function ExperienceDetailView({ item, onClose, onSelect }: Props) {
             <Reveal delay={0.1}>
               <h1
                 className="font-serif text-[40px] sm:text-[52px] md:text-[60px] leading-[0.94] tracking-[-0.025em] mb-5"
-                style={{ color: "var(--color-ivory)", fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
+                style={{ color: "var(--color-navy)", fontFamily: "var(--font-serif-playfair), Georgia, serif", fontWeight: 400 }}
               >
                 {restRole}{" "}
                 <em className="italic text-[#0F6654]">{lastWord}</em>
