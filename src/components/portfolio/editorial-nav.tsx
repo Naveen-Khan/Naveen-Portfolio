@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Github, Linkedin } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/portfolio";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -152,6 +152,26 @@ export function EditorialNav() {
             Let&apos;s Talk <span aria-hidden>→</span>
           </a>
 
+          {/* LinkedIn + GitHub icons — desktop */}
+          <a
+            href="https://www.linkedin.com/in/naveen-khan-ai-engineer/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center justify-center w-[36px] h-[36px] rounded-full border border-[rgba(16,36,58,0.2)] text-[#10243A] hover:bg-[#10243A] hover:text-[#F5F1E8] transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="w-4 h-4" />
+          </a>
+          <a
+            href="https://github.com/Naveen-Khan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center justify-center w-[36px] h-[36px] rounded-full border border-[rgba(16,36,58,0.2)] text-[#10243A] hover:bg-[#10243A] hover:text-[#F5F1E8] transition-colors"
+            aria-label="GitHub"
+          >
+            <Github className="w-4 h-4" />
+          </a>
+
           {/* mobile sheet */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -233,6 +253,27 @@ export function EditorialNav() {
                       Let&apos;s Talk <span aria-hidden>→</span>
                     </a>
                   </SheetClose>
+                  {/* LinkedIn + GitHub icons — mobile */}
+                  <div className="flex items-center justify-center gap-3 pt-2">
+                    <a
+                      href="https://www.linkedin.com/in/naveen-khan-ai-engineer/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-[40px] h-[40px] rounded-full border border-[rgba(16,36,58,0.2)] text-[#10243A] hover:bg-[#10243A] hover:text-[#F5F1E8] transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://github.com/Naveen-Khan"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-[40px] h-[40px] rounded-full border border-[rgba(16,36,58,0.2)] text-[#10243A] hover:bg-[#10243A] hover:text-[#F5F1E8] transition-colors"
+                      aria-label="GitHub"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  </div>
                   <p className="text-[10px] tracking-[0.18em] uppercase text-[rgba(16,36,58,0.55)] text-center">
                     Karachi · Pakistan
                   </p>

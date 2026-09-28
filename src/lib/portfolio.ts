@@ -502,6 +502,7 @@ export const NAV_ITEMS = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
   { label: "Research", href: "#research" },
   { label: "Contact", href: "#contact" },
 ];
