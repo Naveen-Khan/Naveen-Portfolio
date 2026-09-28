@@ -135,8 +135,8 @@ export function EditorialNav() {
         <div className="flex items-center gap-2">
           {/* Download CV button — desktop */}
           <a
-            href="/Naveen-Khan-Resume.pdf"
-            download="Naveen-Khan-Resume.pdf"
+            href="/Ai_Engineer_NaveenResume.pdf"
+            download="Ai_Engineer_NaveenResume.pdf"
             className="hidden md:inline-flex items-center gap-2 px-4 py-[9px] rounded-full bg-[#10243A] text-[#F5F1E8] text-[11px] font-semibold tracking-[0.16em] uppercase hover:bg-[#0F6654] transition-colors whitespace-nowrap"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
@@ -215,8 +215,8 @@ export function EditorialNav() {
                   {/* Download CV — mobile */}
                   <SheetClose asChild>
                     <a
-                      href="/Naveen-Khan-Resume.pdf"
-                      download="Naveen-Khan-Resume.pdf"
+                      href="/Ai_Engineer_NaveenResume.pdf"
+                      download="Ai_Engineer_NaveenResume.pdf"
                       className="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#10243A] text-[#F5F1E8] text-[11px] font-semibold tracking-[0.22em] uppercase"
                     >
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>

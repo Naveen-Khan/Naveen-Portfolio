@@ -97,8 +97,8 @@ export function ResumeSection() {
           <div className="relative">
             <Reveal>
               <a
-                href="/Naveen-Khan-Resume.pdf"
-                download="Naveen-Khan-Resume.pdf"
+                href="/Ai_Engineer_NaveenResume.pdf"
+                download="Ai_Engineer_NaveenResume.pdf"
                 className="block bg-[#10243A] text-[#F5F1E8] rounded-md p-7 md:p-8 relative overflow-hidden hover:scale-[1.01] transition-transform"
               >
                 <span
